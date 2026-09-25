@@ -1,0 +1,230 @@
+{
+  "schema_version": "1.0.0",
+  "robot": {
+    "id": "quadruped-x1",
+    "name": "Quadruped X1",
+    "description": "Open-source 12-DoF quadruped built from ODRI-style actuator modules, 48V CAN-FD bus, ROS 2 Jazzy control stack.",
+    "version": "2.3.0",
+    "status": "prototype",
+    "authors": [
+      { "name": "Harsh", "email": "harsh@example.com", "role": "lead" },
+      { "name": "Mech Team", "role": "mechanical design" }
+    ],
+    "tags": ["quadruped", "legged", "open-source", "can-fd"],
+    "created_at": "2026-01-15T10:00:00Z",
+    "updated_at": "2026-09-20T18:30:00Z"
+  },
+  "licenses": {
+    "hardware": { "id": "CERN-OHL-P-2.0", "url": "https://ohwr.org/project/cernohl" },
+    "software": { "id": "MIT" },
+    "docs": { "id": "CC-BY-SA-4.0" }
+  },
+  "systems": {
+    "mechanical": [
+      {
+        "id": "leg-assembly",
+        "name": "Leg Assembly",
+        "kind": "assembly",
+        "cad": { "format": "sldasm", "file": "cad/legs.sldasm" },
+        "derivatives": {
+          "step": "derivatives/legs.step",
+          "gltf": "derivatives/legs.gltf"
+        },
+        "bom": "bom/mech_leg.json",
+        "mass_kg": 1.24,
+        "inertia": { "ixx": 0.0042, "iyy": 0.0039, "izz": 0.0021, "ixy": 0.0, "ixz": 0.0, "iyz": 0.0 },
+        "material": { "material_id": "al-6061-t6", "grade": "6061-T6", "spec": "ASTM B209" }
+      },
+      {
+        "id": "chassis",
+        "name": "Chassis Frame",
+        "kind": "assembly",
+        "cad": { "format": "sldasm", "file": "cad/chassis.sldasm" },
+        "derivatives": {
+          "step": "derivatives/chassis.step",
+          "gltf": "derivatives/chassis.gltf"
+        },
+        "bom": "bom/mech_chassis.json",
+        "mass_kg": 2.85,
+        "material": { "material_id": "al-6061-t6", "grade": "6061-T6" }
+      }
+    ],
+    "electrical": [
+      {
+        "id": "motor-driver",
+        "name": "Motor Driver Board",
+        "project": { "format": "prjpcb", "file": "pcb/motor_driver.PrjPcb" },
+        "git_repo": { "url": "https://git.example.com/quadruped/motor_driver.git", "branch": "main" },
+        "derivatives": {
+          "gerbers": "derivatives/motor_driver.gbr.zip",
+          "render": "derivatives/motor_driver.png",
+          "bom_csv": "bom/motor_driver.csv"
+        },
+        "mcu_firmware": "motor-driver-firmware"
+      },
+      {
+        "id": "power-distribution",
+        "name": "Power Distribution Board",
+        "project": { "format": "prjpcb", "file": "pcb/pdb.PrjPcb" },
+        "derivatives": {
+          "gerbers": "derivatives/pdb.gbr.zip",
+          "render": "derivatives/pdb.png"
+        }
+      }
+    ],
+    "software": [
+      {
+        "id": "quadruped-control",
+        "name": "Quadruped Control Stack",
+        "repo": { "url": "https://git.example.com/quadruped/quadruped_control.git", "branch": "main" },
+        "ros": {
+          "distro": "jazzy",
+          "packages": ["quadruped_control", "gait_planner", "state_estimator"],
+          "dependencies": ["ros-gz", "ros2-control", "xacro"]
+        },
+        "language": ["cpp", "python"],
+        "frameworks": ["eigen"],
+        "build": {
+          "system": "colcon",
+          "pipeline": ".ci/build_and_simtest.yml",
+          "status": "passing",
+          "last_run": "2026-09-20T17:45:00Z"
+        },
+        "devcontainer": ".devcontainer/devcontainer.json"
+      },
+      {
+        "id": "motor-driver-firmware",
+        "name": "Motor Driver Firmware",
+        "repo": { "url": "https://git.example.com/quadruped/motor_driver_fw.git", "branch": "main" },
+        "language": ["c"],
+        "build": { "system": "make", "pipeline": ".ci/build.yml", "status": "passing" }
+      },
+      {
+        "id": "perception",
+        "name": "Perception Stack",
+        "repo": { "url": "https://git.example.com/quadruped/perception.git", "branch": "main" },
+        "ros": { "distro": "jazzy", "packages": ["terrain_perception"] },
+        "language": ["python"],
+        "frameworks": ["pytorch", "opencv"],
+        "build": { "system": "colcon", "status": "unknown" }
+      }
+    ],
+    "simulation": {
+      "robot_description": {
+        "xacro": "urdf/quadruped.urdf.xacro",
+        "srdf": "moveit/quadruped.srdf",
+        "format_note": "xacro is the source of truth; URDF and SDF are generated at build time."
+      },
+      "worlds": [
+        { "id": "indoor-course", "file": "worlds/indoor.sdf", "engine": "gzsim", "engine_version": "harmonic" },
+        { "id": "rough-terrain", "file": "worlds/rough_terrain.sdf", "engine": "gzsim", "engine_version": "harmonic" }
+      ],
+      "moveit": {
+        "config": "moveit/",
+        "planning_groups": ["leg_fl", "leg_fr", "leg_rl", "leg_rr"]
+      },
+      "sim_profiles": [
+        {
+          "id": "ci-headless",
+          "engine": "gzsim",
+          "gpu": false,
+          "headless": true,
+          "entrypoint": "launch/ci_simtest.launch.py"
+        },
+        {
+          "id": "interactive",
+          "engine": "gzsim",
+          "gpu": true,
+          "gpu_profile": "t4",
+          "headless": false,
+          "entrypoint": "launch/interactive.launch.py"
+        }
+      ]
+    },
+    "testing": {
+      "material_tests": [
+        {
+          "id": "leg-tensile-2026-03",
+          "standard": "ASTM E8/E8M",
+          "data": "tests/tensile_legs_2026-03.csv",
+          "report": "tests/tensile_legs_2026-03.pdf",
+          "date": "2026-03-11",
+          "material": "al-6061-t6",
+          "qualifies": [ { "domain": "mechanical", "id": "leg-assembly" } ],
+          "summary": { "yield_mpa": 276, "uts_mpa": 310, "elongation_pct": 12.4 }
+        }
+      ],
+      "test_runs": [
+        {
+          "id": "sim-walk-2026-06-12",
+          "kind": "sim",
+          "status": "pass",
+          "engine": "gzsim",
+          "robot_version": "2.3.0",
+          "artifacts": ["results/sim_2026-06-12.mcap"],
+          "report": "results/sim_2026-06-12.md",
+          "date": "2026-06-12"
+        },
+        {
+          "id": "hil-torque-cal-2026-07-02",
+          "kind": "hil",
+          "status": "pass",
+          "engine": "ros2_control-real",
+          "robot_version": "2.3.0",
+          "artifacts": ["results/hil_2026-07-02.mcap"],
+          "date": "2026-07-02"
+        }
+      ]
+    }
+  },
+  "modules": [
+    {
+      "module_id": "odri-actuator-60",
+      "version": "1.2.0",
+      "instances": [
+        { "name": "fl_hip" }, { "name": "fl_knee" },
+        { "name": "fr_hip" }, { "name": "fr_knee" },
+        { "name": "rl_hip" }, { "name": "rl_knee" },
+        { "name": "rr_hip" }, { "name": "rr_knee" }
+      ],
+      "license_compatibility": "ok"
+    },
+    {
+      "module_id": "battery-pack-48v",
+      "version": "0.4.1",
+      "instances": [ { "name": "main_batt", "config": { "cell_chemistry": "li-ion" } } ],
+      "license_compatibility": "ok"
+    }
+  ],
+  "links": [
+    {
+      "source": { "domain": "mechanical", "id": "leg-assembly" },
+      "target": { "domain": "electrical", "id": "motor-driver" },
+      "relation": "mounts"
+    },
+    {
+      "source": { "domain": "software", "id": "quadruped-control" },
+      "target": { "domain": "mechanical", "id": "leg-assembly" },
+      "relation": "controls"
+    },
+    {
+      "source": { "domain": "software", "id": "quadruped-control" },
+      "target": { "domain": "simulation", "id": "robot-description" },
+      "relation": "implements"
+    },
+    {
+      "source": { "domain": "electrical", "id": "motor-driver" },
+      "target": { "domain": "software", "id": "motor-driver-firmware" },
+      "relation": "powered_by"
+    }
+  ],
+  "publication": {
+    "status": "public",
+    "readme": "README.md",
+    "changelog": "CHANGELOG.md",
+    "oshwa": { "certified": false }
+  },
+  "extensions": {
+    "com.acme.qa": { "fmea_doc": "docs/fmea.xlsx", "review_owner": "qa-team" }
+  }
+}

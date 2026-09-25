@@ -1,0 +1,172 @@
+{
+  "schema_version": "1.0.0",
+  "module": {
+    "id": "odri-actuator-60",
+    "name": "ODRI 60 mm Actuator",
+    "version": "1.2.0",
+    "category": "actuator",
+    "vendor": "open-dynamic-robot-initiative",
+    "description": "Torque-controlled 60 mm brushless actuator module: motor + 9:1 planetary gear + encoder + drive electronics, 24V nominal, CAN-FD daisy chain.",
+    "tags": ["torque-controlled", "legged", "quadruped", "brushless"]
+  },
+  "licenses": {
+    "hardware": { "id": "BSD-3-Clause", "url": "https://opensource.org/license/bsd-3-clause" },
+    "software": { "id": "BSD-3-Clause" },
+    "docs": { "id": "CC-BY-SA-4.0" }
+  },
+  "mechanical": {
+    "mass_kg": 0.48,
+    "com": [0, 0, 0.02],
+    "inertia": { "ixx": 0.00042, "iyy": 0.00039, "izz": 0.00021, "ixy": 0, "ixz": 0, "iyz": 0 },
+    "bounding_box_m": { "x": 0.06, "y": 0.06, "z": 0.11 },
+    "frames": [
+      { "id": "base", "origin": { "xyz": [0, 0, 0], "rpy": [0, 0, 0] } },
+      { "id": "output", "origin": { "xyz": [0, 0, 0.06], "rpy": [0, 0, 0] } }
+    ],
+    "joints": [
+      {
+        "id": "output_joint",
+        "type": "revolute",
+        "parent_frame": "base",
+        "child_frame": "output",
+        "axis": [0, 0, 1],
+        "limits": { "lower": -3.14, "upper": 3.14, "effort_nm": 6.0, "velocity_rad_s": 20.0 },
+        "dynamics": { "friction_nm": 0.05, "damping_nms_per_rad": 0.01 }
+      }
+    ],
+    "interfaces": [
+      {
+        "id": "iface-output",
+        "kind": "flange",
+        "side": "female",
+        "plane": "output",
+        "offset": { "xyz": [0, 0, 0], "rpy": [0, 0, 0] },
+        "normal": [0, 0, 1],
+        "bolt_pattern": { "count": 6, "size": "M3", "layout": "circular", "pcd_mm": 25.0, "depth_mm": 4.0 },
+        "pilot": { "diameter_mm": 8.0, "depth_mm": 3.0 },
+        "load": { "axial_n": 200, "radial_n": 150, "moment_nm": 8.0 },
+        "fasteners": [ { "spec": "M3x8 SHCS", "qty": 6, "torque_nm": 1.2 } ],
+        "compatible_with": ["pattern:6xM3_on_25mm_PCD", "flange:pilot8"],
+        "tags": ["output-flange", "6xM3-25PCD"]
+      },
+      {
+        "id": "iface-mount",
+        "kind": "bracket",
+        "side": "neutral",
+        "plane": "base",
+        "offset": { "xyz": [0, 0, -0.03], "rpy": [0, 0, 0] },
+        "normal": [0, 0, -1],
+        "bolt_pattern": { "count": 4, "size": "M4", "layout": "rectangular", "pitch_x_mm": 30, "pitch_y_mm": 30 },
+        "load": { "axial_n": 300, "moment_nm": 12.0 },
+        "compatible_with": ["pattern:4xM4_on_30x30_grid"],
+        "tags": ["body-mount"]
+      }
+    ],
+    "assets": {
+      "step": "assets/actuator60.step",
+      "gltf": "assets/actuator60.gltf",
+      "cad": { "format": "step", "file": "assets/actuator60.step" }
+    }
+  },
+  "electrical": {
+    "buses": [
+      {
+        "id": "bus-can",
+        "protocol": "CAN-FD",
+        "baud": 5000000,
+        "topology": "daisy",
+        "connector": "JST-GH-4",
+        "pinout": [
+          { "pin": 1, "signal": "CAN_H", "gauge_awg": 26 },
+          { "pin": 2, "signal": "CAN_L", "gauge_awg": 26 },
+          { "pin": 3, "signal": "GND", "gauge_awg": 26 },
+          { "pin": 4, "signal": "24V_aux", "gauge_awg": 26 }
+        ],
+        "termination": { "built_in": false }
+      }
+    ],
+    "power": [
+      {
+        "id": "power-in",
+        "voltage_range": [10, 48],
+        "nominal_v": 24,
+        "standby_a": 0.15,
+        "peak_a": 4.0,
+        "peak_duty_pct": 10,
+        "connector": "XT30",
+        "provides": false
+      }
+    ],
+    "node_ids": { "default": 1, "configurable": true, "range": [1, 32] }
+  },
+  "software": {
+    "ros2": {
+      "distro": "jazzy",
+      "packages": ["odri_driver"],
+      "nodes": [
+        {
+          "id": "actuator_node",
+          "lifecycle": true,
+          "topics": [
+            {
+              "name": "~/state",
+              "type": "sensor_msgs/JointState",
+              "direction": "pub",
+              "qos": { "reliability": "reliable", "durability": "volatile", "history": "keep_last", "depth": 10 }
+            },
+            {
+              "name": "~/command",
+              "type": "std_msgs/Float64",
+              "direction": "sub",
+              "qos": { "reliability": "reliable", "depth": 1 }
+            }
+          ],
+          "services": [
+            { "name": "~/calibrate", "type": "std_srvs/Trigger", "direction": "server" }
+          ],
+          "params": [
+            { "name": "gear_ratio", "type": "double", "default": "9.0" },
+            { "name": "torque_constant", "type": "double", "default": "0.128" }
+          ]
+        }
+      ]
+    },
+    "interfaces": [
+      {
+        "id": "iface-joint-state",
+        "kind": "topic",
+        "type": "sensor_msgs/JointState",
+        "direction": "pub",
+        "qos": { "reliability": "reliable" }
+      },
+      {
+        "id": "iface-cmd",
+        "kind": "topic",
+        "type": "std_msgs/Float64",
+        "direction": "sub",
+        "qos": { "reliability": "reliable" }
+      }
+    ],
+    "urdf": {
+      "fragment": "urdf/actuator.macro.xacro",
+      "macro": "odri_actuator_macro",
+      "params": [
+        { "name": "prefix" },
+        { "name": "parent_link" },
+        { "name": "child_link" },
+        { "name": "origin_xyz", "default": "0 0 0" },
+        { "name": "origin_rpy", "default": "0 0 0" }
+      ],
+      "meshes": "meshes/",
+      "gazebo_plugin": "libgazebo_ros_joint_state_publisher.so",
+      "ros2_control": { "plugin": "odri_control/OdriActuatorInterface", "params": "config/actuator.ros2_control.yaml" }
+    }
+  },
+  "compat": {
+    "mates_with": ["pattern:6xM3_on_25mm_PCD", "flange:pilot8", "pattern:4xM4_on_30x30_grid"],
+    "power_budget": { "consumes_w": 96, "provides_w": 0 },
+    "environment": { "temp_min_c": -10, "temp_max_c": 60, "ip_rating": "IP54" },
+    "substitutes": ["odri-actuator-40", "cubemars-ak60-6"],
+    "mounting_note": "Output flange faces +Z of the output frame; body mount on the base rear face."
+  }
+}

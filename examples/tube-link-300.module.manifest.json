@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0.0",
+  "module": {
+    "id": "tube-link-300",
+    "name": "300 mm Tube Link",
+    "version": "0.9.0",
+    "category": "link",
+    "vendor": "open-dynamic-robot-initiative",
+    "description": "Passive carbon-fiber tube link, 300 mm between clamp centers. No electronics, no joints — pure structural module.",
+    "tags": ["structural", "carbon-fiber", "passive"]
+  },
+  "licenses": {
+    "hardware": { "id": "BSD-3-Clause" }
+  },
+  "mechanical": {
+    "mass_kg": 0.12,
+    "com": [0.15, 0, 0],
+    "inertia": { "ixx": 0.0009, "iyy": 0.0009, "izz": 0.00002, "ixy": 0, "ixz": 0, "iyz": 0 },
+    "bounding_box_m": { "x": 0.3, "y": 0.04, "z": 0.04 },
+    "frames": [
+      { "id": "end_a", "origin": { "xyz": [0, 0, 0], "rpy": [0, 0, 0] } },
+      { "id": "end_b", "origin": { "xyz": [0.3, 0, 0], "rpy": [0, 0, 0] } }
+    ],
+    "interfaces": [
+      {
+        "id": "iface-a",
+        "kind": "tube_clamp",
+        "side": "male",
+        "plane": "end_a",
+        "offset": { "xyz": [0, 0, 0], "rpy": [0, 0, 0] },
+        "normal": [1, 0, 0],
+        "compatible_with": ["tube:od30"],
+        "tags": ["clamp-30mm"]
+      },
+      {
+        "id": "iface-b",
+        "kind": "tube_clamp",
+        "side": "male",
+        "plane": "end_b",
+        "offset": { "xyz": [0, 0, 0], "rpy": [0, 0, 0] },
+        "normal": [-1, 0, 0],
+        "compatible_with": ["tube:od30"],
+        "tags": ["clamp-30mm"]
+      }
+    ],
+    "assets": {
+      "step": "assets/tube300.step",
+      "gltf": "assets/tube300.gltf"
+    }
+  },
+  "software": {
+    "urdf": {
+      "fragment": "urdf/tube.macro.xacro",
+      "macro": "tube_link_macro",
+      "params": [
+        { "name": "prefix" },
+        { "name": "parent_link" },
+        { "name": "child_link" },
+        { "name": "length_m", "default": "0.3" }
+      ]
+    }
+  },
+  "compat": {
+    "mates_with": ["tube:od30"],
+    "power_budget": { "consumes_w": 0, "provides_w": 0 },
+    "environment": { "temp_min_c": -20, "temp_max_c": 70 }
+  }
+}

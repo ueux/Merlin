@@ -1,0 +1,290 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.example.robotforge/v1/composition.schema.json",
+  "title": "Composition",
+  "$comment": "A Composition is the record the modular-builder canvas produces: which module versions are instantiated (with names, poses, configs, and parent attachments), which interfaces are mated, and how power/buses are wired. AUTHORED sections: composition, instances, mates, wiring, software_links. COMPUTED sections (written by the composition engine, never by hand): validation, outputs, licenses. It consumes the module-manifest schema (registry) and feeds the robot-manifest schema (modules[] section) when saved as a robot.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "composition", "instances", "mates"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "composition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name"],
+      "properties": {
+        "id": { "$ref": "#/$defs/slug" },
+        "name": { "type": "string", "minLength": 1 },
+        "description": { "type": "string" },
+        "robot_id": {
+          "$ref": "#/$defs/slug",
+          "description": "Set when this composition has been saved as a robot (links to the robot manifest's robot.id)."
+        },
+        "authors": { "type": "array", "items": { "$ref": "#/$defs/person" } },
+        "created_at": { "type": "string", "format": "date-time" },
+        "updated_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "instances": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "$ref": "#/$defs/instance" }
+    },
+    "mates": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/mate" }
+    },
+    "wiring": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/wire" }
+    },
+    "software_links": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/softwareLink" },
+      "description": "Engine-matched software contracts (pub/sub pairs) after prefix substitution."
+    },
+    "validation": { "$ref": "#/$defs/validation" },
+    "outputs": { "$ref": "#/$defs/outputs" },
+    "licenses": { "$ref": "#/$defs/licenseReport" },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^[a-z0-9-]+(\\.[a-z0-9-]+)+$": {}
+      }
+    }
+  },
+
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "maxLength": 64
+    },
+    "rosName": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "maxLength": 64
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?(\\+[0-9A-Za-z.-]+)?$"
+    },
+    "relPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!\\.\\./).+"
+    },
+    "vec3": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": { "type": "number" }
+    },
+    "origin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["xyz"],
+      "properties": {
+        "xyz": { "$ref": "#/$defs/vec3" },
+        "rpy": { "$ref": "#/$defs/vec3", "default": [0, 0, 0] }
+      }
+    },
+    "person": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "email": { "type": "string", "format": "email" },
+        "role": { "type": "string" }
+      }
+    },
+    "instance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "module_id", "module_version"],
+      "properties": {
+        "id": { "$ref": "#/$defs/rosName", "description": "Instance name; becomes the xacro prefix and ROS frame prefix." },
+        "module_id": { "$ref": "#/$defs/slug" },
+        "module_version": { "$ref": "#/$defs/semver" },
+        "parent": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["instance", "frame"],
+          "properties": {
+            "instance": { "$ref": "#/$defs/rosName" },
+            "frame": { "$ref": "#/$defs/rosName" }
+          },
+          "description": "Assembly/kinematic attachment: this instance is fixed to the named frame of the parent instance. Absent = root instance (attached to the world)."
+        },
+        "pose": {
+          "$ref": "#/$defs/origin",
+          "description": "Pose of this instance's base frame relative to the parent frame (world frame for roots)."
+        },
+        "config": {
+          "type": "object",
+          "description": "Instance-level overrides of module defaults: node ids, gains, macro parameter values, ros2_control params."
+        },
+        "node_id": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "interfaceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["instance", "interface"],
+      "properties": {
+        "instance": { "$ref": "#/$defs/rosName" },
+        "interface": { "$ref": "#/$defs/slug" }
+      }
+    },
+    "portRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["instance", "port"],
+      "properties": {
+        "instance": { "$ref": "#/$defs/rosName" },
+        "port": { "$ref": "#/$defs/slug", "description": "Bus id or power port id as declared in the module manifest." }
+      }
+    },
+    "mate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "a", "b"],
+      "properties": {
+        "id": { "$ref": "#/$defs/slug" },
+        "a": { "$ref": "#/$defs/interfaceRef" },
+        "b": { "$ref": "#/$defs/interfaceRef" },
+        "type": {
+          "type": "string",
+          "enum": ["bolted", "clamped", "bonded", "rigid", "sliding", "magnetic", "custom"],
+          "description": "Computed by the engine from the two interface kinds (flange/flange -> bolted, tube_clamp/tube_clamp -> clamped, ...)."
+        },
+        "offset": {
+          "$ref": "#/$defs/origin",
+          "description": "Fine adjustment of b's interface frame relative to a's interface frame (usually identity)."
+        }
+      }
+    },
+    "wire": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "from", "to"],
+      "properties": {
+        "id": { "$ref": "#/$defs/slug" },
+        "kind": { "type": "string", "enum": ["bus", "power", "signal"] },
+        "from": { "$ref": "#/$defs/portRef" },
+        "to": { "$ref": "#/$defs/portRef" },
+        "cable": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "spec": { "type": "string", "minLength": 1 },
+            "length_mm": { "type": "number", "exclusiveMinimum": 0 },
+            "notes": { "type": "string" }
+          },
+          "description": "Generated cable specification (connector-to-connector, length); authored length optional."
+        }
+      }
+    },
+    "softwareLink": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "from", "to"],
+      "properties": {
+        "id": { "$ref": "#/$defs/slug" },
+        "kind": { "type": "string", "enum": ["topic", "service", "action"] },
+        "from": { "$ref": "#/$defs/interfaceRef" },
+        "to": { "$ref": "#/$defs/interfaceRef" },
+        "topic_name": {
+          "type": "string",
+          "pattern": "^(~/)?[a-zA-Z][a-zA-Z0-9_/]*$",
+          "description": "Fully resolved ROS name after instance-prefix substitution."
+        }
+      }
+    },
+    "checkResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "status"],
+      "properties": {
+        "id": { "$ref": "#/$defs/slug" },
+        "name": {
+          "type": "string",
+          "enum": ["mate_matching", "load_rating", "collision", "power_budget", "bus_config", "software_interfaces", "xacro_compile"]
+        },
+        "status": { "type": "string", "enum": ["pass", "warn", "fail", "skipped"] },
+        "message": { "type": "string" },
+        "details": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "checks"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["valid", "warnings", "invalid"],
+          "description": "valid = all pass, warnings = any warn, invalid = any fail."
+        },
+        "checks": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/checkResult" }
+        },
+        "errors": { "type": "array", "items": { "type": "string" } },
+        "warnings": { "type": "array", "items": { "type": "string" } }
+      },
+      "description": "Computed by the composition engine; never authored by hand."
+    },
+    "outputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "xacro": { "$ref": "#/$defs/relPath" },
+        "urdf": { "$ref": "#/$defs/relPath" },
+        "sdf": { "$ref": "#/$defs/relPath" },
+        "srdf": { "$ref": "#/$defs/relPath" },
+        "bom": { "$ref": "#/$defs/relPath" },
+        "wiring": { "$ref": "#/$defs/relPath" },
+        "power_report": { "$ref": "#/$defs/relPath" },
+        "license_report": { "$ref": "#/$defs/relPath" },
+        "assembly_gltf": { "$ref": "#/$defs/relPath" },
+        "build": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "xacro_compile": { "type": "string", "enum": ["pass", "fail"] },
+            "log": { "$ref": "#/$defs/relPath" }
+          }
+        }
+      },
+      "description": "Generated artifacts, referenced not embedded (native + derivatives pattern)."
+    },
+    "licenseReport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hardware", "compatible"],
+      "properties": {
+        "hardware": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "software": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "docs": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "compatible": { "type": "boolean" },
+        "conflicts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["modules", "detail"],
+            "properties": {
+              "modules": { "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/slug" } },
+              "detail": { "type": "string" }
+            }
+          }
+        }
+      },
+      "description": "Computed license intersection across all instantiated modules."
+    }
+  }
+}

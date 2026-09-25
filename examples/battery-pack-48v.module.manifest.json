@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0.0",
+  "module": {
+    "id": "battery-pack-48v",
+    "name": "48V Battery Pack",
+    "version": "0.4.1",
+    "category": "power",
+    "vendor": "robotforge",
+    "description": "12S Li-ion pack with integrated BMS, 48V nominal, XT60 output, CAN BMS telemetry.",
+    "tags": ["energy", "48v", "li-ion", "bms"]
+  },
+  "licenses": {
+    "hardware": { "id": "CERN-OHL-P-2.0", "url": "https://ohwr.org/project/cernohl" },
+    "software": { "id": "MIT" }
+  },
+  "mechanical": {
+    "mass_kg": 1.9,
+    "com": [0.08, 0.05, 0.04],
+    "inertia": { "ixx": 0.0061, "iyy": 0.0085, "izz": 0.0079, "ixy": 0, "ixz": 0, "iyz": 0 },
+    "bounding_box_m": { "x": 0.16, "y": 0.1, "z": 0.08 },
+    "frames": [
+      { "id": "body", "origin": { "xyz": [0, 0, 0], "rpy": [0, 0, 0] } }
+    ],
+    "interfaces": [
+      {
+        "id": "iface-mount",
+        "kind": "bracket",
+        "side": "neutral",
+        "plane": "body",
+        "offset": { "xyz": [0, 0, 0.04], "rpy": [0, 0, 0] },
+        "normal": [0, 0, 1],
+        "bolt_pattern": { "count": 4, "size": "M4", "layout": "rectangular", "pitch_x_mm": 60, "pitch_y_mm": 40 },
+        "load": { "axial_n": 250, "moment_nm": 10.0 },
+        "fasteners": [ { "spec": "M4x10 SHCS", "qty": 4 } ],
+        "compatible_with": ["pattern:4xM4_on_60x40_grid"],
+        "tags": ["body-mount"]
+      }
+    ],
+    "assets": {
+      "step": "assets/pack48.step",
+      "gltf": "assets/pack48.gltf"
+    }
+  },
+  "electrical": {
+    "buses": [
+      {
+        "id": "bus-can",
+        "protocol": "CAN",
+        "baud": 1000000,
+        "topology": "bus",
+        "connector": "JST-GH-4",
+        "pinout": [
+          { "pin": 1, "signal": "CAN_H", "gauge_awg": 26 },
+          { "pin": 2, "signal": "CAN_L", "gauge_awg": 26 },
+          { "pin": 3, "signal": "GND", "gauge_awg": 26 },
+          { "pin": 4, "signal": "NC", "gauge_awg": 26 }
+        ]
+      }
+    ],
+    "power": [
+      {
+        "id": "power-out",
+        "voltage_range": [42, 50.4],
+        "nominal_v": 48,
+        "standby_a": 0.02,
+        "peak_a": 30,
+        "peak_duty_pct": 20,
+        "connector": "XT60",
+        "provides": true,
+        "provides_w": 480
+      }
+    ],
+    "node_ids": { "default": 40, "configurable": true, "range": [40, 47] }
+  },
+  "software": {
+    "ros2": {
+      "distro": "jazzy",
+      "packages": ["bms_driver"],
+      "nodes": [
+        {
+          "id": "bms_node",
+          "lifecycle": true,
+          "topics": [
+            {
+              "name": "~/state",
+              "type": "sensor_msgs/BatteryState",
+              "direction": "pub",
+              "qos": { "reliability": "reliable", "durability": "volatile", "history": "keep_last", "depth": 1 }
+            }
+          ],
+          "params": [
+            { "name": "cell_count", "type": "int", "default": "12" }
+          ]
+        }
+      ]
+    },
+    "interfaces": [
+      {
+        "id": "iface-battery-state",
+        "kind": "topic",
+        "type": "sensor_msgs/BatteryState",
+        "direction": "pub",
+        "qos": { "reliability": "reliable" }
+      }
+    ],
+    "urdf": {
+      "fragment": "urdf/battery.macro.xacro",
+      "macro": "battery_pack_macro",
+      "params": [
+        { "name": "prefix" },
+        { "name": "parent_link" }
+      ],
+      "meshes": "meshes/"
+    }
+  },
+  "compat": {
+    "mates_with": ["pattern:4xM4_on_60x40_grid"],
+    "power_budget": { "consumes_w": 0.5, "provides_w": 480 },
+    "environment": { "temp_min_c": 0, "temp_max_c": 45, "ip_rating": "IP44" }
+  }
+}

@@ -1,0 +1,574 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.example.robotforge/v1/module-manifest.schema.json",
+  "title": "ModuleManifest",
+  "$comment": "A module is a self-contained, reusable bundle of mechanics + electronics + software (HEBI/ODRI model). It declares TYPED INTERFACES in three domains — mechanical mates, electrical buses/power, software contracts — which the composition engine matches and validates (Viam-style contracts, Robogami-style connectors). Joints reference named frames (not an implicit tree), so closed kinematic chains are expressible and the schema tolerates URDF 2.x evolution. Each module ships its own URDF/xacro FRAGMENT (a macro) that composition instantiates with prefixes — never a whole robot.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "module", "licenses", "mechanical", "software", "compat"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.0.0" },
+    "module": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "version", "category"],
+      "properties": {
+        "id": { "$ref": "#/$defs/slug" },
+        "name": { "type": "string", "minLength": 1 },
+        "version": { "$ref": "#/$defs/semver" },
+        "category": {
+          "type": "string",
+          "enum": ["actuator", "link", "sensor", "power", "controller", "endeffector", "structure", "comms", "other"]
+        },
+        "vendor": { "type": "string", "minLength": 1 },
+        "description": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "licenses": {
+      "$ref": "#/$defs/licenses",
+      "description": "Registry modules MUST declare at least a hardware license so the composition engine can compute license intersections."
+    },
+    "mechanical": { "$ref": "#/$defs/mechanical" },
+    "electrical": { "$ref": "#/$defs/electrical" },
+    "software": { "$ref": "#/$defs/software" },
+    "compat": { "$ref": "#/$defs/compat" },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "patternProperties": {
+        "^[a-z0-9-]+(\\.[a-z0-9-]+)+$": {}
+      },
+      "description": "Vendor-specific extension namespace (reverse-DNS keys); never interpreted by the platform."
+    }
+  },
+
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "maxLength": 64
+    },
+    "rosName": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "maxLength": 64,
+      "description": "Lowercase ROS-compliant name for frames, node names, and instance prefixes."
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?(\\+[0-9A-Za-z.-]+)?$"
+    },
+    "relPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!\\.\\./).+",
+      "description": "Path relative to the manifest file."
+    },
+    "vec3": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": { "type": "number" },
+      "description": "[x, y, z] in meters (or radians for rpy)."
+    },
+    "origin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["xyz"],
+      "properties": {
+        "xyz": { "$ref": "#/$defs/vec3" },
+        "rpy": { "$ref": "#/$defs/vec3", "default": [0, 0, 0] }
+      }
+    },
+    "inertia": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ixx", "iyy", "izz"],
+      "properties": {
+        "ixx": { "type": "number", "exclusiveMinimum": 0 },
+        "iyy": { "type": "number", "exclusiveMinimum": 0 },
+        "izz": { "type": "number", "exclusiveMinimum": 0 },
+        "ixy": { "type": "number", "default": 0 },
+        "ixz": { "type": "number", "default": 0 },
+        "iyz": { "type": "number", "default": 0 }
+      },
+      "description": "kg·m^2 about the center of mass, in the module frame."
+    },
+    "licenseSpec": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri" },
+        "note": { "type": "string" }
+      }
+    },
+    "licenses": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hardware"],
+      "properties": {
+        "hardware": { "$ref": "#/$defs/licenseSpec" },
+        "software": { "$ref": "#/$defs/licenseSpec" },
+        "docs": { "$ref": "#/$defs/licenseSpec" }
+      }
+    },
+
+    "mechanical": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mass_kg", "frames", "interfaces"],
+      "properties": {
+        "mass_kg": { "type": "number", "exclusiveMinimum": 0 },
+        "com": { "$ref": "#/$defs/vec3", "default": [0, 0, 0] },
+        "inertia": { "$ref": "#/$defs/inertia" },
+        "bounding_box_m": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["x", "y", "z"],
+          "properties": {
+            "x": { "type": "number", "exclusiveMinimum": 0 },
+            "y": { "type": "number", "exclusiveMinimum": 0 },
+            "z": { "type": "number", "exclusiveMinimum": 0 }
+          }
+        },
+        "frames": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/frame" }
+        },
+        "joints": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/joint" }
+        },
+        "interfaces": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/mechInterface" }
+        },
+        "assets": { "$ref": "#/$defs/assets" }
+      }
+    },
+    "frame": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "origin"],
+      "properties": {
+        "id": { "$ref": "#/$defs/rosName" },
+        "origin": { "$ref": "#/$defs/origin" }
+      },
+      "description": "A named coordinate frame on the module. Joints define connectivity between frames; there is no implicit tree."
+    },
+    "joint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "parent_frame", "child_frame"],
+      "properties": {
+        "id": { "$ref": "#/$defs/rosName" },
+        "type": {
+          "type": "string",
+          "enum": ["revolute", "continuous", "prismatic", "fixed", "floating", "planar", "spherical"]
+        },
+        "parent_frame": { "$ref": "#/$defs/rosName" },
+        "child_frame": { "$ref": "#/$defs/rosName" },
+        "axis": { "$ref": "#/$defs/vec3", "default": [0, 0, 1] },
+        "limits": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "lower": { "type": "number" },
+            "upper": { "type": "number" },
+            "effort_nm": { "type": "number", "exclusiveMinimum": 0 },
+            "velocity_rad_s": { "type": "number", "exclusiveMinimum": 0 }
+          }
+        },
+        "dynamics": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "friction_nm": { "type": "number" },
+            "damping_nms_per_rad": { "type": "number" }
+          }
+        }
+      }
+    },
+    "mechInterface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "plane"],
+      "properties": {
+        "id": { "$ref": "#/$defs/slug" },
+        "kind": {
+          "type": "string",
+          "enum": ["flange", "bracket", "tube_clamp", "shaft", "dovetail", "tool_mount", "rail", "slot", "magnet", "custom"]
+        },
+        "side": { "type": "string", "enum": ["male", "female", "neutral"], "default": "neutral" },
+        "plane": { "$ref": "#/$defs/rosName", "description": "Frame id this interface belongs to." },
+        "offset": { "$ref": "#/$defs/origin", "description": "Interface pose relative to the plane frame." },
+        "normal": { "$ref": "#/$defs/vec3", "default": [0, 0, 1], "description": "Mating direction unit vector in the plane frame." },
+        "bolt_pattern": { "$ref": "#/$defs/boltPattern" },
+        "pilot": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["diameter_mm"],
+          "properties": {
+            "diameter_mm": { "type": "number", "exclusiveMinimum": 0 },
+            "depth_mm": { "type": "number", "exclusiveMinimum": 0 }
+          }
+        },
+        "load": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "axial_n": { "type": "number" },
+            "radial_n": { "type": "number" },
+            "moment_nm": { "type": "number" }
+          }
+        },
+        "fasteners": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["spec", "qty"],
+            "properties": {
+              "spec": { "type": "string", "minLength": 1, "description": "e.g. 'M3x8 SHCS'." },
+              "qty": { "type": "integer", "minimum": 1 },
+              "torque_nm": { "type": "number" }
+            }
+          }
+        },
+        "compatible_with": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Semantic compatibility tags, e.g. 'pattern:6xM3_on_25mm_PCD', 'flange:pilot8'. Fuzzy matching surface for the registry."
+        },
+        "tags": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "boltPattern": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["count", "size"],
+      "properties": {
+        "count": { "type": "integer", "minimum": 1 },
+        "size": { "type": "string", "pattern": "^M[0-9]+(\\.[0-9]+)?$" },
+        "layout": { "type": "string", "enum": ["circular", "rectangular", "grid", "single", "custom"], "default": "custom" },
+        "pcd_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "pitch_x_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "pitch_y_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "depth_mm": { "type": "number", "exclusiveMinimum": 0 }
+      }
+    },
+    "assets": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "step": { "$ref": "#/$defs/relPath" },
+        "gltf": { "$ref": "#/$defs/relPath" },
+        "stl": { "$ref": "#/$defs/relPath" },
+        "cad": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["format", "file"],
+          "properties": {
+            "format": { "type": "string", "enum": ["sldasm", "sldprt", "step", "f3d", "fcstd", "py", "other"] },
+            "file": { "$ref": "#/$defs/relPath" }
+          }
+        }
+      }
+    },
+
+    "electrical": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "buses": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/bus" }
+        },
+        "power": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/powerPort" }
+        },
+        "node_ids": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "default": { "type": "integer", "minimum": 0 },
+            "configurable": { "type": "boolean", "default": true },
+            "range": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": { "type": "integer", "minimum": 0 }
+            }
+          }
+        },
+        "io": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "analog_in": { "type": "integer", "minimum": 0 },
+            "analog_out": { "type": "integer", "minimum": 0 },
+            "digital_in": { "type": "integer", "minimum": 0 },
+            "digital_out": { "type": "integer", "minimum": 0 },
+            "pwm_out": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    },
+    "bus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "protocol"],
+      "properties": {
+        "id": { "$ref": "#/$defs/slug" },
+        "protocol": { "type": "string", "minLength": 1, "description": "e.g. CAN, CAN-FD, EtherCAT, RS485, I2C, SPI, UART." },
+        "baud": { "type": "integer", "exclusiveMinimum": 0, "description": "Bit/s." },
+        "topology": { "type": "string", "enum": ["daisy", "star", "ring", "point_to_point", "bus"] },
+        "connector": { "type": "string", "description": "e.g. 'JST-GH-4'." },
+        "pinout": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/pin" }
+        },
+        "termination": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "built_in": { "type": "boolean" },
+            "resistor_ohm": { "type": "number", "exclusiveMinimum": 0 }
+          }
+        }
+      }
+    },
+    "pin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pin", "signal"],
+      "properties": {
+        "pin": { "type": "integer", "minimum": 1 },
+        "signal": { "type": "string", "minLength": 1 },
+        "gauge_awg": { "type": "integer", "minimum": 4, "maximum": 40 }
+      }
+    },
+    "powerPort": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "voltage_range", "nominal_v"],
+      "properties": {
+        "id": { "$ref": "#/$defs/slug" },
+        "voltage_range": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": { "type": "number" },
+          "description": "[min, max] volts."
+        },
+        "nominal_v": { "type": "number" },
+        "standby_a": { "type": "number", "minimum": 0 },
+        "peak_a": { "type": "number", "exclusiveMinimum": 0 },
+        "peak_duty_pct": { "type": "number", "minimum": 0, "maximum": 100 },
+        "connector": { "type": "string", "description": "e.g. 'XT30', 'XT60'." },
+        "provides": { "type": "boolean", "default": false },
+        "provides_w": { "type": "number", "exclusiveMinimum": 0, "description": "Required when provides is true (continuous rated output)." }
+      }
+    },
+
+    "software": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["urdf"],
+      "properties": {
+        "ros2": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "distro": { "type": "string", "enum": ["humble", "iron", "jazzy", "rolling", "none"] },
+            "packages": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+            "nodes": { "type": "array", "items": { "$ref": "#/$defs/node" } }
+          }
+        },
+        "interfaces": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/swInterface" },
+          "description": "Software contracts the composition engine matches (topic/service/action/param)."
+        },
+        "urdf": { "$ref": "#/$defs/urdfFragment" },
+        "drivers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["target", "repo"],
+            "properties": {
+              "target": { "type": "string", "description": "Target hardware/OS this driver supports." },
+              "repo": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["url"],
+                "properties": {
+                  "url": { "type": "string", "format": "uri" },
+                  "branch": { "type": "string" },
+                  "tag": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "node": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {
+        "id": { "$ref": "#/$defs/rosName" },
+        "lifecycle": { "type": "boolean", "default": false },
+        "topics": { "type": "array", "items": { "$ref": "#/$defs/topic" } },
+        "services": { "type": "array", "items": { "$ref": "#/$defs/service" } },
+        "actions": { "type": "array", "items": { "$ref": "#/$defs/action" } },
+        "params": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name"],
+            "properties": {
+              "name": { "$ref": "#/$defs/rosName" },
+              "type": { "type": "string" },
+              "default": {},
+              "description": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "qos": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reliability": { "type": "string", "enum": ["reliable", "best_effort"], "default": "reliable" },
+        "durability": { "type": "string", "enum": ["volatile", "transient_local"], "default": "volatile" },
+        "history": { "type": "string", "enum": ["keep_last", "keep_all"], "default": "keep_last" },
+        "depth": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "topic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "type", "direction"],
+      "properties": {
+        "name": { "type": "string", "pattern": "^(~/)?[a-zA-Z][a-zA-Z0-9_/]*$" },
+        "type": { "type": "string", "pattern": "^[a-zA-Z][a-zA-Z0-9_]*/[a-zA-Z][a-zA-Z0-9_]*$" },
+        "direction": { "type": "string", "enum": ["pub", "sub"] },
+        "qos": { "$ref": "#/$defs/qos" }
+      }
+    },
+    "service": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "type", "direction"],
+      "properties": {
+        "name": { "type": "string", "pattern": "^(~/)?[a-zA-Z][a-zA-Z0-9_/]*$" },
+        "type": { "type": "string", "pattern": "^[a-zA-Z][a-zA-Z0-9_]*/[a-zA-Z][a-zA-Z0-9_]*$" },
+        "direction": { "type": "string", "enum": ["server", "client"] }
+      }
+    },
+    "action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "type", "direction"],
+      "properties": {
+        "name": { "type": "string", "pattern": "^(~/)?[a-zA-Z][a-zA-Z0-9_/]*$" },
+        "type": { "type": "string", "pattern": "^[a-zA-Z][a-zA-Z0-9_]*/[a-zA-Z][a-zA-Z0-9_]*$" },
+        "direction": { "type": "string", "enum": ["server", "client"] }
+      }
+    },
+    "swInterface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "type", "direction"],
+      "properties": {
+        "id": { "$ref": "#/$defs/slug" },
+        "kind": { "type": "string", "enum": ["topic", "service", "action", "param"] },
+        "type": { "type": "string", "minLength": 1 },
+        "direction": { "type": "string", "enum": ["pub", "sub", "server", "client", "both"] },
+        "qos": { "$ref": "#/$defs/qos" },
+        "description": { "type": "string" }
+      }
+    },
+    "urdfFragment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fragment", "macro"],
+      "properties": {
+        "fragment": { "$ref": "#/$defs/relPath" },
+        "macro": { "type": "string", "pattern": "^[a-zA-Z_][a-zA-Z0-9_]*$" },
+        "params": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name"],
+            "properties": {
+              "name": { "type": "string", "pattern": "^[a-zA-Z_][a-zA-Z0-9_]*$" },
+              "default": { "type": "string" },
+              "description": { "type": "string" }
+            }
+          }
+        },
+        "meshes": { "$ref": "#/$defs/relPath" },
+        "gazebo_plugin": { "type": "string" },
+        "ros2_control": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "plugin": { "type": "string" },
+            "params": { "$ref": "#/$defs/relPath" }
+          }
+        }
+      },
+      "description": "The xacro macro (with its parameters) that composition instantiates with a per-instance prefix."
+    },
+
+    "compat": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["power_budget"],
+      "properties": {
+        "mates_with": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Module-level semantic compatibility tags (union of interface tags)."
+        },
+        "power_budget": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["consumes_w", "provides_w"],
+          "properties": {
+            "consumes_w": { "type": "number", "minimum": 0 },
+            "provides_w": { "type": "number", "minimum": 0 }
+          }
+        },
+        "environment": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "temp_min_c": { "type": "number" },
+            "temp_max_c": { "type": "number" },
+            "ip_rating": { "type": "string", "minLength": 1 }
+          }
+        },
+        "substitutes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/slug" },
+          "description": "Alternative module ids with equivalent interfaces (for the AI/swap feature)."
+        },
+        "mounting_note": { "type": "string" }
+      }
+    }
+  }
+}

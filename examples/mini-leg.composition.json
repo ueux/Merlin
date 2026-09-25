@@ -1,0 +1,159 @@
+{
+  "schema_version": "1.0.0",
+  "composition": {
+    "id": "mini-leg",
+    "name": "Mini Leg Segment",
+    "description": "Demo composition: chassis plate carrying a hip actuator, a 300 mm shin link, and a 48V battery pack.",
+    "authors": [ { "name": "Harsh", "role": "designer" } ],
+    "created_at": "2026-09-25T12:00:00Z",
+    "updated_at": "2026-09-25T12:30:00Z"
+  },
+  "instances": [
+    {
+      "id": "chassis",
+      "module_id": "chassis-plate",
+      "module_version": "0.7.0"
+    },
+    {
+      "id": "hip",
+      "module_id": "odri-actuator-60",
+      "module_version": "1.2.0",
+      "parent": { "instance": "chassis", "frame": "seat" },
+      "pose": { "xyz": [0, 0, 0], "rpy": [0, 0, 0] },
+      "node_id": 1
+    },
+    {
+      "id": "shin",
+      "module_id": "tube-link-300",
+      "module_version": "0.9.0",
+      "parent": { "instance": "chassis", "frame": "link_a" },
+      "pose": { "xyz": [0, 0, 0], "rpy": [0, 0, 0] }
+    },
+    {
+      "id": "main_batt",
+      "module_id": "battery-pack-48v",
+      "module_version": "0.4.1",
+      "parent": { "instance": "chassis", "frame": "batt" },
+      "pose": { "xyz": [0, 0, 0], "rpy": [0, 0, 0] },
+      "config": { "cell_chemistry": "li-ion" },
+      "node_id": 40
+    }
+  ],
+  "mates": [
+    {
+      "id": "mate-hip-seat",
+      "a": { "instance": "hip", "interface": "iface-mount" },
+      "b": { "instance": "chassis", "interface": "iface-seat" },
+      "type": "bolted"
+    },
+    {
+      "id": "mate-shin-link",
+      "a": { "instance": "shin", "interface": "iface-a" },
+      "b": { "instance": "chassis", "interface": "iface-link-a" },
+      "type": "clamped"
+    },
+    {
+      "id": "mate-batt-bracket",
+      "a": { "instance": "main_batt", "interface": "iface-mount" },
+      "b": { "instance": "chassis", "interface": "iface-batt" },
+      "type": "bolted"
+    }
+  ],
+  "wiring": [
+    {
+      "id": "wire-bus-batt-hip",
+      "kind": "bus",
+      "from": { "instance": "main_batt", "port": "bus-can" },
+      "to": { "instance": "hip", "port": "bus-can" },
+      "cable": { "spec": "JST-GH-4 to JST-GH-4, twisted pair", "length_mm": 350, "notes": "Terminate both ends externally." }
+    },
+    {
+      "id": "wire-power-batt-hip",
+      "kind": "power",
+      "from": { "instance": "main_batt", "port": "power-out" },
+      "to": { "instance": "hip", "port": "power-in" },
+      "cable": { "spec": "XT60 to XT30 adapter, 16 AWG", "length_mm": 250, "notes": "Adapter required: XT60 (battery) vs XT30 (actuator)." }
+    }
+  ],
+  "validation": {
+    "status": "warnings",
+    "checks": [
+      {
+        "id": "check-mates",
+        "name": "mate_matching",
+        "status": "pass",
+        "message": "3/3 mates matched: kinds compatible, sides complementary, bolt patterns and tags align.",
+        "details": [
+          "mate-hip-seat: bracket(neutral) <-> bracket(female), 4xM4 30x30 == 4xM4 30x30",
+          "mate-shin-link: tube_clamp(male) <-> tube_clamp(female), tag tube:od30 matches",
+          "mate-batt-bracket: bracket(neutral) <-> bracket(female), 4xM4 60x40 == 4xM4 60x40"
+        ]
+      },
+      {
+        "id": "check-loads",
+        "name": "load_rating",
+        "status": "pass",
+        "message": "Downstream masses within all joint and interface load ratings.",
+        "details": ["seat interface: 0.48 kg (hip) vs axial rating 300 N"]
+      },
+      {
+        "id": "check-collision",
+        "name": "collision",
+        "status": "pass",
+        "message": "No static collisions between module pairs or with ground.",
+        "details": []
+      },
+      {
+        "id": "check-power",
+        "name": "power_budget",
+        "status": "pass",
+        "message": "Voltage ranges overlap (42-48 V); continuous budget 480 W provided vs 96.5 W consumed.",
+        "details": ["main_batt provides 480 W; consumers: hip 96 W + BMS 0.5 W"]
+      },
+      {
+        "id": "check-bus",
+        "name": "bus_config",
+        "status": "warn",
+        "message": "Protocol mismatch on wire-bus-batt-hip: CAN (1 Mbit/s, battery) vs CAN-FD (5 Mbit/s, actuator).",
+        "details": ["Battery BMS bus runs classic CAN 2.0; actuator expects CAN-FD. Verify BMS supports FD arbitration."]
+      },
+      {
+        "id": "check-sw",
+        "name": "software_interfaces",
+        "status": "pass",
+        "message": "All declared subscribers have matching publishers; no dangling required inputs.",
+        "details": []
+      },
+      {
+        "id": "check-xacro",
+        "name": "xacro_compile",
+        "status": "pass",
+        "message": "Composed xacro compiles cleanly with prefixes chassis_, hip_, shin_, main_batt_.",
+        "details": []
+      }
+    ],
+    "warnings": [
+      "bus_config: CAN vs CAN-FD protocol mismatch (wire-bus-batt-hip)",
+      "power: XT60 to XT30 connector adapter required (wire-power-batt-hip)"
+    ]
+  },
+  "outputs": {
+    "xacro": "generated/mini-leg.urdf.xacro",
+    "urdf": "generated/mini-leg.urdf",
+    "bom": "generated/mini-leg.bom.json",
+    "wiring": "generated/mini-leg.wiring.md",
+    "power_report": "generated/mini-leg.power.md",
+    "license_report": "generated/mini-leg.licenses.md",
+    "assembly_gltf": "generated/mini-leg.gltf",
+    "build": {
+      "xacro_compile": "pass",
+      "log": "generated/xacro_compile.log"
+    }
+  },
+  "licenses": {
+    "hardware": ["BSD-3-Clause", "CERN-OHL-P-2.0"],
+    "software": ["BSD-3-Clause", "MIT"],
+    "compatible": true,
+    "conflicts": []
+  }
+}
