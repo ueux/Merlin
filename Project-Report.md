@@ -220,19 +220,19 @@ flowchart TB
 
     subgraph API["Application Layer"]
         GW["API Gateway<br/>(REST + WebSocket)"]
-        AUTH["Identity & Access<br/>(OAuth2/OIDC, RBAC)"]
-        PROJ["Project & Versioning<br/>(Manifest, locks, diffs)"]
+        AUTH["Identity &amp; Access<br/>(OAuth2/OIDC, RBAC)"]
+        PROJ["Project &amp; Versioning<br/>(Manifest, locks, diffs)"]
         ARTP["Artifact Pipeline<br/>(ingest, derive, index)"]
         CI["CI / Sim Orchestrator"]
         MAT["Material Testing Service"]
-        MOD["Module Registry &<br/>Composition Engine"]
-        PUB["Publication & Licensing"]
+        MOD["Module Registry &amp;<br/>Composition Engine"]
+        PUB["Publication &amp; Licensing"]
     end
 
     subgraph Workers["Domain Workers (queue-driven)"]
-        CW["CAD Conversion<br/>(SolidWorks headless,<br/>cadquery-occt STEP→glTF)"]
-        EW["ECAD Render<br/>(Gerber → SVG/PNG)"]
-        XW["xacro Compiler &<br/>URDF/SDF Validator"]
+        CW["CAD Conversion<br/>(SolidWorks headless,<br/>cadquery-occt STEP to glTF)"]
+        EW["ECAD Render<br/>(Gerber to SVG/PNG)"]
+        XW["xacro Compiler &amp;<br/>URDF/SDF Validator"]
         SW["Sim Workers<br/>(GZ Sim + MoveIt, GPU)"]
         BW["ROS 2 Build Farm<br/>(colcon/action-ros-ci)"]
     end
@@ -310,7 +310,7 @@ flowchart LR
     ME["Mechanical Engineer<br/>(SolidWorks)"] -->|"upload CAD, check-in/out"| P["Centralized Robot<br/>Lifecycle Platform"]
     EE["Electronics Engineer<br/>(Altium)"] -->|"sync projects, BOMs"| P
     SE["Software Engineer<br/>(ROS 2)"] -->|"push code, run CI"| P
-    TE["Test Engineer"] -->|"upload material & sim test data"| P
+    TE["Test Engineer"] -->|"upload material &amp; sim test data"| P
     PU["Public Community"] -->|"browse, fork, license modules"| P
     P -->|"jobs"| EXT["External Systems<br/>(SolidWorks PDM, Altium 365,<br/>GPU sim cluster, build farm)"]
 ```
@@ -319,37 +319,37 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-    subgraph P1["1.0 Identity & Access"]
+    subgraph S1["1.0 Identity &amp; Access"]
         A1["Authenticate,<br/>authorize"]
     end
-    subgraph P2["2.0 Project & Versioning"]
+    subgraph S2["2.0 Project &amp; Versioning"]
         P2A["Manage manifest,<br/>locks, branches"]
     end
-    subgraph P3["3.0 Artifact Pipeline"]
+    subgraph S3["3.0 Artifact Pipeline"]
         P3A["Ingest native files"]
         P3B["Generate derivatives<br/>(STEP/glTF/Gerber/BOM)"]
     end
-    subgraph P4["4.0 CI / Simulation"]
-        P4A["Trigger builds &<br/>sim tests"]
+    subgraph S4["4.0 CI / Simulation"]
+        P4A["Trigger builds &amp;<br/>sim tests"]
         P4B["Stream results<br/>(WebRTC/MCAP)"]
     end
-    subgraph P5["5.0 Material Testing"]
+    subgraph S5["5.0 Material Testing"]
         P5A["Record tests,<br/>link to parts"]
     end
-    subgraph P6["6.0 Module Registry & Composition"]
+    subgraph S6["6.0 Module Registry &amp; Composition"]
         P6A["Validate modules"]
-        P6B["Compose & generate<br/>(URDF/BOM/wiring)"]
+        P6B["Compose &amp; generate<br/>(URDF/BOM/wiring)"]
     end
-    subgraph P7["7.0 Publication"]
+    subgraph S7["7.0 Publication"]
         P7A["License check,<br/>publish"]
     end
     D1[("PostgreSQL")]
     D2[("Object Store")]
     D3[("Git Repos")]
 
-    A1 --> P2
-    P2 --> D1 & D3
-    P3A --> P3B --> D2 --> P2
+    A1 --> S2
+    S2 --> D1 & D3
+    P3A --> P3B --> D2 --> S2
     P4A --> P4B
     P5A --> D1
     P6A --> D1
@@ -370,14 +370,14 @@ flowchart LR
         PU["Public User"]
     end
     subgraph Platform
-        UC1((Check-in CAD<br/>& view versions))
-        UC2((Sync Altium project<br/>& diff BOM))
-        UC3((Run ROS 2 CI<br/>& sim tests))
-        UC4((Launch sim<br/>environment))
-        UC5((Record material<br/>test data))
-        UC6((Drag-drop compose<br/>modular robot))
-        UC7((Publish robot<br/>open-source))
-        UC8((Approve releases<br/>& licenses))
+        UC1(("Check-in CAD<br/>&amp; view versions"))
+        UC2(("Sync Altium project<br/>&amp; diff BOM"))
+        UC3(("Run ROS 2 CI<br/>&amp; sim tests"))
+        UC4(("Launch sim<br/>environment"))
+        UC5(("Record material<br/>test data"))
+        UC6(("Drag-drop compose<br/>modular robot"))
+        UC7(("Publish robot<br/>open-source"))
+        UC8(("Approve releases<br/>&amp; licenses"))
     end
     ME --> UC1
     EE --> UC2
@@ -394,24 +394,24 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    S[Start: artifact uploaded] --> T{Type detect}
-    T -->|CAD native| A1[Store native in object store]
-    T -->|EDA project| E1[Store native / git repo]
-    T -->|code/manifest| G1[Commit to git]
-    A1 --> A2[Queue: DocMgr metadata extract]
-    E1 --> E2[Queue: Gerber render + BOM]
-    G1 --> G3[Trigger CI if software]
-    A2 --> A3{Geometry export<br/>needed?}
-    A3 -->|yes| A4[SolidWorks headless worker:<br/>STEP/Parasolid export]
-    A3 -->|no| A5[Use existing STEP]
-    A4 --> A6[cadquery-occt: STEP → glTF]
+    S["Start: artifact uploaded"] --> T{"Type detect"}
+    T -->|CAD native| A1["Store native in object store"]
+    T -->|EDA project| E1["Store native / git repo"]
+    T -->|code/manifest| G1["Commit to git"]
+    A1 --> A2["Queue: DocMgr metadata extract"]
+    E1 --> E2["Queue: Gerber render + BOM"]
+    G1 --> G3["Trigger CI if software"]
+    A2 --> A3{"Geometry export needed?"}
+    A3 -->|yes| A4["SolidWorks headless worker:<br/>STEP/Parasolid export"]
+    A3 -->|no| A5["Use existing STEP"]
+    A4 --> A6["cadquery-occt: STEP to glTF"]
     A5 --> A6
-    E2 --> E7[Store Gerber SVG + BOM JSON]
-    A6 --> A8[Compute mass/inertia (trimesh)]
-    A8 --> A9[Index metadata in PostgreSQL]
+    E2 --> E7["Store Gerber SVG + BOM JSON"]
+    A6 --> A8["Compute mass/inertia (trimesh)"]
+    A8 --> A9["Index metadata in PostgreSQL"]
     E7 --> A9
-    A9 --> A10[Update robot manifest,<br/>mark derivatives fresh]
-    A10 --> Z[Notify clients via WebSocket]
+    A9 --> A10["Update robot manifest,<br/>mark derivatives fresh"]
+    A10 --> Z["Notify clients via WebSocket"]
 ```
 
 ### Fig. 5 — Sequence Diagram: Modular Composition
@@ -425,7 +425,7 @@ sequenceDiagram
     participant XC as xacro Compiler
     participant RN as Renderer
     U->>UI: Drag module A onto module B
-    UI->>CE: compose(A, B, mate=iface_output↔iface_input)
+    UI->>CE: compose(A, B, mate=iface_output to iface_input)
     CE->>CE: Load module manifests + meshes
     CE->>VE: validate(pair)
     VE->>VE: mate match / power / bus / QoS checks
@@ -438,7 +438,7 @@ sequenceDiagram
         XC-->>CE: compiled URDF
         CE->>RN: render assembly (glTF)
         RN-->>U: 3D preview + BOM/wiring/power report
-        U->>CE: save composition → new robot version
+        U->>CE: save composition -> new robot version
     end
 ```
 
@@ -476,30 +476,157 @@ erDiagram
     ROBOT_VERSION ||--o{ PUBLICATION : published_as
     PUBLICATION ||--o{ LICENSE : carries
 
-    USER { uuid id PK; string email; string name; string role }
-    ORGANIZATION { uuid id PK; string name; string plan }
-    MEMBERSHIP { uuid id PK; uuid user_id FK; uuid org_id FK; string role }
-    PROJECT { uuid id PK; uuid org_id FK; string name; string visibility }
-    ROBOT { uuid id PK; uuid project_id FK; string name; string category }
-    ROBOT_VERSION { uuid id PK; uuid robot_id FK; string semver; string manifest_yaml; datetime created_at }
-    ARTIFACT { uuid id PK; string name; string domain; string format }
-    ARTIFACT_VERSION { uuid id PK; uuid artifact_id FK; string object_key; string sha256; boolean locked; uuid locked_by }
-    DERIVATIVE { uuid id PK; uuid artifact_version_id FK; string kind; string object_key; string status }
-    MODULE { uuid id PK; string name; string category; uuid owner_id FK }
-    MODULE_VERSION { uuid id PK; uuid module_id FK; string semver; json manifest }
-    INTERFACE { uuid id PK; uuid module_version_id FK; string domain; string kind; json spec; string tags }
-    INTERFACE_KIND { string id PK; string description }
-    COMPOSITION { uuid id PK; uuid robot_version_id FK; uuid module_version_id FK; json mate_config }
-    LICENSE { string id PK; string name; string domain; boolean copyleft }
-    MATERIAL { uuid id PK; string name; string family; string designation; string status }
-    BATCH { uuid id PK; uuid material_id FK; string lot_number; json coa; date received }
-    SPECIMEN { uuid id PK; uuid batch_id FK; string geometry; string orientation }
-    TEST { uuid id PK; uuid specimen_id FK; string standard; string machine; json conditions }
-    TEST_RESULT { uuid id PK; uuid test_id FK; string property; float value; string unit }
-    BUILD { uuid id PK; uuid robot_version_id FK; string pipeline; string status }
-    TEST_RUN { uuid id PK; uuid build_id FK; string result; string artifacts_key }
-    SIM_SESSION { uuid id PK; uuid robot_version_id FK; string sim_engine; string gpu_profile }
-    PUBLICATION { uuid id PK; uuid robot_version_id FK; string status; string oshwa_cert }
+    USER {
+        uuid id PK
+        string email
+        string name
+        string role
+    }
+    ORGANIZATION {
+        uuid id PK
+        string name
+        string plan
+    }
+    MEMBERSHIP {
+        uuid id PK
+        uuid user_id FK
+        uuid org_id FK
+        string role
+    }
+    PROJECT {
+        uuid id PK
+        uuid org_id FK
+        string name
+        string visibility
+    }
+    ROBOT {
+        uuid id PK
+        uuid project_id FK
+        string name
+        string category
+    }
+    ROBOT_VERSION {
+        uuid id PK
+        uuid robot_id FK
+        string semver
+        string manifest_yaml
+        datetime created_at
+    }
+    ARTIFACT {
+        uuid id PK
+        string name
+        string domain
+        string format
+    }
+    ARTIFACT_VERSION {
+        uuid id PK
+        uuid artifact_id FK
+        string object_key
+        string sha256
+        boolean locked
+        uuid locked_by
+    }
+    DERIVATIVE {
+        uuid id PK
+        uuid artifact_version_id FK
+        string kind
+        string object_key
+        string status
+    }
+    MODULE {
+        uuid id PK
+        string name
+        string category
+        uuid owner_id FK
+    }
+    MODULE_VERSION {
+        uuid id PK
+        uuid module_id FK
+        string semver
+        json manifest
+    }
+    INTERFACE {
+        uuid id PK
+        uuid module_version_id FK
+        string domain
+        string kind
+        json spec
+        string tags
+    }
+    INTERFACE_KIND {
+        string id PK
+        string description
+    }
+    COMPOSITION {
+        uuid id PK
+        uuid robot_version_id FK
+        uuid module_version_id FK
+        json mate_config
+    }
+    LICENSE {
+        string id PK
+        string name
+        string domain
+        boolean copyleft
+    }
+    MATERIAL {
+        uuid id PK
+        string name
+        string family
+        string designation
+        string status
+    }
+    BATCH {
+        uuid id PK
+        uuid material_id FK
+        string lot_number
+        json coa
+        date received
+    }
+    SPECIMEN {
+        uuid id PK
+        uuid batch_id FK
+        string geometry
+        string orientation
+    }
+    TEST {
+        uuid id PK
+        uuid specimen_id FK
+        string standard
+        string machine
+        json conditions
+    }
+    TEST_RESULT {
+        uuid id PK
+        uuid test_id FK
+        string property
+        float value
+        string unit
+    }
+    BUILD {
+        uuid id PK
+        uuid robot_version_id FK
+        string pipeline
+        string status
+    }
+    TEST_RUN {
+        uuid id PK
+        uuid build_id FK
+        string result
+        string artifacts_key
+    }
+    SIM_SESSION {
+        uuid id PK
+        uuid robot_version_id FK
+        string sim_engine
+        string gpu_profile
+    }
+    PUBLICATION {
+        uuid id PK
+        uuid robot_version_id FK
+        string status
+        string oshwa_cert
+    }
 ```
 
 ### Table Design Notes
