@@ -89,7 +89,8 @@
             }
           ],
           "params": [
-            { "name": "cell_count", "type": "int", "default": "12" }
+            { "name": "cell_count", "type": "int", "default": "12" },
+            { "name": "cell_chemistry", "type": "string", "default": "li-ion" }
           ]
         }
       ]

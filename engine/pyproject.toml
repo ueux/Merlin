@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "merlin-engine"
+version = "0.1.0"
+description = "MERLIN manifest validation engine: JSON Schema validation, registry resolution, and the 7 composition checks."
+requires-python = ">=3.10"
+dependencies = ["jsonschema>=4.20"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+merlin-engine = "merlin_engine.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

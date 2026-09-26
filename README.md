@@ -107,6 +107,7 @@ All three schemas pass: schema self-checks, positive example validation, negativ
 
 | Document | Start here if you want… |
 |---|---|
+| [`Project-Phases.md`](Project-Phases.md) | The execution plan — how the platform gets built, phase by phase, with exit criteria |
 | [`Project-Report.md`](Project-Report.md) | The full problem statement, literature survey, architecture, database design |
 | [`PRD.md`](PRD.md) | Requirements, epics, user stories, priorities, the M0–M9 roadmap |
 | [`Project-Mindmap.md`](Project-Mindmap.md) | A one-glance map of the whole platform |
