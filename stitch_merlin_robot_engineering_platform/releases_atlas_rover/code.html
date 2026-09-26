@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "inverse-on-surface": "#2c303b", "primary": "#aec6ff", "surface-bright": "#353944", "surface-container-highest": "#31353f", "surface-container-lowest": "#0a0e17", "on-primary-fixed-variant": "#004396", "outline": "#8c90a0", "on-tertiary-fixed-variant": "#004e5c", "on-error-container": "#ffdad6", "inverse-surface": "#dfe2f0", "on-tertiary-container": "#002f38", "on-surface": "#dfe2f0", "secondary-fixed": "#e9ddff", "surface-container-high": "#262a34", "surface-container": "#1b2029", "primary-container": "#4f8eff", "on-secondary-fixed": "#23005c", "error": "#ffb4ab", "tertiary": "#4cd7f6", "outline-variant": "#424754", "on-error": "#690005", "on-background": "#dfe2f0", "inverse-primary": "#005ac4", "tertiary-container": "#009eb9", "on-secondary-fixed-variant": "#5516be", "on-surface-variant": "#c2c6d6", "on-primary-container": "#00275e", "tertiary-fixed": "#acedff", "secondary-container": "#571bc1", "secondary-fixed-dim": "#d0bcff", "secondary": "#d0bcff", "surface-variant": "#31353f", "primary-fixed-dim": "#aec6ff", "surface": "#0f131d", "background": "#0f131d", "on-secondary-container": "#c4abff", "error-container": "#93000a", "on-secondary": "#3c0091", "tertiary-fixed-dim": "#4cd7f6", "on-primary-fixed": "#001a42", "surface-container-low": "#171c25", "on-tertiary": "#003640", "surface-tint": "#aec6ff", "on-primary": "#002e6b", "primary-fixed": "#d8e2ff", "surface-dim": "#0f131d", "on-tertiary-fixed": "#001f26" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "0.5rem", "space-lg": "0.75rem", "space-md": "0.5rem", "margin": "0.75rem", "space-xl": "1rem", "space-sm": "0.375rem", "space-xs": "0.25rem" }, "fontFamily": { "code-md": [ "JetBrains Mono" ], "headline-sm": [ "Inter" ], "body-sm": [ "Inter" ], "body-md": [ "Inter" ], "code-sm": [ "JetBrains Mono" ], "headline-xl": [ "Inter" ], "headline-lg": [ "Inter" ], "badge-label": [ "JetBrains Mono" ] }, "fontSize": { "code-md": [ "0.8125rem", { "lineHeight": "1.25rem", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "headline-sm": [ "0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "body-sm": [ "0.75rem", { "lineHeight": "1rem", "letterSpacing": "0em", "fontWeight": "400" } ], "body-md": [ "0.8125rem", { "lineHeight": "1.25rem", "letterSpacing": "0em", "fontWeight": "400" } ], "code-sm": [ "0.6875rem", { "lineHeight": "0.875rem", "letterSpacing": "0.02em", "fontWeight": "500" } ], "headline-xl": [ "1.5rem", { "lineHeight": "2rem", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "headline-lg": [ "1.125rem", { "lineHeight": "1.5rem", "letterSpacing": "-0.015em", "fontWeight": "600" } ], "badge-label": [ "0.625rem", { "lineHeight": "0.75rem", "letterSpacing": "0.05em", "fontWeight": "600" } ] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 h-12 z-50 bg-surface-container-low flex items-center justify-between px-space-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md w-60"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">MERLIN</span><span class="font-badge-label text-badge-label bg-surface-container text-tertiary px-space-xs py-0.5 rounded uppercase">v2.4-RT</span></div></div><div class="flex-1 max-w-xl mx-space-md"><div class="flex items-center gap-space-sm bg-surface-container px-space-md h-8 rounded-lg"><span class="material-symbols-outlined text-[18px] text-outline">terminal</span><span class="font-code-sm text-code-sm text-outline flex-1 truncate">⌘K Search robots, modules, files, or commands...</span><span class="font-code-sm text-code-sm bg-surface-container-high text-on-surface-variant px-space-xs rounded">⌘K</span></div></div><div class="flex items-center gap-space-md justify-end"><div class="flex items-center gap-space-xs bg-surface-container px-space-sm h-7 rounded"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span><span class="font-code-sm text-code-sm text-tertiary uppercase">HIL Live</span></div><button class="flex items-center justify-center w-8 h-8 rounded hover:bg-surface-container-high text-outline hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[18px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><aside class="fixed left-0 top-12 bottom-0 w-60 bg-surface-container-low z-40 flex flex-col justify-between overflow-hidden shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 overflow-y-auto"><div class="p-space-sm bg-surface-container-lowest m-space-xs rounded"><div class="flex items-center justify-between mb-space-xs"><div class="flex items-center gap-space-xs overflow-hidden"><span class="material-symbols-outlined text-[16px] text-primary">smart_toy</span><span class="font-headline-sm text-headline-sm text-on-surface truncate">Atlas Rover</span></div><span class="material-symbols-outlined text-[16px] text-outline">unfold_more</span></div><div class="flex items-center gap-space-xs pl-space-md"><span class="material-symbols-outlined text-[14px] text-outline">fork_right</span><span class="font-code-sm text-code-sm text-on-surface-variant">main</span></div></div><div class="px-space-xs py-space-xs flex flex-col gap-space-xs"><div class="px-space-sm pt-space-xs"><span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Workspace</span></div><nav class="flex flex-col gap-0.5" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded"><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview" href="#"><span class="font-body-sm text-body-sm">Overview</span></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="robot-kinematics" href="#"><span class="font-body-sm text-body-sm">Robot Kinematics</span></a></nav></div><div class="px-space-xs py-space-xs flex flex-col gap-space-xs"><div class="px-space-sm pt-space-xs"><span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Engineering</span></div><nav class="flex flex-col gap-0.5" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded"><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="mechanical" href="#"><span class="font-body-sm text-body-sm">Mechanical</span></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="electronics" href="#"><span class="font-body-sm text-body-sm">Electronics</span></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="materials-and-tests" href="#"><span class="font-body-sm text-body-sm">Materials &amp; Tests</span></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="software-and-firmware" href="#"><span class="font-body-sm text-body-sm">Software &amp; Firmware</span></a></nav></div><div class="px-space-xs py-space-xs flex flex-col gap-space-xs"><div class="px-space-sm pt-space-xs"><span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Simulation &amp; Deploy</span></div><nav class="flex flex-col gap-0.5" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded"><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="simulation-hub" href="#"><span class="font-body-sm text-body-sm">Simulation Hub</span></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="environments" href="#"><span class="font-body-sm text-body-sm">Environments</span></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="modules" href="#"><span class="font-body-sm text-body-sm">Modules</span></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="marketplace" href="#"><span class="font-body-sm text-body-sm">Marketplace</span></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="releases" href="#"><span class="font-body-sm text-body-sm">Releases</span></a></nav></div><div class="px-space-xs py-space-xs flex flex-col gap-space-xs"><div class="px-space-sm pt-space-xs"><span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Validation</span></div><nav class="flex flex-col gap-0.5" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded"><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="tests" href="#"><span class="font-body-sm text-body-sm">Tests</span></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="results" href="#"><span class="font-body-sm text-body-sm">Results</span></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="hardware" href="#"><span class="font-body-sm text-body-sm">Hardware</span></a></nav></div></div><div class="p-space-sm bg-surface-container m-space-xs rounded flex flex-col gap-space-xs"><div class="flex justify-between items-center"><span class="font-badge-label text-badge-label text-outline uppercase">Storage</span><span class="font-code-sm text-code-sm text-on-surface-variant">4.2 / 10 GB</span></div><div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden"><div class="bg-primary h-full w-[42%]"></div></div><div class="flex justify-between items-center pt-space-xs"><span class="font-badge-label text-badge-label text-outline uppercase">Robots Deployed</span><span class="font-code-sm text-code-sm text-tertiary">3 / 5</span></div><div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden"><div class="bg-tertiary h-full w-[60%]"></div></div></div></aside><div class="pl-60"><main class="w-full pt-12 min-h-screen bg-surface"><div class="flex flex-col w-full">
+<!-- Active state script for sidebar 'Releases' link -->
+<script>
+    (function() {
+      const releasesLink = document.querySelector('aside a[data-path="releases"]');
+      if (releasesLink) {
+        releasesLink.className = "flex items-center justify-between px-space-sm py-1 rounded bg-primary-container text-on-primary-container font-semibold transition-colors";
+      }
+    })();
+  </script>
+<!-- Top Control & Header Bar -->
+<section class="w-full bg-surface-container-low px-space-xl py-space-lg flex flex-col gap-space-md shadow-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<!-- Title & Context Pill -->
+<div class="flex items-center gap-space-md min-w-0">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[22px] text-primary">rocket_launch</span>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-bold">Releases</h1>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-0.5 rounded-full text-on-surface-variant font-code-sm text-code-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>Atlas Rover Production Deployments · 3 Published Releases</span>
+</div>
+</div>
+<!-- Controls & Primary Action -->
+<div class="flex items-center gap-space-md">
+<!-- Git Branch Badge -->
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-sm py-1 rounded text-on-surface-variant font-code-sm text-code-sm shadow-sm">
+<span class="material-symbols-outlined text-[15px] text-tertiary">alt_route</span>
+<span class="text-on-surface font-semibold">main</span>
+<span class="text-outline">@</span>
+<span class="text-primary font-code-sm">a83fd21</span>
+</div>
+<!-- New Release Primary Button -->
+<button class="flex items-center gap-space-xs bg-primary-container hover:bg-primary text-on-primary-container px-space-md py-1.5 rounded font-headline-sm text-headline-sm transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[16px]">add_circle</span>
+<span>+ New Release</span>
+</button>
+</div>
+</div>
+<!-- Filter Bar & Search Tabs -->
+<div class="flex flex-wrap items-center justify-between gap-space-md pt-space-xs">
+<div class="flex items-center gap-1 bg-surface-container-lowest p-0.5 rounded-lg shadow-sm">
+<button class="px-space-md py-1 rounded-md font-headline-sm text-headline-sm bg-surface-container-high text-on-surface transition-colors flex items-center gap-space-xs">
+<span>All Releases</span>
+<span class="bg-surface-container text-primary font-code-sm text-code-sm px-1.5 py-0.2 rounded-full">3</span>
+</button>
+<button class="px-space-md py-1 rounded-md font-headline-sm text-headline-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+          Production
+        </button>
+<button class="px-space-md py-1 rounded-md font-headline-sm text-headline-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors flex items-center gap-space-xs">
+<span>Pre-release</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+</button>
+<button class="px-space-md py-1 rounded-md font-headline-sm text-headline-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+          Archived
+        </button>
+</div>
+<div class="flex items-center gap-space-sm flex-1 max-w-xs">
+<div class="relative w-full flex items-center">
+<span class="material-symbols-outlined text-[16px] text-outline absolute left-2 pointer-events-none">search</span>
+<input class="w-full bg-surface-container-lowest text-on-surface pl-7 pr-space-sm py-1 rounded text-body-sm font-body-sm focus:outline-none focus:bg-surface-container shadow-sm placeholder:text-outline" placeholder="Filter by tag, commit, note..." type="text"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Two-Column Operational Body -->
+<div class="w-full p-space-xl flex flex-col lg:flex-row gap-space-xl items-start">
+<!-- LEFT COLUMN: Vertical Timeline (fluid flex-1) -->
+<section class="flex-1 min-w-0 w-full relative">
+<!-- Continuous Timeline Track / Spine -->
+<div class="absolute left-[19px] top-6 bottom-8 w-0.5 bg-surface-container-highest z-0"></div>
+<div class="flex flex-col gap-space-xl relative z-10">
+<!-- CARD 1: v2.3.1 (Latest Production) -->
+<article class="flex gap-space-md items-start group">
+<!-- Timeline Node -->
+<div class="w-10 flex-shrink-0 flex items-center justify-center pt-1">
+<div class="w-7 h-7 rounded-full bg-surface-container-lowest flex items-center justify-center shadow-md">
+<div class="w-3.5 h-3.5 rounded-full bg-tertiary animate-pulse"></div>
+</div>
+</div>
+<!-- Content Card Container -->
+<div class="flex-1 min-w-0 bg-surface-container-low rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-space-md">
+<!-- Header Row -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-xs">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="font-code-md text-headline-lg font-bold text-primary tracking-tight">v2.3.1</span>
+<!-- Badges -->
+<span class="font-badge-label text-badge-label px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-semibold tracking-wide uppercase flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Latest
+                </span>
+<span class="font-badge-label text-badge-label px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-medium tracking-wide uppercase">
+                  Production Ready
+                </span>
+</div>
+<!-- Commit metadata -->
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-2 py-1 rounded text-on-surface-variant font-code-sm text-code-sm">
+<span class="text-outline">commit</span>
+<span class="text-primary font-medium">7e10df2</span>
+<button class="hover:text-on-surface transition-colors ml-1" onclick="navigator.clipboard?.writeText('7e10df2')" title="Copy commit SHA">
+<span class="material-symbols-outlined text-[13px]">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Author & Timestamp -->
+<div class="flex items-center gap-space-xs text-body-sm font-body-sm text-outline">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Released Oct 24, 2024 by <strong class="text-on-surface font-medium">@alexlin</strong> · 2 weeks ago</span>
+</div>
+<!-- Summary & Notes -->
+<div class="flex flex-col gap-space-xs bg-surface-container-lowest p-space-md rounded-lg">
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+<span>Hip chain CAN-FD migration + terrain planner update</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Upgraded leg actuator bus to 5 Mbit CAN-FD, resolved stair riser pitch saturation in Gazebo Harmonic, updated Altium BOM with alternative LDOs.
+              </p>
+</div>
+<!-- Artifact Chips -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Deployable Artifacts</span>
+<div class="flex flex-wrap gap-space-xs">
+<!-- URDF -->
+<div class="flex items-center gap-1.5 bg-surface-container px-2.5 py-1 rounded font-code-sm text-code-sm text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[15px] text-tertiary">smart_toy</span>
+<span>URDF bundle</span>
+<span class="text-tertiary font-bold">✓</span>
+</div>
+<!-- STEP -->
+<div class="flex items-center gap-1.5 bg-surface-container px-2.5 py-1 rounded font-code-sm text-code-sm text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[15px] text-primary">view_in_ar</span>
+<span>STEP</span>
+<span class="text-tertiary font-bold">✓</span>
+</div>
+<!-- Gerbers -->
+<div class="flex items-center gap-1.5 bg-surface-container px-2.5 py-1 rounded font-code-sm text-code-sm text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[15px] text-secondary">memory</span>
+<span>Gerbers</span>
+<span class="text-tertiary font-bold">✓</span>
+</div>
+<!-- BOM -->
+<div class="flex items-center gap-1.5 bg-surface-container px-2.5 py-1 rounded font-code-sm text-code-sm text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[15px] text-outline">receipt_long</span>
+<span>BOM</span>
+<span class="text-tertiary font-bold">✓</span>
+</div>
+<!-- Sim pack -->
+<div class="flex items-center gap-1.5 bg-surface-container px-2.5 py-1 rounded font-code-sm text-code-sm text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[15px] text-tertiary">category</span>
+<span>Sim world pack</span>
+<span class="text-tertiary font-bold">✓</span>
+</div>
+<!-- Docs -->
+<div class="flex items-center gap-1.5 bg-surface-container px-2.5 py-1 rounded font-code-sm text-code-sm text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[15px] text-outline">description</span>
+<span>Docs</span>
+<span class="text-tertiary font-bold">✓</span>
+</div>
+</div>
+</div>
+<!-- Manifest Diff Summary -->
+<div class="flex items-center justify-between py-space-xs text-code-sm font-code-sm text-outline">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[14px]">insights</span>
+<span class="text-on-surface-variant font-medium">Manifest diff:</span>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-tertiary font-medium">+3 modules</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-secondary font-medium">~1 module</span>
+</div>
+<span>· 14 files changed</span>
+</div>
+<span class="text-outline font-code-sm">SHA-256: 4f18...d99a</span>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface px-space-md py-1 rounded text-body-sm font-headline-sm transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-outline">data_object</span>
+<span>View Manifest</span>
+</button>
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface px-space-md py-1 rounded text-body-sm font-headline-sm transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-tertiary">download</span>
+<span>Download Bundle (.zip · 184 MB)</span>
+</button>
+<button class="bg-surface-container-lowest hover:bg-surface-container px-space-sm py-1 rounded font-code-sm text-code-sm text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1.5" onclick="navigator.clipboard?.writeText('git tag v2.3.1')">
+<span class="material-symbols-outlined text-[13px] text-outline">terminal</span>
+<span>git tag v2.3.1</span>
+<span class="material-symbols-outlined text-[12px] text-outline">content_copy</span>
+</button>
+</div>
+<button class="w-7 h-7 rounded hover:bg-surface-container text-outline hover:text-on-surface flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+</div>
+</article>
+<!-- CARD 2: v2.3.0 (Superseded Release) -->
+<article class="flex gap-space-md items-start group">
+<!-- Timeline Node -->
+<div class="w-10 flex-shrink-0 flex items-center justify-center pt-1">
+<div class="w-7 h-7 rounded-full bg-surface-container-lowest flex items-center justify-center shadow-sm">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary"></div>
+</div>
+</div>
+<!-- Content Card Container -->
+<div class="flex-1 min-w-0 bg-surface-container-low rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-space-md">
+<!-- Header Row -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-xs">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="font-code-md text-headline-lg font-bold text-on-surface tracking-tight">v2.3.0</span>
+<!-- Warning Superseded Pill -->
+<span class="font-badge-label text-badge-label px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-medium tracking-wide uppercase flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">warning</span>
+<span>Superseded · Gazebo Fortress Outdated</span>
+</span>
+</div>
+<!-- Commit metadata -->
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-2 py-1 rounded text-on-surface-variant font-code-sm text-code-sm">
+<span class="text-outline">commit</span>
+<span class="text-on-surface font-medium">4a98b1c</span>
+<button class="hover:text-on-surface transition-colors ml-1" onclick="navigator.clipboard?.writeText('4a98b1c')" title="Copy commit SHA">
+<span class="material-symbols-outlined text-[13px]">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Author & Timestamp -->
+<div class="flex items-center gap-space-xs text-body-sm font-body-sm text-outline">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Released Sep 12, 2024 by <strong class="text-on-surface font-medium">@mchen</strong> · 2 months ago</span>
+</div>
+<!-- Summary -->
+<div class="flex flex-col gap-space-xs bg-surface-container-lowest p-space-md rounded-lg">
+<div class="font-headline-sm text-headline-sm text-on-surface font-medium">
+                Initial quad-modular hip integration &amp; ROS 2 Jazzy core stack baseline
+              </div>
+</div>
+<!-- Artifact Chips -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Deployable Artifacts</span>
+<div class="flex flex-wrap gap-space-xs">
+<div class="flex items-center gap-1.5 bg-surface-container px-2.5 py-1 rounded font-code-sm text-code-sm text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-outline">smart_toy</span>
+<span>URDF bundle</span>
+<span class="text-tertiary">✓</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container px-2.5 py-1 rounded font-code-sm text-code-sm text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-outline">view_in_ar</span>
+<span>STEP</span>
+<span class="text-tertiary">✓</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container px-2.5 py-1 rounded font-code-sm text-code-sm text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-outline">memory</span>
+<span>Gerbers</span>
+<span class="text-tertiary">✓</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container px-2.5 py-1 rounded font-code-sm text-code-sm text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-outline">receipt_long</span>
+<span>BOM</span>
+<span class="text-tertiary">✓</span>
+</div>
+<!-- Warning Artifact -->
+<div class="flex items-center gap-1.5 bg-surface-container px-2.5 py-1 rounded font-code-sm text-code-sm text-secondary">
+<span class="material-symbols-outlined text-[15px] text-secondary">warning</span>
+<span>Sim world pack (Fortress v6)</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container px-2.5 py-1 rounded font-code-sm text-code-sm text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-outline">description</span>
+<span>Docs</span>
+<span class="text-tertiary">✓</span>
+</div>
+</div>
+</div>
+<!-- Manifest Diff Summary -->
+<div class="flex items-center justify-between py-space-xs text-code-sm font-code-sm text-outline">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[14px]">insights</span>
+<span class="text-on-surface-variant font-medium">Manifest diff:</span>
+<span class="text-tertiary font-medium">+8 modules</span>
+<span>· 42 files changed</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface px-space-md py-1 rounded text-body-sm font-headline-sm transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-outline">data_object</span>
+<span>View Manifest</span>
+</button>
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface px-space-md py-1 rounded text-body-sm font-headline-sm transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-outline">download</span>
+<span>Download Bundle (.zip · 172 MB)</span>
+</button>
+<button class="bg-surface-container-lowest hover:bg-surface-container px-space-sm py-1 rounded font-code-sm text-code-sm text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1.5" onclick="navigator.clipboard?.writeText('git tag v2.3.0')">
+<span class="material-symbols-outlined text-[13px] text-outline">terminal</span>
+<span>git tag v2.3.0</span>
+<span class="material-symbols-outlined text-[12px] text-outline">content_copy</span>
+</button>
+</div>
+<button class="w-7 h-7 rounded hover:bg-surface-container text-outline hover:text-on-surface flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_horiz</span>
+</button>
+</div>
+</div>
+</article>
+<!-- CARD 3: v2.2.0 (Archived LTS) -->
+<article class="flex gap-space-md items-start group opacity-90 hover:opacity-100 transition-opacity">
+<!-- Timeline Node -->
+<div class="w-10 flex-shrink-0 flex items-center justify-center pt-1">
+<div class="w-7 h-7 rounded-full bg-surface-container-lowest flex items-center justify-center shadow-sm">
+<div class="w-2.5 h-2.5 rounded-full bg-outline"></div>
+</div>
+</div>
+<!-- Content Card Container -->
+<div class="flex-1 min-w-0 bg-surface-container-low rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col gap-space-md">
+<!-- Header Row -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-xs">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="font-code-md text-headline-lg font-bold text-on-surface-variant tracking-tight">v2.2.0</span>
+<!-- Archived Badge -->
+<span class="font-badge-label text-badge-label px-2 py-0.5 rounded-full bg-surface-container-highest text-outline font-medium tracking-wide uppercase">
+                  Archived · LTS
+                </span>
+</div>
+<!-- Commit metadata -->
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-2 py-1 rounded text-on-surface-variant font-code-sm text-code-sm">
+<span class="text-outline">commit</span>
+<span class="text-outline font-medium">9f31c8e</span>
+</div>
+</div>
+<!-- Author & Timestamp -->
+<div class="flex items-center gap-space-xs text-body-sm font-body-sm text-outline">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Released Jul 04, 2024 by <strong class="text-on-surface-variant font-medium">@alexlin</strong></span>
+</div>
+<!-- Summary -->
+<div class="flex flex-col gap-space-xs bg-surface-container-lowest p-space-md rounded-lg">
+<div class="font-headline-sm text-headline-sm text-on-surface-variant font-normal">
+                Benchtop actuator test rig validation &amp; dual CAN 2.0B driver deployment
+              </div>
+</div>
+<!-- Artifact Chips -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Deployable Artifacts</span>
+<div class="flex flex-wrap gap-space-xs">
+<div class="flex items-center gap-1.5 bg-surface-container px-2.5 py-1 rounded font-code-sm text-code-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-outline">smart_toy</span>
+<span>URDF ✓</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container px-2.5 py-1 rounded font-code-sm text-code-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-outline">view_in_ar</span>
+<span>STEP ✓</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container px-2.5 py-1 rounded font-code-sm text-code-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-outline">memory</span>
+<span>Gerbers ✓</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container px-2.5 py-1 rounded font-code-sm text-code-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-outline">receipt_long</span>
+<span>BOM ✓</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container px-2.5 py-1 rounded font-code-sm text-code-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-outline">description</span>
+<span>Docs ✓</span>
+</div>
+</div>
+</div>
+<!-- Manifest Diff Summary -->
+<div class="flex items-center justify-between py-space-xs text-code-sm font-code-sm text-outline">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[14px]">insights</span>
+<span class="text-outline font-medium">Manifest diff:</span>
+<span class="text-on-surface-variant font-medium">+5 modules</span>
+<span>· 28 files changed</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface px-space-md py-1 rounded text-body-sm font-headline-sm transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-outline">data_object</span>
+<span>View Manifest</span>
+</button>
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface px-space-md py-1 rounded text-body-sm font-headline-sm transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-outline">download</span>
+<span>Download Bundle (.zip · 145 MB)</span>
+</button>
+<button class="bg-surface-container-lowest hover:bg-surface-container px-space-sm py-1 rounded font-code-sm text-code-sm text-outline hover:text-on-surface transition-colors flex items-center gap-1.5" onclick="navigator.clipboard?.writeText('git tag v2.2.0')">
+<span class="material-symbols-outlined text-[13px] text-outline">terminal</span>
+<span>git tag v2.2.0</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- RIGHT COLUMN: Release Checklist Draft Panel (340px fixed) -->
+<aside class="w-full lg:w-[340px] flex-shrink-0 flex flex-col gap-space-md bg-surface-container-low p-space-lg rounded-xl shadow-sm sticky top-16">
+<!-- Panel Header -->
+<div class="flex flex-col gap-space-xs pb-space-sm">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">Draft v2.3.2</h2>
+<span class="font-badge-label text-badge-label px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-semibold uppercase tracking-wider">
+            In Preparation
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-outline leading-tight">
+          Target branch: <span class="font-code-sm text-primary font-medium">main</span> · Automated pre-flight validation checklist
+        </p>
+</div>
+<!-- Metric Summary Indicator -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg flex flex-col gap-space-xs">
+<div class="flex justify-between items-center font-headline-sm text-headline-sm">
+<span class="text-on-surface-variant">Readiness Score</span>
+<span class="font-code-md text-code-md font-bold text-secondary">2 / 4 Checks</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-1/2 transition-all"></div>
+</div>
+</div>
+<!-- Checklist Rows -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Verification Gates</span>
+<!-- 1. Validation Status (Warning) -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">warning</span>
+              Validation Status
+            </span>
+<span class="font-badge-label text-badge-label px-2 py-0.5 rounded bg-surface-container text-secondary font-bold uppercase">
+              warnings (2)
+            </span>
+</div>
+<ul class="text-code-sm font-code-sm text-outline pl-5 list-disc flex flex-col gap-0.5 pt-1">
+<li class="text-on-surface-variant">odri_driver deprecated param</li>
+<li class="text-on-surface-variant">hil_battery_discharge skipped test</li>
+</ul>
+</div>
+<!-- 2. Test Suite (Pass) -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">check_circle</span>
+              Test Suite
+            </span>
+<span class="font-badge-label text-badge-label px-2 py-0.5 rounded bg-surface-container text-tertiary font-bold uppercase">
+              12/12 ✓
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-outline pl-5">
+            All unit, integration &amp; sim suites passing
+          </p>
+</div>
+<!-- 3. Licenses (Pass) -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">verified_user</span>
+              Licenses
+            </span>
+<span class="font-badge-label text-badge-label px-2 py-0.5 rounded bg-surface-container text-tertiary font-bold uppercase">
+              compatible ✓
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-outline pl-5">
+            All 6 packages Apache-2.0 / BSD / MIT compliant
+          </p>
+</div>
+<!-- 4. Documentation (Error) -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-error">cancel</span>
+              Documentation
+            </span>
+<span class="font-badge-label text-badge-label px-2 py-0.5 rounded bg-error-container text-on-error-container font-bold uppercase">
+              missing entry ✗
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-error pl-5">
+            CHANGELOG.md missing entries for PR #142
+          </p>
+</div>
+</div>
+<!-- Target Build Artifacts Readiness Breakdown -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Artifact Assembly Queue</span>
+<div class="bg-surface-container-lowest p-space-md rounded-lg flex flex-col gap-2">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-tertiary">check</span>
+              URDF &amp; Meshes
+            </span>
+<span class="font-code-sm text-tertiary">Ready (v2.3.2)</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-tertiary">check</span>
+              CAD STEP Assembly
+            </span>
+<span class="font-code-sm text-tertiary">Exported</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-primary animate-spin">sync</span>
+                PCB Altium Gerber zip
+              </span>
+<span class="font-code-sm text-primary">88%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[88%]"></div>
+</div>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-tertiary">check</span>
+              Colcon Debian artifacts
+            </span>
+<span class="font-code-sm text-tertiary">Ready</span>
+</div>
+</div>
+</div>
+<!-- Footer Release Actions -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<button class="w-full bg-surface-container-highest text-outline opacity-50 cursor-not-allowed py-2 rounded font-headline-sm text-headline-sm flex items-center justify-center gap-1.5 transition-none" disabled="">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span>Publish Release</span>
+</button>
+<p class="font-code-sm text-code-sm text-secondary text-center leading-tight">
+          ⚠ Resolve 2 items to publish (1 error, 1 warning)
+        </p>
+<button class="w-full bg-surface-container hover:bg-surface-container-high text-on-surface py-1.5 rounded font-headline-sm text-headline-sm transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">tune</span>
+<span>Edit Draft Specs</span>
+</button>
+</div>
+</aside>
+</div>
+</div></main></div></body></html>

@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: merlin-engine
+Version: 0.1.0
+Summary: MERLIN manifest validation engine: JSON Schema validation, registry resolution, and the 7 composition checks.
+Requires-Python: >=3.10
+Requires-Dist: jsonschema>=4.20
+Provides-Extra: dev
+Requires-Dist: pytest>=8; extra == "dev"

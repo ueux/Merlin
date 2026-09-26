@@ -45,6 +45,10 @@ class ModuleRegistry:
             hint = f" (known versions: {', '.join(known)})" if known else " (module id unknown)"
             raise RegistryError(f"cannot resolve {module_id}@{version}{hint}")
 
+    def all(self) -> list[dict]:
+        """All module manifests, sorted by (module_id, version)."""
+        return [self._modules[key] for key in sorted(self._modules)]
+
     def __contains__(self, key: tuple[str, str]) -> bool:
         return key in self._modules
 

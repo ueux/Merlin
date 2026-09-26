@@ -1,0 +1,2 @@
+[console_scripts]
+merlin-engine = merlin_engine.cli:main

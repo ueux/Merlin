@@ -24,6 +24,14 @@ def test_resolve_returns_manifest(examples_registry):
     assert mod["module"]["category"] == "actuator"
 
 
+def test_all_returns_sorted_manifests(examples_registry):
+    docs = examples_registry.all()
+    assert len(docs) == 4
+    keys = [(d["module"]["id"], d["module"]["version"]) for d in docs]
+    assert keys == sorted(keys)
+    assert keys[0] == ("battery-pack-48v", "0.4.1")
+
+
 def test_resolve_unknown_module_id(examples_registry):
     with pytest.raises(RegistryError, match="module id unknown"):
         examples_registry.resolve("no-such-module", "1.0.0")

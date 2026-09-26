@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "inverse-on-surface": "#2c303b", "primary": "#aec6ff", "surface-bright": "#353944", "surface-container-highest": "#31353f", "surface-container-lowest": "#0a0e17", "on-primary-fixed-variant": "#004396", "outline": "#8c90a0", "on-tertiary-fixed-variant": "#004e5c", "on-error-container": "#ffdad6", "inverse-surface": "#dfe2f0", "on-tertiary-container": "#002f38", "on-surface": "#dfe2f0", "secondary-fixed": "#e9ddff", "surface-container-high": "#262a34", "surface-container": "#1b2029", "primary-container": "#4f8eff", "on-secondary-fixed": "#23005c", "error": "#ffb4ab", "tertiary": "#4cd7f6", "outline-variant": "#424754", "on-error": "#690005", "on-background": "#dfe2f0", "inverse-primary": "#005ac4", "tertiary-container": "#009eb9", "on-secondary-fixed-variant": "#5516be", "on-surface-variant": "#c2c6d6", "on-primary-container": "#00275e", "tertiary-fixed": "#acedff", "secondary-container": "#571bc1", "secondary-fixed-dim": "#d0bcff", "secondary": "#d0bcff", "surface-variant": "#31353f", "primary-fixed-dim": "#aec6ff", "surface": "#0f131d", "background": "#0f131d", "on-secondary-container": "#c4abff", "error-container": "#93000a", "on-secondary": "#3c0091", "tertiary-fixed-dim": "#4cd7f6", "on-primary-fixed": "#001a42", "surface-container-low": "#171c25", "on-tertiary": "#003640", "surface-tint": "#aec6ff", "on-primary": "#002e6b", "primary-fixed": "#d8e2ff", "surface-dim": "#0f131d", "on-tertiary-fixed": "#001f26" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "0.5rem", "space-lg": "0.75rem", "space-md": "0.5rem", "margin": "0.75rem", "space-xl": "1rem", "space-sm": "0.375rem", "space-xs": "0.25rem" }, "fontFamily": { "code-md": [ "JetBrains Mono" ], "headline-sm": [ "Inter" ], "body-sm": [ "Inter" ], "body-md": [ "Inter" ], "code-sm": [ "JetBrains Mono" ], "headline-xl": [ "Inter" ], "headline-lg": [ "Inter" ], "badge-label": [ "JetBrains Mono" ] }, "fontSize": { "code-md": [ "0.8125rem", { "lineHeight": "1.25rem", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "headline-sm": [ "0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "body-sm": [ "0.75rem", { "lineHeight": "1rem", "letterSpacing": "0em", "fontWeight": "400" } ], "body-md": [ "0.8125rem", { "lineHeight": "1.25rem", "letterSpacing": "0em", "fontWeight": "400" } ], "code-sm": [ "0.6875rem", { "lineHeight": "0.875rem", "letterSpacing": "0.02em", "fontWeight": "500" } ], "headline-xl": [ "1.5rem", { "lineHeight": "2rem", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "headline-lg": [ "1.125rem", { "lineHeight": "1.5rem", "letterSpacing": "-0.015em", "fontWeight": "600" } ], "badge-label": [ "0.625rem", { "lineHeight": "0.75rem", "letterSpacing": "0.05em", "fontWeight": "600" } ] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 h-12 z-50 bg-surface-container-low flex items-center justify-between px-space-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md w-60"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">MERLIN</span><span class="font-badge-label text-badge-label bg-surface-container text-tertiary px-space-xs py-0.5 rounded uppercase">v2.4-RT</span></div></div><div class="flex-1 max-w-xl mx-space-md"><div class="flex items-center gap-space-sm bg-surface-container px-space-md h-8 rounded-lg"><span class="material-symbols-outlined text-[18px] text-outline">terminal</span><span class="font-code-sm text-code-sm text-outline flex-1 truncate">⌘K Search robots, modules, files, or commands...</span><span class="font-code-sm text-code-sm bg-surface-container-high text-on-surface-variant px-space-xs rounded">⌘K</span></div></div><div class="flex items-center gap-space-md justify-end"><div class="flex items-center gap-space-xs bg-surface-container px-space-sm h-7 rounded"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span><span class="font-code-sm text-code-sm text-tertiary uppercase">HIL Live</span></div><button class="flex items-center justify-center w-8 h-8 rounded hover:bg-surface-container-high text-outline hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[18px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><aside class="fixed left-0 top-12 bottom-0 w-60 bg-surface-container-low z-40 flex flex-col justify-between overflow-hidden shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 overflow-y-auto"><div class="p-space-sm bg-surface-container-lowest m-space-xs rounded"><div class="flex items-center justify-between mb-space-xs"><div class="flex items-center gap-space-xs overflow-hidden"><span class="material-symbols-outlined text-[16px] text-primary">smart_toy</span><span class="font-headline-sm text-headline-sm text-on-surface truncate">Atlas Rover</span></div><span class="material-symbols-outlined text-[16px] text-outline">unfold_more</span></div><div class="flex items-center gap-space-xs pl-space-md"><span class="material-symbols-outlined text-[14px] text-outline">fork_right</span><span class="font-code-sm text-code-sm text-on-surface-variant">main</span></div></div><div class="px-space-xs py-space-xs flex flex-col gap-space-xs"><div class="px-space-sm pt-space-xs"><span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Workspace</span></div><nav class="flex flex-col gap-0.5" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded"><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview" href="#"><span class="font-body-sm text-body-sm">Overview</span></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="robot-kinematics" href="#"><span class="font-body-sm text-body-sm">Robot Kinematics</span></a></nav></div><div class="px-space-xs py-space-xs flex flex-col gap-space-xs"><div class="px-space-sm pt-space-xs"><span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Engineering</span></div><nav class="flex flex-col gap-0.5" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded"><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="mechanical" href="#"><span class="font-body-sm text-body-sm">Mechanical</span></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="electronics" href="#"><span class="font-body-sm text-body-sm">Electronics</span></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="materials-and-tests" href="#"><span class="font-body-sm text-body-sm">Materials &amp; Tests</span></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="software-and-firmware" href="#"><span class="font-body-sm text-body-sm">Software &amp; Firmware</span></a></nav></div><div class="px-space-xs py-space-xs flex flex-col gap-space-xs"><div class="px-space-sm pt-space-xs"><span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Simulation &amp; Deploy</span></div><nav class="flex flex-col gap-0.5" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded"><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="simulation-hub" href="#"><span class="font-body-sm text-body-sm">Simulation Hub</span></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="environments" href="#"><span class="font-body-sm text-body-sm">Environments</span></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="modules" href="#"><span class="font-body-sm text-body-sm">Modules</span></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="marketplace" href="#"><span class="font-body-sm text-body-sm">Marketplace</span></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="releases" href="#"><span class="font-body-sm text-body-sm">Releases</span></a></nav></div><div class="px-space-xs py-space-xs flex flex-col gap-space-xs"><div class="px-space-sm pt-space-xs"><span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Validation</span></div><nav class="flex flex-col gap-0.5" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded"><a aria-current="page" class="flex items-center justify-between px-space-sm py-1 transition-colors bg-primary-container text-on-primary-container font-semibold rounded" data-path="tests" href="#"><span class="font-body-sm text-body-sm">Tests</span></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="results" href="#"><span class="font-body-sm text-body-sm">Results</span></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="hardware" href="#"><span class="font-body-sm text-body-sm">Hardware</span></a></nav></div></div><div class="p-space-sm bg-surface-container m-space-xs rounded flex flex-col gap-space-xs"><div class="flex justify-between items-center"><span class="font-badge-label text-badge-label text-outline uppercase">Storage</span><span class="font-code-sm text-code-sm text-on-surface-variant">4.2 / 10 GB</span></div><div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden"><div class="bg-primary h-full w-[42%]"></div></div><div class="flex justify-between items-center pt-space-xs"><span class="font-badge-label text-badge-label text-outline uppercase">Robots Deployed</span><span class="font-code-sm text-code-sm text-tertiary">3 / 5</span></div><div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden"><div class="bg-tertiary h-full w-[60%]"></div></div></div></aside><div class="pl-60"><main class="w-full pt-12 min-h-screen bg-surface"><div class="flex flex-col w-full">
+<!-- Command Toolbar / Validation Scope Header -->
+<div class="px-space-lg py-space-md bg-surface-container-low flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<!-- Title & Rig State -->
+<div class="flex items-center gap-space-md">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">Tests</h1>
+<span class="font-badge-label text-badge-label bg-surface-container px-space-xs py-0.5 rounded text-primary uppercase">
+          Automated Validation Matrix
+        </span>
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-sm py-1 rounded">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-code-sm text-code-sm text-emerald-400 font-medium">HIL Testbed Online · Synced</span>
+</div>
+</div>
+<!-- Quick Action Controls -->
+<div class="flex items-center gap-space-sm">
+<button class="h-8 px-space-md bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm rounded flex items-center gap-space-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Matrix Config</span>
+</button>
+<div class="inline-flex rounded overflow-hidden shadow-sm">
+<button class="h-8 px-space-md bg-primary-container hover:bg-inverse-primary text-on-primary font-headline-sm text-body-sm flex items-center gap-space-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">play_arrow</span>
+<span>Run Suite</span>
+</button>
+<button class="h-8 px-space-xs bg-primary-container hover:bg-inverse-primary text-on-primary transition-colors flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Filter chips & Search Row -->
+<div class="flex flex-wrap items-center justify-between gap-space-md pt-space-xs">
+<div class="flex flex-wrap items-center gap-space-xs">
+<button class="h-7 px-space-sm rounded bg-primary-container text-on-primary font-code-sm text-code-sm font-semibold tracking-wide" type="button">
+          All (12)
+        </button>
+<button class="h-7 px-space-sm rounded bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-code-sm text-code-sm transition-colors" type="button">
+          Unit (4)
+        </button>
+<button class="h-7 px-space-sm rounded bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-code-sm text-code-sm transition-colors" type="button">
+          Integration (2)
+        </button>
+<button class="h-7 px-space-sm rounded bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-code-sm text-code-sm transition-colors" type="button">
+          Simulation (3)
+        </button>
+<button class="h-7 px-space-sm rounded bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-code-sm text-code-sm transition-colors" type="button">
+          HIL (1)
+        </button>
+<button class="h-7 px-space-sm rounded bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-code-sm text-code-sm transition-colors" type="button">
+          Field (1)
+        </button>
+<button class="h-7 px-space-sm rounded bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-code-sm text-code-sm transition-colors" type="button">
+          Performance (1)
+        </button>
+</div>
+<div class="flex items-center gap-space-sm bg-surface-container-lowest px-space-md h-7 rounded w-72">
+<span class="material-symbols-outlined text-[16px] text-outline">search</span>
+<input class="bg-transparent border-0 outline-none font-code-sm text-code-sm text-on-surface placeholder:text-outline w-full" placeholder="Filter test suites, pytest markers, tags..." type="text"/>
+<kbd class="font-code-sm text-code-sm bg-surface-container-high text-on-surface-variant px-1 rounded text-[10px]">⌘K</kbd>
+</div>
+</div>
+</div>
+<!-- KPI / Metric Ribbon (Surface elevation Level 1) -->
+<div class="p-space-lg grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Card 1: Suites Passing -->
+<div class="bg-surface-container-low p-space-md rounded flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-badge-label text-badge-label uppercase text-outline">Suites Passing</span>
+<span class="font-code-sm text-code-sm text-emerald-400 bg-surface-container-lowest px-space-xs py-0.5 rounded">● All Green</span>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-headline-xl text-headline-xl font-bold text-emerald-400">12 / 12</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">100% stable</span>
+</div>
+<div class="mt-space-sm w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden">
+<div class="bg-emerald-400 h-full w-full"></div>
+</div>
+</div>
+<!-- Card 2: Pass Rate 7d -->
+<div class="bg-surface-container-low p-space-md rounded flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-badge-label text-badge-label uppercase text-outline">Pass Rate (7d)</span>
+<span class="font-code-sm text-code-sm text-tertiary font-medium">+1.4% vs last week</span>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="font-headline-xl text-headline-xl font-bold text-on-surface">100%</span>
+<!-- Sparkline indicator -->
+<svg class="w-24 h-6 text-tertiary" fill="none" viewbox="0 0 96 24">
+<polyline points="0,18 16,14 32,16 48,9 64,11 80,4 96,2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
+</svg>
+</div>
+<span class="font-body-sm text-body-sm text-outline mt-space-xs">648 assertions verified across 18 jobs</span>
+</div>
+<!-- Card 3: Mean Duration -->
+<div class="bg-surface-container-low p-space-md rounded flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-badge-label text-badge-label uppercase text-outline">Mean Duration</span>
+<span class="font-badge-label text-badge-label bg-surface-container text-primary px-space-xs py-0.5 rounded">Fast Runner</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-code-md text-headline-xl font-bold text-on-surface">4m 12s</span>
+</div>
+<div class="font-code-sm text-code-sm text-on-surface-variant mt-space-xs">
+        p95: <span class="text-on-surface font-semibold">6m 48s</span> · parallel slots: 4
+      </div>
+</div>
+<!-- Card 4: Hardware Rigs -->
+<div class="bg-surface-container-low p-space-md rounded flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-badge-label text-badge-label uppercase text-outline">Hardware Rigs</span>
+<span class="font-code-sm text-code-sm text-tertiary">2 Online</span>
+</div>
+<div class="flex flex-col gap-1 mt-space-xs">
+<div class="flex items-center justify-between font-code-sm text-code-sm">
+<span class="text-on-surface truncate">rig-alpha (HIL-01)</span>
+<span class="text-amber-400 bg-surface-container-lowest px-1 rounded">Busy</span>
+</div>
+<div class="flex items-center justify-between font-code-sm text-code-sm">
+<span class="text-on-surface truncate">rig-beta (CAN-02)</span>
+<span class="text-emerald-400 bg-surface-container-lowest px-1 rounded">Idle</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Docking Workstation Section (Fluid Left Table + Fixed Right Inspector) -->
+<div class="px-space-lg pb-space-xl flex flex-col lg:flex-row gap-space-md items-start">
+<!-- LEFT PANE: Test Suite Table -->
+<div class="flex-1 w-full bg-surface-container-low rounded overflow-hidden shadow-sm flex flex-col">
+<!-- Section subheader -->
+<div class="px-space-md py-space-sm bg-surface-container flex items-center justify-between">
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">fact_check</span>
+<span>Test Suites Matrix</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">colcon test &amp; pytest runners across software, hardware-in-the-loop and simulation targets</p>
+</div>
+<span class="font-badge-label text-badge-label bg-surface-container-high text-on-surface-variant px-space-xs py-0.5 rounded">6 Active Suites</span>
+</div>
+<!-- Table Header -->
+<div class="grid grid-cols-12 px-space-md py-1.5 bg-surface-container-lowest font-headline-sm text-[11px] text-outline uppercase tracking-wider items-center">
+<div class="col-span-5">Suite Name &amp; Description</div>
+<div class="col-span-2">Kind</div>
+<div class="col-span-2">Status</div>
+<div class="col-span-1">Duration</div>
+<div class="col-span-2 text-right">Runs (10)</div>
+</div>
+<!-- Rows Container -->
+<div class="flex flex-col text-on-surface-variant font-body-sm text-body-sm divide-y-0">
+<!-- Row 1: unit_kinematics -->
+<div class="grid grid-cols-12 px-space-md py-space-sm items-center hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="col-span-5 flex flex-col min-w-0 pr-space-sm">
+<span class="font-code-md text-code-md text-on-surface font-semibold group-hover:text-primary transition-colors">unit_kinematics</span>
+<span class="text-outline truncate text-[11px]">Forward/inverse kinematics, Jacobians &amp; FK solver limits</span>
+</div>
+<div class="col-span-2">
+<span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-surface-container text-tertiary font-semibold uppercase">unit</span>
+</div>
+<div class="col-span-2 flex flex-col">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-emerald-400">check_circle</span>
+<span class="text-emerald-400 font-code-sm text-code-sm">12 / 12 ✓</span>
+</div>
+<span class="text-outline text-[10px] font-code-sm">passed 18m ago</span>
+</div>
+<div class="col-span-1 font-code-sm text-code-sm text-on-surface">18.4s</div>
+<div class="col-span-2 flex items-center justify-end gap-1">
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+</div>
+</div>
+<!-- Row 2 (SELECTED): integration_can_bus -->
+<div class="grid grid-cols-12 px-space-md py-space-sm items-center bg-surface-container-high transition-colors cursor-pointer relative shadow-inner">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="col-span-5 flex flex-col min-w-0 pr-space-sm pl-1">
+<div class="flex items-center gap-1.5">
+<span class="font-code-md text-code-md text-primary font-bold">integration_can_bus</span>
+<span class="font-badge-label text-[9px] bg-primary text-on-primary px-1 rounded uppercase">Active View</span>
+</div>
+<span class="text-on-surface truncate text-[11px]">CAN-FD arbitration, socketcan bus recovery &amp; ODRI packet jitter</span>
+</div>
+<div class="col-span-2">
+<span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-primary-container text-on-primary font-semibold uppercase">integration</span>
+</div>
+<div class="col-span-2 flex flex-col">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-emerald-400">check_circle</span>
+<span class="text-emerald-400 font-code-sm text-code-sm">8 / 8 ✓</span>
+</div>
+<span class="text-amber-400 text-[10px] font-code-sm">passed 34m ago (1 flaky)</span>
+</div>
+<div class="col-span-1 font-code-sm text-code-sm text-on-surface font-semibold">1m 42s</div>
+<div class="col-span-2 flex items-center justify-end gap-1">
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-amber-400 animate-pulse" title="Flaky retry in run #402"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+</div>
+</div>
+<!-- Row 3: sim_rough_terrain -->
+<div class="grid grid-cols-12 px-space-md py-space-sm items-center hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="col-span-5 flex flex-col min-w-0 pr-space-sm">
+<span class="font-code-md text-code-md text-on-surface font-semibold group-hover:text-primary transition-colors">sim_rough_terrain</span>
+<span class="text-outline truncate text-[11px]">Gazebo physics headless regression, stair ascent stability &amp; tip-over margin</span>
+</div>
+<div class="col-span-2">
+<span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-surface-container text-secondary font-semibold uppercase">simulation</span>
+</div>
+<div class="col-span-2 flex flex-col">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-emerald-400">check_circle</span>
+<span class="text-emerald-400 font-code-sm text-code-sm">6 / 6 ✓</span>
+</div>
+<span class="text-outline text-[10px] font-code-sm">passed 1h ago</span>
+</div>
+<div class="col-span-1 font-code-sm text-code-sm text-on-surface">3m 15s</div>
+<div class="col-span-2 flex items-center justify-end gap-1">
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+</div>
+</div>
+<!-- Row 4: perf_control_loop -->
+<div class="grid grid-cols-12 px-space-md py-space-sm items-center hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="col-span-5 flex flex-col min-w-0 pr-space-sm">
+<span class="font-code-md text-code-md text-on-surface font-semibold group-hover:text-primary transition-colors">perf_control_loop</span>
+<span class="text-outline truncate text-[11px]">1000 Hz real-time jitter, cyclonedds latency &amp; thread priority benchmarks</span>
+</div>
+<div class="col-span-2">
+<span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-semibold uppercase">performance</span>
+</div>
+<div class="col-span-2 flex flex-col">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-emerald-400">check_circle</span>
+<span class="text-emerald-400 font-code-sm text-code-sm">4 / 4 ✓</span>
+</div>
+<span class="text-outline text-[10px] font-code-sm">passed 2h ago</span>
+</div>
+<div class="col-span-1 font-code-sm text-code-sm text-on-surface">45.0s</div>
+<div class="col-span-2 flex items-center justify-end gap-1">
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+</div>
+</div>
+<!-- Row 5: hil_battery_discharge -->
+<div class="grid grid-cols-12 px-space-md py-space-sm items-center hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="col-span-5 flex flex-col min-w-0 pr-space-sm">
+<span class="font-code-md text-code-md text-on-surface font-semibold group-hover:text-primary transition-colors">hil_battery_discharge</span>
+<span class="text-outline truncate text-[11px]">High-draw thermal cutoffs, BMS I2C telemetry &amp; undervoltage protection</span>
+</div>
+<div class="col-span-2">
+<span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-surface-container text-amber-400 font-semibold uppercase">hil</span>
+</div>
+<div class="col-span-2 flex flex-col">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-amber-400">warning</span>
+<span class="text-amber-400 font-code-sm text-code-sm">4 / 6 — 2 skipped</span>
+</div>
+<span class="text-amber-400/80 text-[10px] font-code-sm">warning 3h ago</span>
+</div>
+<div class="col-span-1 font-code-sm text-code-sm text-on-surface">5m 20s</div>
+<div class="col-span-2 flex items-center justify-end gap-1">
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-amber-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-amber-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+</div>
+</div>
+<!-- Row 6: field_mud_trial -->
+<div class="grid grid-cols-12 px-space-md py-space-sm items-center hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="col-span-5 flex flex-col min-w-0 pr-space-sm">
+<span class="font-code-md text-code-md text-on-surface font-semibold group-hover:text-primary transition-colors">field_mud_trial</span>
+<span class="text-outline truncate text-[11px]">Recorded replay telemetry verification on outdoor slip &amp; terrain profiles</span>
+</div>
+<div class="col-span-2">
+<span class="font-code-sm text-code-sm px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-semibold uppercase">field</span>
+</div>
+<div class="col-span-2 flex flex-col">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-emerald-400">check_circle</span>
+<span class="text-emerald-400 font-code-sm text-code-sm">10 / 10 ✓</span>
+</div>
+<span class="text-outline text-[10px] font-code-sm">passed 1d ago</span>
+</div>
+<div class="col-span-1 font-code-sm text-code-sm text-on-surface">8m 10s</div>
+<div class="col-span-2 flex items-center justify-end gap-1">
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+<span class="w-1.5 h-4 rounded-sm bg-emerald-400"></span>
+</div>
+</div>
+</div>
+<!-- Table Bottom Metadata Summary -->
+<div class="mt-auto px-space-md py-space-sm bg-surface-container-lowest flex items-center justify-between text-outline font-code-sm text-code-sm">
+<span>Hardware rig profile: <strong class="text-on-surface">hil-01-can-stm32h7</strong></span>
+<span>Aggregated execution time: <strong class="text-on-surface">19m 30.4s</strong></span>
+</div>
+</div>
+<!-- RIGHT PANE: Dedicated Suite Inspector (380px) -->
+<div class="w-full lg:w-[380px] shrink-0 bg-surface-container-low rounded overflow-hidden shadow-sm flex flex-col">
+<!-- Inspector Header -->
+<div class="p-space-md bg-surface-container flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Results — integration_can_bus</span>
+<span class="material-symbols-outlined text-[16px] text-outline cursor-pointer hover:text-on-surface">open_in_new</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-badge-label text-badge-label bg-surface-container-highest text-primary px-space-xs py-0.5 rounded">v2.2.0 · commit a83fd21</span>
+</div>
+<span class="font-code-sm text-code-sm text-outline">Run #409 · Executed on runner-02 (can0 rig) · 1m 42s</span>
+</div>
+<!-- Test Cases List -->
+<div class="p-space-md flex flex-col gap-space-xs">
+<span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Test Cases (8 items)</span>
+<div class="space-y-1">
+<!-- Case 1 -->
+<div class="flex items-center justify-between p-1.5 bg-surface-container-lowest rounded hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[14px] text-emerald-400">check_circle</span>
+<span class="font-code-sm text-code-sm text-on-surface truncate">test_socketcan_initialization</span>
+</div>
+<span class="font-code-sm text-code-sm text-outline shrink-0">120ms</span>
+</div>
+<!-- Case 2 -->
+<div class="flex items-center justify-between p-1.5 bg-surface-container-lowest rounded hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[14px] text-emerald-400">check_circle</span>
+<span class="font-code-sm text-code-sm text-on-surface truncate">test_odri_heartbeat_sync</span>
+</div>
+<span class="font-code-sm text-code-sm text-outline shrink-0">350ms</span>
+</div>
+<!-- Case 3: Flaky / Warning -->
+<div class="flex flex-col p-1.5 bg-surface-container rounded gap-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[14px] text-amber-400">warning</span>
+<span class="font-code-sm text-code-sm text-amber-400 font-semibold truncate">test_fd_arbitration_fallback</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface font-semibold shrink-0">890ms</span>
+</div>
+<div class="pl-5">
+<span class="font-badge-label text-[9px] bg-amber-400/10 text-amber-400 px-1 py-0.5 rounded font-mono">
+                flaky (passed on retry 2)
+              </span>
+</div>
+</div>
+<!-- Case 4 -->
+<div class="flex items-center justify-between p-1.5 bg-surface-container-lowest rounded hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[14px] text-emerald-400">check_circle</span>
+<span class="font-code-sm text-code-sm text-on-surface truncate">test_busoff_state_recovery</span>
+</div>
+<span class="font-code-sm text-code-sm text-outline shrink-0">410ms</span>
+</div>
+<!-- Case 5 -->
+<div class="flex items-center justify-between p-1.5 bg-surface-container-lowest rounded hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[14px] text-emerald-400">check_circle</span>
+<span class="font-code-sm text-code-sm text-on-surface truncate">test_circular_buffer_overflow_drop</span>
+</div>
+<span class="font-code-sm text-code-sm text-outline shrink-0">95ms</span>
+</div>
+<!-- Case 6 -->
+<div class="flex items-center justify-between p-1.5 bg-surface-container-lowest rounded hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[14px] text-emerald-400">check_circle</span>
+<span class="font-code-sm text-code-sm text-on-surface truncate">test_baud_auto_negotiation_5m</span>
+</div>
+<span class="font-code-sm text-code-sm text-outline shrink-0">210ms</span>
+</div>
+</div>
+</div>
+<!-- Console Log Excerpt Box -->
+<div class="px-space-md pb-space-sm flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-badge-label text-badge-label uppercase text-outline">Execution Log (can0 @ 5Mbit)</span>
+<span class="font-code-sm text-[10px] text-tertiary">Realtime Stream</span>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded font-code-sm text-[11px] leading-tight space-y-1 overflow-x-auto shadow-inner text-on-surface-variant">
+<div class="flex items-start gap-1">
+<span class="text-outline shrink-0">[00:00.12]</span>
+<span class="text-emerald-400 font-bold shrink-0">[PASS]</span>
+<span class="text-on-surface">socketcan: device can0 bound to interface eth-can-bridge</span>
+</div>
+<div class="flex items-start gap-1">
+<span class="text-outline shrink-0">[00:00.47]</span>
+<span class="text-emerald-400 font-bold shrink-0">[PASS]</span>
+<span class="text-on-surface">odri_node: synchronized with 4 motor controllers (sync_tick=1000Hz)</span>
+</div>
+<div class="flex items-start gap-1">
+<span class="text-outline shrink-0">[00:01.02]</span>
+<span class="text-amber-400 font-bold shrink-0">[WARN]</span>
+<span class="text-amber-400">can_arbitration: frame 0x1A4 dropped during high-load burst (retry 1 failed, code=EAGAIN)</span>
+</div>
+<div class="flex items-start gap-1">
+<span class="text-outline shrink-0">[00:01.08]</span>
+<span class="text-emerald-400 font-bold shrink-0">[PASS]</span>
+<span class="text-emerald-400">can_arbitration: retry 2 successful (fallback buffer cleared, Δt=58µs)</span>
+</div>
+<div class="flex items-start gap-1">
+<span class="text-outline shrink-0">[00:01.42]</span>
+<span class="text-emerald-400 font-bold shrink-0">[PASS]</span>
+<span class="text-emerald-400 font-medium">tear_down: all 8 assertions passed cleanly</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons Bar -->
+<div class="p-space-md mt-auto bg-surface-container flex items-center justify-between gap-space-xs">
+<button class="h-8 px-space-sm bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-on-surface rounded font-body-sm text-body-sm transition-colors truncate" type="button">
+          View Full Log (2.4k)
+        </button>
+<div class="flex items-center gap-space-xs">
+<button class="h-8 w-8 bg-surface-container-high hover:bg-surface-bright text-outline hover:text-on-surface rounded flex items-center justify-center transition-colors" title="Export JUnit XML" type="button">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+</button>
+<button class="h-8 px-space-md bg-primary-container hover:bg-inverse-primary text-on-primary font-headline-sm text-body-sm rounded flex items-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+<span>Re-run</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

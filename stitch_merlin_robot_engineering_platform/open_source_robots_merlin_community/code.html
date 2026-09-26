@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"error-container":"#93000a","on-error-container":"#ffdad6","on-primary-container":"#00275e","on-surface":"#dfe2f0","surface-tint":"#aec6ff","on-primary":"#002e6b","tertiary-fixed-dim":"#4cd7f6","secondary-container":"#571bc1","tertiary-fixed":"#acedff","tertiary":"#4cd7f6","on-error":"#690005","primary-fixed-dim":"#aec6ff","primary-container":"#4f8eff","surface":"#0f131d","background":"#0f131d","surface-container-low":"#171c25","on-secondary-fixed-variant":"#5516be","on-tertiary-fixed":"#001f26","surface-container-high":"#262a34","inverse-surface":"#dfe2f0","secondary":"#d0bcff","error":"#ffb4ab","surface-dim":"#0f131d","primary":"#aec6ff","secondary-fixed":"#e9ddff","inverse-primary":"#005ac4","inverse-on-surface":"#2c303b","primary-fixed":"#d8e2ff","outline":"#8c90a0","surface-container-highest":"#31353f","on-surface-variant":"#c2c6d6","on-primary-fixed-variant":"#004396","surface-container-lowest":"#0a0e17","secondary-fixed-dim":"#d0bcff","surface-bright":"#353944","surface-container":"#1b2029","on-primary-fixed":"#001a42","outline-variant":"#424754","on-secondary-fixed":"#23005c","on-secondary":"#3c0091","on-tertiary-fixed-variant":"#004e5c","surface-variant":"#31353f","on-tertiary":"#003640","tertiary-container":"#009eb9","on-background":"#dfe2f0","on-secondary-container":"#c4abff","on-tertiary-container":"#002f38"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-lg":"0.75rem","space-md":"0.5rem","margin":"0.75rem","space-sm":"0.375rem","space-xs":"0.25rem","space-xl":"1rem","gutter":"0.5rem"},fontFamily:{"badge-label":["JetBrains Mono"],"headline-lg":["Inter"],"headline-sm":["Inter"],"headline-xl":["Inter"],"body-md":["Inter"],"code-sm":["JetBrains Mono"],"body-sm":["Inter"],"code-md":["JetBrains Mono"]},fontSize:{"badge-label":["0.625rem",{"lineHeight":"0.75rem","letterSpacing":"0.05em","fontWeight":"600"}],"headline-lg":["1.125rem",{"lineHeight":"1.5rem","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-sm":["0.875rem",{"lineHeight":"1.25rem","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-xl":["1.5rem",{"lineHeight":"2rem","letterSpacing":"-0.02em","fontWeight":"600"}],"body-md":["0.8125rem",{"lineHeight":"1.25rem","letterSpacing":"0em","fontWeight":"400"}],"code-sm":["0.6875rem",{"lineHeight":"0.875rem","letterSpacing":"0.02em","fontWeight":"500"}],"body-sm":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0em","fontWeight":"400"}],"code-md":["0.8125rem",{"lineHeight":"1.25rem","letterSpacing":"-0.01em","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-14 px-space-xl flex items-center justify-between bg-surface-container-lowest"><div class="flex items-center gap-space-sm"><div class="w-6 h-6 rounded bg-secondary-container flex items-center justify-center text-on-secondary-container font-headline-sm text-headline-sm font-bold tracking-tight">M</div><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight uppercase">MERLIN</span><span class="font-code-sm text-code-sm text-secondary bg-secondary-container/40 px-space-xs py-0.5 rounded">OS</span></div></div><div class="flex items-center gap-1.5 px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-sm text-code-sm"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span><span>v2.4</span></div></div><div class="px-space-md py-space-sm"><div class="px-space-sm py-space-xs text-on-surface-variant font-code-sm text-code-sm uppercase tracking-wider">Global Scope</div><nav class="mt-space-xs flex flex-col gap-0.5" data-active-classes="bg-secondary-container text-on-secondary-container font-headline-sm rounded-lg"><a class="group flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="home-explore" href="#"><span class="material-symbols-outlined text-[18px]">explore</span><span>Home / Explore</span></a><a class="group flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="robots" href="#"><span class="material-symbols-outlined text-[18px]">smart_toy</span><span>Robots (All Robots)</span></a><a aria-current="page" class="group flex items-center justify-between px-space-sm py-1.5 transition-all bg-secondary-container text-on-secondary-container font-headline-sm rounded-lg" data-path="open-source" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">terminal</span><span>Open Source</span></div><span class="font-badge-label text-badge-label bg-secondary-container text-on-secondary-container px-space-xs py-0.5 rounded font-bold uppercase tracking-wider">Active</span></a><a class="group flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="module-registry" href="#"><span class="material-symbols-outlined text-[18px]">extension</span><span>Module Registry</span></a><a class="group flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="hardware-marketplace" href="#"><span class="material-symbols-outlined text-[18px]">memory</span><span>Hardware Marketplace</span></a></nav></div><div class="px-space-md py-space-sm"><div class="px-space-sm py-space-xs text-on-surface-variant font-code-sm text-code-sm uppercase tracking-wider">Community &amp; Ecosystem</div><nav class="mt-space-xs flex flex-col gap-0.5" data-active-classes="bg-secondary-container text-on-secondary-container font-headline-sm rounded-lg"><a class="group flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="collections" href="#"><span class="material-symbols-outlined text-[18px]">folder_special</span><span>Collections</span></a><a class="group flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="benchmarks" href="#"><span class="material-symbols-outlined text-[18px]">speed</span><span>Benchmarks</span></a><a class="group flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="standards" href="#"><span class="material-symbols-outlined text-[18px]">verified</span><span>Standards</span></a></nav></div></div><div class="p-space-md bg-surface-container-lowest flex flex-col gap-space-sm"><div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></div><div class="flex flex-col"><span class="font-code-sm text-code-sm text-on-surface font-semibold">SIM CLUSTER</span><span class="font-code-sm text-code-sm text-on-surface-variant">LATENCY 14ms</span></div></div><span class="font-badge-label text-badge-label bg-surface-container-high text-secondary px-space-xs py-0.5 rounded font-bold">99.98%</span></div><div class="flex items-center justify-between px-space-sm py-space-xs"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[16px]">person</span></div><div class="flex flex-col"><span class="font-body-sm text-body-sm text-on-surface font-semibold leading-tight">operator@merlin</span><span class="font-code-sm text-code-sm text-on-surface-variant leading-tight">Node root</span></div></div><button aria-label="Console Settings" class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high p-1 rounded transition-colors"><span class="material-symbols-outlined text-[18px]">tune</span></button></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-14 bg-surface-container-lowest/90 backdrop-blur-xl z-40 flex items-center justify-between px-space-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-lg flex-1 max-w-2xl"><div class="flex items-center gap-space-sm px-space-md py-1.5 rounded-lg bg-surface-container w-full max-w-lg text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer"><span class="material-symbols-outlined text-[18px] text-on-surface-variant">search</span><span class="font-body-sm text-body-sm text-on-surface-variant flex-1 select-none">Search public robots, modules, manifests...</span><kbd class="font-code-sm text-code-sm bg-surface-container-highest text-on-surface-variant px-space-xs py-0.5 rounded font-semibold select-none">⌘K</kbd></div><div class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded bg-secondary-container/40 text-secondary font-badge-label text-badge-label select-none"><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span><span>ECOSYSTEM LIVE</span></div></div><div class="flex items-center gap-space-md"><a class="inline-flex items-center gap-space-xs px-space-lg py-1.5 rounded bg-secondary-container text-on-secondary-container hover:bg-secondary hover:text-on-secondary font-headline-sm text-headline-sm transition-all shadow-sm" data-path="publish-robot" href="#"><span class="material-symbols-outlined text-[16px]">add</span><span>Publish Robot</span></a><button aria-label="Notifications" class="w-8 h-8 rounded flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors relative"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-secondary rounded-full"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-14 w-full bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Command & Discover Bar -->
+<div class="px-space-xl py-space-lg flex flex-col gap-space-lg bg-surface-container-lowest">
+<!-- Header Section -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-secondary-container via-[#9333ea] to-secondary flex items-center justify-center text-on-secondary shadow-lg shadow-secondary/20">
+<span class="material-symbols-outlined text-[24px]">terminal</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm">
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-bold">Open Source Robots</h1>
+<span class="px-space-sm py-0.5 rounded-full bg-secondary-container/50 text-secondary font-code-sm text-code-sm uppercase tracking-wider flex items-center gap-1 font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+              Community Manifests · 1,480 Public Designs
+            </span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Validated kinematic models, EDA packages, firmware trees, and simulation workspaces ready for fabrication.</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="inline-flex items-center gap-space-xs px-space-lg py-2 rounded bg-gradient-to-r from-secondary-container via-[#7e22ce] to-[#9333ea] text-on-secondary hover:brightness-110 font-headline-sm text-headline-sm transition-all shadow-md shadow-secondary-container/30 font-semibold cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">cloud_upload</span>
+<span>Publish Open Source</span>
+</button>
+</div>
+</div>
+<!-- Search and Query Bar -->
+<div class="relative w-full">
+<div class="flex items-center gap-space-sm px-space-lg py-2.5 rounded-xl bg-surface-container-low text-on-surface-variant focus-within:bg-surface-container focus-within:text-on-surface transition-all shadow-inner">
+<span class="material-symbols-outlined text-[22px] text-secondary">search</span>
+<input class="bg-transparent border-0 outline-none w-full text-on-surface placeholder:text-on-surface-variant/60 font-body-md text-body-md" id="globalSearchInput" placeholder="Search public robots, kinematics, manifests, authors... (press / to focus)" type="text"/>
+<div class="flex items-center gap-1.5">
+<kbd class="font-code-sm text-code-sm bg-surface-container-high text-on-surface-variant px-space-xs py-0.5 rounded">⌘</kbd>
+<kbd class="font-code-sm text-code-sm bg-surface-container-high text-on-surface-variant px-space-xs py-0.5 rounded">/</kbd>
+</div>
+</div>
+</div>
+<!-- Filter Filter-Pills Strip -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 scrollbar-none">
+<button class="px-space-md py-1 rounded-full bg-secondary-container text-on-secondary-container font-code-sm text-code-sm font-semibold flex items-center gap-1.5 shadow-sm shadow-secondary/30 transition-all">
+<span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+<span>Trending</span>
+</button>
+<button class="px-space-md py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-code-sm text-code-sm font-medium transition-colors">
+        New
+      </button>
+<button class="px-space-md py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-code-sm text-code-sm font-medium transition-colors">
+        Most Cloned
+      </button>
+<div class="h-4 w-px bg-surface-container-highest mx-1"></div>
+<button class="px-space-md py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-code-sm text-code-sm font-medium transition-colors">
+        Quadrupeds
+      </button>
+<button class="px-space-md py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-code-sm text-code-sm font-medium transition-colors">
+        Arms
+      </button>
+<button class="px-space-md py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-code-sm text-code-sm font-medium transition-colors">
+        Rovers
+      </button>
+<button class="px-space-md py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-code-sm text-code-sm font-medium transition-colors">
+        Bipedal
+      </button>
+<button class="px-space-md py-1 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-code-sm text-code-sm font-medium transition-colors">
+        Drones
+      </button>
+</div>
+</div>
+<!-- HERO STRIP: Visual Blueprint & Featured Flagships -->
+<div class="p-space-xl flex flex-col gap-space-lg bg-surface">
+<!-- Integrated Visual Canvas with Image Asset -->
+<div class="relative w-full rounded-2xl overflow-hidden bg-surface-container-lowest shadow-2xl">
+<!-- Background Render Graphic -->
+<div class="relative h-64 lg:h-72 w-full overflow-hidden">
+<img alt="Technical 3D CAD engineering renders of three open source robots: ODRI Solo-12, LowCostArm, and FieldBot" class="w-full h-full object-cover object-center filter brightness-90 contrast-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMtDhcEXXKW-O8MS_lAKKmNukxbX8RExYC69g01cEgv_auYv8GGGN9pNub8JQCXaHlDsio7MxfYN4tL4coC5dnFLlLKKV51JnSfXJrScsKHR-pSRwPpmPHVnGKIvaNavgYXuyhUdn7GaynZ7Gm1lLAwVwPpo0eFzd2su_QWGYN6R_NlukuMw1mHwy8iIG4y_bs4yBXbT9X-qPoNJ6lhXF2RWjwaWHylUM60SN7epdy91vEVd3jE7lq"/>
+<!-- Deep Gradient Scrim overlay -->
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-surface-container-lowest/80 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-surface-container-lowest/30"></div>
+<!-- Hero Metadata Floating Tag -->
+<div class="absolute top-space-lg left-space-lg z-10 flex items-center gap-space-sm">
+<span class="px-space-sm py-1 rounded bg-secondary-container text-on-secondary-container font-badge-label text-badge-label uppercase tracking-widest font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+            MERLIN REFERENCE REPOSITORY
+          </span>
+<span class="px-space-sm py-1 rounded bg-surface-container-high/80 backdrop-blur-md text-on-surface font-code-sm text-code-sm">
+            CYCLE 2025.Q2 · AUDITED BUILD MANIFESTS
+          </span>
+</div>
+<div class="absolute bottom-space-lg left-space-lg max-w-xl z-10">
+<div class="flex items-center gap-space-xs text-secondary font-code-sm text-code-sm uppercase tracking-widest mb-1">
+<span class="material-symbols-outlined text-[16px]">all_inclusive</span> Complete Machine Manifests
+          </div>
+<h2 class="font-headline-xl text-headline-xl text-on-surface font-bold tracking-tight">
+            Production-Ready Open Robotics
+          </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+            Every highlighted machine contains fabrication-ready CAD, Gerber files for custom electronics, tested motor firmware, and dynamic physics simulations in Gazebo and Isaac Sim.
+          </p>
+</div>
+<!-- Telemetry Pill in Top Right -->
+<div class="absolute top-space-lg right-space-lg hidden sm:flex items-center gap-space-sm bg-surface-container-lowest/80 backdrop-blur-md px-space-md py-1.5 rounded-lg">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span>
+<span class="font-code-sm text-code-sm text-tertiary font-semibold">14,289 ACTIVE SIM NODES</span>
+</div>
+</div>
+</div>
+<!-- 3 High-Impact Featured Robot Cards -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg">
+<!-- Card 1: ODRI Solo-12 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between shadow-lg group">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded bg-secondary-container/80 text-on-secondary-container font-badge-label text-badge-label font-bold uppercase tracking-wider flex items-center gap-1">
+                ★ FEATURED
+              </span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-sm text-code-sm">
+                CERN-OHL-P-2.0
+              </span>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-code-sm text-code-sm">
+<span class="flex items-center gap-0.5 text-secondary"><span class="material-symbols-outlined text-[14px]">star</span> 3.4k</span>
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[14px]">fork_right</span> 842</span>
+</div>
+</div>
+<div class="mt-1">
+<div class="flex items-baseline justify-between">
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface group-hover:text-secondary transition-colors">ODRI Solo-12</h3>
+<span class="font-code-sm text-code-sm text-secondary">@open_dynamic_robot</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs leading-relaxed">
+              12-DoF lightweight dynamic quadruped robot designed for agile locomotion research. 3D-printable structure with custom brushless actuators.
+            </p>
+</div>
+<!-- Completeness verification tokens -->
+<div class="grid grid-cols-4 gap-1.5 py-space-xs">
+<div class="px-1.5 py-1 rounded bg-surface-container-high flex items-center justify-center gap-1 text-tertiary font-code-sm text-code-sm">
+<span class="font-semibold">CAD</span><span class="text-tertiary">✓</span>
+</div>
+<div class="px-1.5 py-1 rounded bg-surface-container-high flex items-center justify-center gap-1 text-tertiary font-code-sm text-code-sm">
+<span class="font-semibold">PCB</span><span class="text-tertiary">✓</span>
+</div>
+<div class="px-1.5 py-1 rounded bg-surface-container-high flex items-center justify-center gap-1 text-tertiary font-code-sm text-code-sm">
+<span class="font-semibold">URDF</span><span class="text-tertiary">✓</span>
+</div>
+<div class="px-1.5 py-1 rounded bg-surface-container-high flex items-center justify-center gap-1 text-tertiary font-code-sm text-code-sm">
+<span class="font-semibold">Gazebo</span><span class="text-tertiary">✓</span>
+</div>
+</div>
+</div>
+<div class="pt-space-md mt-space-xs flex items-center justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant font-code-sm text-code-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary">speed</span>
+<span>2.8 m/s speed</span>
+</div>
+<button class="px-space-md py-1.5 rounded bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-headline-sm text-headline-sm transition-all flex items-center gap-1 font-semibold">
+<span>Explore Robot</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 2: LowCostArm -->
+<div class="p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between shadow-lg group">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded bg-secondary-container/80 text-on-secondary-container font-badge-label text-badge-label font-bold uppercase tracking-wider flex items-center gap-1">
+                ★ FEATURED
+              </span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-sm text-code-sm">
+                MIT License
+              </span>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-code-sm text-code-sm">
+<span class="flex items-center gap-0.5 text-secondary"><span class="material-symbols-outlined text-[14px]">star</span> 2.8k</span>
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[14px]">fork_right</span> 615</span>
+</div>
+</div>
+<div class="mt-1">
+<div class="flex items-baseline justify-between">
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface group-hover:text-secondary transition-colors">LowCostArm</h3>
+<span class="font-code-sm text-code-sm text-secondary">@alexlin</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs leading-relaxed">
+              5-axis 3D printed desktop robotic arm utilizing off-the-shelf stepper motors, cycloidal gearboxes, and ROS 2 Jazzy controllers.
+            </p>
+</div>
+<!-- Completeness verification tokens -->
+<div class="grid grid-cols-4 gap-1.5 py-space-xs">
+<div class="px-1.5 py-1 rounded bg-surface-container-high flex items-center justify-center gap-1 text-tertiary font-code-sm text-code-sm">
+<span class="font-semibold">CAD</span><span class="text-tertiary">✓</span>
+</div>
+<div class="px-1.5 py-1 rounded bg-surface-container-high flex items-center justify-center gap-1 text-tertiary font-code-sm text-code-sm">
+<span class="font-semibold">PCB</span><span class="text-tertiary">✓</span>
+</div>
+<div class="px-1.5 py-1 rounded bg-surface-container-high flex items-center justify-center gap-1 text-tertiary font-code-sm text-code-sm">
+<span class="font-semibold">ROS 2</span><span class="text-tertiary">✓</span>
+</div>
+<div class="px-1.5 py-1 rounded bg-surface-container-high flex items-center justify-center gap-1 text-tertiary font-code-sm text-code-sm">
+<span class="font-semibold">URDF</span><span class="text-tertiary">✓</span>
+</div>
+</div>
+</div>
+<div class="pt-space-md mt-space-xs flex items-center justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant font-code-sm text-code-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary">precision_manufacturing</span>
+<span>0.75 kg payload</span>
+</div>
+<button class="px-space-md py-1.5 rounded bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-headline-sm text-headline-sm transition-all flex items-center gap-1 font-semibold">
+<span>Explore Robot</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 3: FieldBot -->
+<div class="p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between shadow-lg group">
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded bg-secondary-container/80 text-on-secondary-container font-badge-label text-badge-label font-bold uppercase tracking-wider flex items-center gap-1">
+                ★ FEATURED
+              </span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-sm text-code-sm">
+                CERN-OHL-P-2.0
+              </span>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-code-sm text-code-sm">
+<span class="flex items-center gap-0.5 text-secondary"><span class="material-symbols-outlined text-[14px]">star</span> 1.9k</span>
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[14px]">fork_right</span> 430</span>
+</div>
+</div>
+<div class="mt-1">
+<div class="flex items-baseline justify-between">
+<h3 class="font-headline-lg text-headline-lg font-bold text-on-surface group-hover:text-secondary transition-colors">FieldBot</h3>
+<span class="font-code-sm text-code-sm text-secondary">@terra_autonomy</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs leading-relaxed">
+              Rugged 4WD outdoor autonomy rover equipped with 360° LiDAR tower, depth camera mast, RTK GPS, and IP65 payload bay.
+            </p>
+</div>
+<!-- Completeness verification tokens -->
+<div class="grid grid-cols-4 gap-1.5 py-space-xs">
+<div class="px-1.5 py-1 rounded bg-surface-container-high flex items-center justify-center gap-1 text-tertiary font-code-sm text-code-sm">
+<span class="font-semibold">CAD</span><span class="text-tertiary">✓</span>
+</div>
+<div class="px-1.5 py-1 rounded bg-surface-container-high flex items-center justify-center gap-1 text-tertiary font-code-sm text-code-sm">
+<span class="font-semibold">Altium</span><span class="text-tertiary">✓</span>
+</div>
+<div class="px-1.5 py-1 rounded bg-surface-container-high flex items-center justify-center gap-1 text-tertiary font-code-sm text-code-sm">
+<span class="font-semibold">Nav2</span><span class="text-tertiary">✓</span>
+</div>
+<div class="px-1.5 py-1 rounded bg-surface-container-high flex items-center justify-center gap-1 text-tertiary font-code-sm text-code-sm">
+<span class="font-semibold">Docker</span><span class="text-tertiary">✓</span>
+</div>
+</div>
+</div>
+<div class="pt-space-md mt-space-xs flex items-center justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant font-code-sm text-code-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary">battery_charging_full</span>
+<span>6 hrs endurance</span>
+</div>
+<button class="px-space-md py-1.5 rounded bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-headline-sm text-headline-sm transition-all flex items-center gap-1 font-semibold">
+<span>Explore Robot</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- MAIN SECTION: Two Column Community Layout -->
+<div class="px-space-xl pb-space-xl flex flex-col xl:flex-row gap-space-lg">
+<!-- LEFT COLUMN: 4-Column Community Grid & Releases -->
+<div class="flex-1 flex flex-col gap-space-md">
+<!-- Section subheader and controls -->
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface">Community Releases &amp; Forks</h2>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-sm text-code-sm font-semibold">8 NEW TODAY</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1 px-space-sm py-1 rounded bg-surface-container text-on-surface-variant font-code-sm text-code-sm cursor-pointer hover:bg-surface-container-high">
+<span>Sort: Most Recent Activity</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</div>
+<div class="flex items-center bg-surface-container rounded p-0.5">
+<button aria-label="Grid View" class="p-1 rounded bg-surface-container-high text-secondary">
+<span class="material-symbols-outlined text-[16px]">grid_view</span>
+</button>
+<button aria-label="List View" class="p-1 rounded text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">view_list</span>
+</button>
+</div>
+</div>
+</div>
+<!-- 4-Column Grid of 8 Community Robots -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Community Card 1: MiniPupper-2 -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between shadow group">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm">
+<span class="text-secondary font-medium">@mangdang</span>
+<span class="bg-surface-container-high px-1.5 py-0.5 rounded">Apache-2.0</span>
+</div>
+<div class="mt-1">
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-secondary transition-colors truncate">MiniPupper-2</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-0.5">8-DoF quadruped with camera module and OpenCV tracking pipelines.</p>
+</div>
+<!-- Completeness 4 green dots -->
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1.5 font-code-sm text-code-sm text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>CAD</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>EDA</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>SW</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>SIM</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-code-sm text-code-sm">
+<span>★ 890</span>
+<span>⑂ 210</span>
+</div>
+<button class="px-space-sm py-1 rounded bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-code-sm text-code-sm font-semibold transition-all">
+              Clone
+            </button>
+</div>
+</div>
+<!-- Community Card 2: Kangaroo-Biped -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between shadow group">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm">
+<span class="text-secondary font-medium">@mit_biomimetic</span>
+<span class="bg-surface-container-high px-1.5 py-0.5 rounded">CERN-OHL-W</span>
+</div>
+<div class="mt-1">
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-secondary transition-colors truncate">Kangaroo-Biped</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-0.5">6-DoF planar jumping leg rig with high energy-density series elastic actuators.</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1.5 font-code-sm text-code-sm text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>CAD</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>EDA</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>SW</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>SIM</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-code-sm text-code-sm">
+<span>★ 1.2k</span>
+<span>⑂ 195</span>
+</div>
+<button class="px-space-sm py-1 rounded bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-code-sm text-code-sm font-semibold transition-all">
+              Clone
+            </button>
+</div>
+</div>
+<!-- Community Card 3: DexterHand-v3 -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between shadow group">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm">
+<span class="text-secondary font-medium">@shadow_community</span>
+<span class="bg-surface-container-high px-1.5 py-0.5 rounded">MIT</span>
+</div>
+<div class="mt-1">
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-secondary transition-colors truncate">DexterHand-v3</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-0.5">Underactuated tendon-driven 5-finger gripper with fingertip tactile array.</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1.5 font-code-sm text-code-sm text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>CAD</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>EDA</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>SW</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>SIM</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-code-sm text-code-sm">
+<span>★ 2.1k</span>
+<span>⑂ 520</span>
+</div>
+<button class="px-space-sm py-1 rounded bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-code-sm text-code-sm font-semibold transition-all">
+              Clone
+            </button>
+</div>
+</div>
+<!-- Community Card 4: MicroRover-SLAM -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between shadow group">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm">
+<span class="text-secondary font-medium">@ros_lab</span>
+<span class="bg-surface-container-high px-1.5 py-0.5 rounded">BSD-3</span>
+</div>
+<div class="mt-1">
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-secondary transition-colors truncate">MicroRover-SLAM</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-0.5">Differential drive indoor testbed with RPLiDAR C1 and ESP32-S3 bridge.</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1.5 font-code-sm text-code-sm text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>CAD</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>EDA</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>SW</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>SIM</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-code-sm text-code-sm">
+<span>★ 640</span>
+<span>⑂ 140</span>
+</div>
+<button class="px-space-sm py-1 rounded bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-code-sm text-code-sm font-semibold transition-all">
+              Clone
+            </button>
+</div>
+</div>
+<!-- Community Card 5: SO-100 Arm -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between shadow group">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm">
+<span class="text-secondary font-medium">@therobotstudio</span>
+<span class="bg-surface-container-high px-1.5 py-0.5 rounded">MIT</span>
+</div>
+<div class="mt-1">
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-secondary transition-colors truncate">SO-100 Arm</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-0.5">Affordable 6-axis 3D printed arm with STS3215 serial bus smart servos.</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1.5 font-code-sm text-code-sm text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>CAD</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>EDA</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>SW</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>SIM</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-code-sm text-code-sm">
+<span>★ 1.7k</span>
+<span>⑂ 480</span>
+</div>
+<button class="px-space-sm py-1 rounded bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-code-sm text-code-sm font-semibold transition-all">
+              Clone
+            </button>
+</div>
+</div>
+<!-- Community Card 6: Submersible-UUV -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between shadow group">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm">
+<span class="text-secondary font-medium">@ocean_tech</span>
+<span class="bg-surface-container-high px-1.5 py-0.5 rounded">CERN-OHL-P</span>
+</div>
+<div class="mt-1">
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-secondary transition-colors truncate">Submersible-UUV</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-0.5">6-thruster ROV with pressure rated dome, depth sensor and ArduSub integration.</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1.5 font-code-sm text-code-sm text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>CAD</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>EDA</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>SW</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>SIM</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-code-sm text-code-sm">
+<span>★ 510</span>
+<span>⑂ 98</span>
+</div>
+<button class="px-space-sm py-1 rounded bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-code-sm text-code-sm font-semibold transition-all">
+              Clone
+            </button>
+</div>
+</div>
+<!-- Community Card 7: HexaPod-Scout -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between shadow group">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm">
+<span class="text-secondary font-medium">@hex_forge</span>
+<span class="bg-surface-container-high px-1.5 py-0.5 rounded">GPL-3.0</span>
+</div>
+<div class="mt-1">
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-secondary transition-colors truncate">HexaPod-Scout</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-0.5">All-terrain 18-servo hexapod walker with body posture balancing algorithm.</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1.5 font-code-sm text-code-sm text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>CAD</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>EDA</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>SW</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>SIM</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-code-sm text-code-sm">
+<span>★ 780</span>
+<span>⑂ 160</span>
+</div>
+<button class="px-space-sm py-1 rounded bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-code-sm text-code-sm font-semibold transition-all">
+              Clone
+            </button>
+</div>
+</div>
+<!-- Community Card 8: BalanceBot-Inverted -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between shadow group">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm">
+<span class="text-secondary font-medium">@dyn_systems</span>
+<span class="bg-surface-container-high px-1.5 py-0.5 rounded">MIT</span>
+</div>
+<div class="mt-1">
+<h4 class="font-headline-sm text-headline-sm font-bold text-on-surface group-hover:text-secondary transition-colors truncate">BalanceBot-Inverted</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-0.5">Two-wheeled self-balancing pendulum platform with fast LQR state estimation.</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-1.5 font-code-sm text-code-sm text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>CAD</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>EDA</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>SW</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span><span>SIM</span>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-code-sm text-code-sm">
+<span>★ 920</span>
+<span>⑂ 310</span>
+</div>
+<button class="px-space-sm py-1 rounded bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-code-sm text-code-sm font-semibold transition-all">
+              Clone
+            </button>
+</div>
+</div>
+</div>
+<!-- Pagination / Load More Bar -->
+<div class="mt-space-lg p-space-md rounded-xl bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+          Showing <span class="font-semibold text-on-surface">8</span> of <span class="font-semibold text-secondary">1,480</span> community verified robot packages
+        </span>
+<button class="px-space-lg py-2 rounded-lg bg-surface-container hover:bg-secondary-container text-on-surface hover:text-on-secondary-container font-headline-sm text-headline-sm font-semibold transition-all flex items-center gap-1.5 shadow-sm">
+<span>Load More Machines</span>
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+</div>
+</div>
+<!-- RIGHT RAIL: 300px Ecosystem Sidebar -->
+<div class="w-full xl:w-[320px] flex flex-col gap-space-lg shrink-0">
+<!-- 1. Purple-tinted Info Card -->
+<div class="p-space-lg rounded-xl bg-gradient-to-b from-secondary-container/30 to-surface-container-low flex flex-col gap-space-md shadow-lg relative overflow-hidden">
+<div class="absolute -right-4 -top-4 w-24 h-24 rounded-full bg-secondary/10 blur-xl pointer-events-none"></div>
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[20px]">handshake</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Why open source?</h3>
+</div>
+<blockquote class="font-body-sm text-body-sm text-on-surface font-medium leading-relaxed bg-surface-container-highest/40 p-space-sm rounded">
+          "Every robot ships with full mechanical, electronics and software manifests — fork a complete machine, not just code."
+        </blockquote>
+<div class="flex flex-col gap-2 font-code-sm text-code-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="text-secondary font-bold">❖</span>
+<span>Complete STEP CAD assemblies</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-secondary font-bold">❖</span>
+<span>Altium / KiCad gerber packages</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-secondary font-bold">❖</span>
+<span>ROS 2 workspaces &amp; URDF kinematics</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-secondary font-bold">❖</span>
+<span>Gazebo &amp; Isaac Sim physics models</span>
+</div>
+</div>
+<a class="inline-flex items-center gap-1 text-secondary hover:text-on-surface font-body-sm text-body-sm font-semibold pt-1 transition-colors" href="#">
+<span>Learn About Manifest Standards</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+<!-- 2. Top Contributors Leaderboard Card -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col gap-space-md shadow">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-secondary">workspace_premium</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Top Contributors</h3>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">All-Time</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Leader 1 -->
+<div class="flex items-center justify-between p-space-xs rounded bg-surface-container/60 hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="font-code-sm text-code-sm font-bold text-secondary w-4">01</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">@open_dynamic_robot</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">14 releases</span>
+</div>
+</div>
+<span class="font-code-sm text-code-sm text-secondary font-semibold">5.8k ★</span>
+</div>
+<!-- Leader 2 -->
+<div class="flex items-center justify-between p-space-xs rounded bg-surface-container/60 hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="font-code-sm text-code-sm font-bold text-on-surface-variant w-4">02</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">@therobotstudio</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">8 releases</span>
+</div>
+</div>
+<span class="font-code-sm text-code-sm text-secondary font-semibold">4.1k ★</span>
+</div>
+<!-- Leader 3 -->
+<div class="flex items-center justify-between p-space-xs rounded bg-surface-container/60 hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="font-code-sm text-code-sm font-bold text-on-surface-variant w-4">03</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">@alexlin</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">6 releases</span>
+</div>
+</div>
+<span class="font-code-sm text-code-sm text-secondary font-semibold">3.4k ★</span>
+</div>
+<!-- Leader 4 -->
+<div class="flex items-center justify-between p-space-xs rounded bg-surface-container/60 hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="font-code-sm text-code-sm font-bold text-on-surface-variant w-4">04</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">@terra_autonomy</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">5 releases</span>
+</div>
+</div>
+<span class="font-code-sm text-code-sm text-secondary font-semibold">2.9k ★</span>
+</div>
+<!-- Leader 5 -->
+<div class="flex items-center justify-between p-space-xs rounded bg-surface-container/60 hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="font-code-sm text-code-sm font-bold text-on-surface-variant w-4">05</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">@mit_biomimetic</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">3 releases</span>
+</div>
+</div>
+<span class="font-code-sm text-code-sm text-secondary font-semibold">2.2k ★</span>
+</div>
+</div>
+</div>
+<!-- 3. Recently Published Activity Stream -->
+<div class="p-space-lg rounded-xl bg-surface-container-low flex flex-col gap-space-md shadow">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-tertiary">history</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Recently Published</h3>
+</div>
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+</span>
+</div>
+<div class="flex flex-col gap-space-md relative">
+<!-- Timeline line -->
+<div class="absolute left-2.5 top-2 bottom-2 w-0.5 bg-surface-container-highest"></div>
+<!-- Stream item 1 -->
+<div class="flex items-start gap-space-md relative pl-6">
+<div class="absolute left-1.5 top-1.5 w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-1.5">
+<span class="font-body-sm text-body-sm font-bold text-on-surface">ODRI Solo-12 v2.4</span>
+<span class="px-1 rounded bg-secondary-container/60 text-secondary font-code-sm text-code-sm">12m ago</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">tagged by @open_dynamic_robot</span>
+</div>
+</div>
+<!-- Stream item 2 -->
+<div class="flex items-start gap-space-md relative pl-6">
+<div class="absolute left-1.5 top-1.5 w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-1.5">
+<span class="font-body-sm text-body-sm font-bold text-on-surface">SO-100 Gripper V2</span>
+<span class="px-1 rounded bg-secondary-container/60 text-secondary font-code-sm text-code-sm">45m ago</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">pushed by @therobotstudio</span>
+</div>
+</div>
+<!-- Stream item 3 -->
+<div class="flex items-start gap-space-md relative pl-6">
+<div class="absolute left-1.5 top-1.5 w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-1.5">
+<span class="font-body-sm text-body-sm font-bold text-on-surface">CAN-FD Hub 4-Port</span>
+<span class="px-1 rounded bg-secondary-container/60 text-secondary font-code-sm text-code-sm">2h ago</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">published by @embedded_dan</span>
+</div>
+</div>
+<!-- Stream item 4 -->
+<div class="flex items-start gap-space-md relative pl-6">
+<div class="absolute left-1.5 top-1.5 w-2.5 h-2.5 rounded-full bg-secondary"></div>
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-1.5">
+<span class="font-body-sm text-body-sm font-bold text-on-surface">Rover-Base-v1.1</span>
+<span class="px-1 rounded bg-secondary-container/60 text-secondary font-code-sm text-code-sm">3h ago</span>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">forked by @nyu_robotics</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Keyboard shortcut listener to focus search input
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+      e.preventDefault();
+      const input = document.getElementById('globalSearchInput');
+      if (input) {
+        input.focus();
+      }
+    }
+  });
+</script></main></div></body></html>

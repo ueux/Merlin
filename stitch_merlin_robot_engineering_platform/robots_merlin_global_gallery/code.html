@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-surface-variant":"#c2c6d6","inverse-on-surface":"#2c303b","secondary-fixed":"#e9ddff","outline-variant":"#424754","on-primary-container":"#00275e","surface-container":"#1b2029","on-error":"#690005","primary-fixed":"#d8e2ff","on-tertiary-container":"#002f38","on-background":"#dfe2f0","error-container":"#93000a","on-secondary":"#3c0091","background":"#0f131d","surface-container-low":"#171c25","secondary-container":"#571bc1","tertiary-fixed-dim":"#4cd7f6","on-tertiary-fixed-variant":"#004e5c","on-primary-fixed-variant":"#004396","error":"#ffb4ab","tertiary":"#4cd7f6","surface-bright":"#353944","on-secondary-container":"#c4abff","on-primary-fixed":"#001a42","inverse-primary":"#005ac4","on-secondary-fixed":"#23005c","primary-fixed-dim":"#aec6ff","on-tertiary-fixed":"#001f26","on-secondary-fixed-variant":"#5516be","surface":"#0f131d","primary-container":"#4f8eff","secondary":"#d0bcff","surface-container-lowest":"#0a0e17","surface-variant":"#31353f","on-surface":"#dfe2f0","tertiary-container":"#009eb9","surface-container-high":"#262a34","outline":"#8c90a0","secondary-fixed-dim":"#d0bcff","on-primary":"#002e6b","tertiary-fixed":"#acedff","surface-tint":"#aec6ff","inverse-surface":"#dfe2f0","primary":"#aec6ff","on-error-container":"#ffdad6","on-tertiary":"#003640","surface-dim":"#0f131d","surface-container-highest":"#31353f"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-lg":"0.75rem",gutter:"0.5rem","space-xs":"0.25rem","space-sm":"0.375rem","space-md":"0.5rem","space-xl":"1rem",margin:"0.75rem"},fontFamily:{"headline-lg":["Inter"],"headline-sm":["Inter"],"code-sm":["JetBrains Mono"],"body-sm":["Inter"],"badge-label":["JetBrains Mono"],"body-md":["Inter"],"code-md":["JetBrains Mono"],"headline-xl":["Inter"]},fontSize:{"headline-lg":["1.125rem",{lineHeight:"1.5rem",letterSpacing:"-0.015em",fontWeight:"600"}],"headline-sm":["0.875rem",{lineHeight:"1.25rem",letterSpacing:"-0.01em",fontWeight:"600"}],"code-sm":["0.6875rem",{lineHeight:"0.875rem",letterSpacing:"0.02em",fontWeight:"500"}],"body-sm":["0.75rem",{lineHeight:"1rem",letterSpacing:"0em",fontWeight:"400"}],"badge-label":["0.625rem",{lineHeight:"0.75rem",letterSpacing:"0.05em",fontWeight:"600"}],"body-md":["0.8125rem",{lineHeight:"1.25rem",letterSpacing:"0em",fontWeight:"400"}],"code-md":["0.8125rem",{lineHeight:"1.25rem",letterSpacing:"-0.01em",fontWeight:"400"}],"headline-xl":["1.5rem",{lineHeight:"2rem",letterSpacing:"-0.02em",fontWeight:"600"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 h-12 z-50 bg-surface-container-lowest border-b border-outline-variant flex items-center justify-between px-space-md"><div class="flex items-center gap-space-md w-60"><div class="flex items-center gap-space-xs"><div class="w-6 h-6 rounded bg-primary-container/20 border border-primary/40 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[16px]">token</span></div><div class="flex items-baseline gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">MERLIN</span><span class="font-badge-label text-badge-label text-tertiary bg-tertiary/10 border border-tertiary/20 px-space-xs rounded">v2.4-RT</span></div></div></div><div class="flex-1 max-w-xl mx-auto"><button class="w-full h-7 px-space-md bg-surface-container-low border border-outline-variant rounded flex items-center justify-between text-on-surface-variant hover:border-outline hover:text-on-surface transition-colors" type="button"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[15px] text-outline">search</span><span class="font-body-sm text-body-sm">Search robots, modules, files, or commands...</span></div><div class="flex items-center gap-space-xs font-code-sm text-code-sm text-outline"><kbd class="bg-surface-container px-space-xs py-0 rounded border border-outline-variant">⌘</kbd><kbd class="bg-surface-container px-space-xs py-0 rounded border border-outline-variant">K</kbd></div></button></div><div class="flex items-center gap-space-md justify-end"><div class="flex items-center gap-space-xs px-space-sm py-0.5 bg-surface-container-low rounded border border-outline-variant font-code-sm text-code-sm"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span><span class="text-tertiary font-medium">HIL LIVE</span></div><div class="flex items-center text-outline gap-space-xs"><button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">tune</span></button><button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">notifications</span></button></div><div class="h-4 w-[1px] bg-outline-variant"></div><div class="flex items-center -space-x-1.5"><div class="w-6 h-6 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center text-[10px] font-headline-sm text-on-surface">AL</div><div class="w-6 h-6 rounded-full bg-secondary-container border border-outline-variant flex items-center justify-center text-[10px] font-headline-sm text-on-secondary-container">RK</div><div class="w-6 h-6 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center text-[9px] font-code-sm text-on-surface-variant font-bold">+3</div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><aside class="fixed left-0 top-12 bottom-0 w-60 bg-surface-container-lowest border-r border-outline-variant z-40 flex flex-col justify-between overflow-y-auto"><div class="p-space-xs space-y-space-md"><div class="px-space-sm pt-space-xs"><button class="w-full flex items-center justify-between p-space-xs bg-surface-container-low border border-outline-variant rounded hover:border-outline transition-colors text-left" type="button"><div class="min-w-0"><div class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Active Context</div><div class="font-headline-sm text-headline-sm text-on-surface truncate font-semibold">Global Workspace</div><div class="font-body-sm text-body-sm text-on-surface-variant truncate">All Projects</div></div><span class="material-symbols-outlined text-outline text-[18px]">unfold_more</span></button></div><nav class="space-y-space-md px-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded"><div class="space-y-0.5"><div class="px-space-sm py-0.5 font-badge-label text-badge-label uppercase tracking-wider text-outline">WORKSPACE</div><a class="flex items-center gap-space-sm px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="home" href="#"><span class="material-symbols-outlined text-[16px]">home</span><span>Home</span></a><a class="flex items-center gap-space-sm px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="overview" href="#"><span class="material-symbols-outlined text-[16px]">dashboard</span><span>Overview</span></a></div><div class="space-y-0.5"><div class="px-space-sm py-0.5 font-badge-label text-badge-label uppercase tracking-wider text-outline">ROBOT</div><a aria-current="page" class="flex items-center gap-space-sm px-space-sm py-1 transition-colors bg-primary-container text-on-primary-container font-semibold rounded" data-path="robots" href="#"><span class="material-symbols-outlined text-[16px]">smart_toy</span><span>Robots</span></a><a class="flex items-center gap-space-sm px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="modules" href="#"><span class="material-symbols-outlined text-[16px]">view_in_ar</span><span>Modules</span></a><a class="flex items-center gap-space-sm px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="marketplace" href="#"><span class="material-symbols-outlined text-[16px]">storefront</span><span>Marketplace</span></a><a class="flex items-center gap-space-sm px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="open-source" href="#"><span class="material-symbols-outlined text-[16px]">code</span><span>Open Source</span></a></div><div class="space-y-0.5"><div class="px-space-sm py-0.5 font-badge-label text-badge-label uppercase tracking-wider text-outline">SIMULATION</div><a class="flex items-center gap-space-sm px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="environments" href="#"><span class="material-symbols-outlined text-[16px]">public</span><span>Environments</span></a><a class="flex items-center gap-space-sm px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="simulation" href="#"><span class="material-symbols-outlined text-[16px]">play_circle</span><span>Simulation</span></a><a class="flex items-center gap-space-sm px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="digital-twin" href="#"><span class="material-symbols-outlined text-[16px]">hub</span><span>Digital Twin</span></a></div><div class="space-y-0.5"><div class="px-space-sm py-0.5 font-badge-label text-badge-label uppercase tracking-wider text-outline">VALIDATION</div><a class="flex items-center gap-space-sm px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="tests" href="#"><span class="material-symbols-outlined text-[16px]">checklist</span><span>Tests</span></a><a class="flex items-center gap-space-sm px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="results" href="#"><span class="material-symbols-outlined text-[16px]">query_stats</span><span>Results</span></a><a class="flex items-center gap-space-sm px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="hardware" href="#"><span class="material-symbols-outlined text-[16px]">memory</span><span>Hardware</span></a></div><div class="space-y-0.5"><div class="px-space-sm py-0.5 font-badge-label text-badge-label uppercase tracking-wider text-outline">ECOSYSTEM</div><a class="flex items-center gap-space-sm px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="community" href="#"><span class="material-symbols-outlined text-[16px]">groups</span><span>Community</span></a><a class="flex items-center gap-space-sm px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="documentation" href="#"><span class="material-symbols-outlined text-[16px]">menu_book</span><span>Documentation</span></a></div><div class="space-y-0.5"><div class="px-space-sm py-0.5 font-badge-label text-badge-label uppercase tracking-wider text-outline">PROJECT</div><a class="flex items-center gap-space-sm px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="releases" href="#"><span class="material-symbols-outlined text-[16px]">new_releases</span><span>Releases</span></a><a class="flex items-center gap-space-sm px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="activity" href="#"><span class="material-symbols-outlined text-[16px]">history</span><span>Activity</span></a><a class="flex items-center gap-space-sm px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-sm text-body-sm" data-path="settings" href="#"><span class="material-symbols-outlined text-[16px]">settings</span><span>Settings</span></a></div></nav></div><div class="p-space-sm border-t border-outline-variant bg-surface-container-low space-y-space-sm"><div class="space-y-1"><div class="flex items-center justify-between font-code-sm text-code-sm"><span class="text-outline">Robots Deployed</span><span class="text-on-surface font-semibold">6/10</span></div><div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden"><div class="w-3/5 h-full bg-primary-container rounded-full"></div></div></div><div class="space-y-1"><div class="flex items-center justify-between font-code-sm text-code-sm"><span class="text-outline">Storage Quota</span><span class="text-on-surface font-semibold">64.2 GB / 100 GB</span></div><div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden"><div class="w-[64%] h-full bg-tertiary rounded-full"></div></div></div><div class="flex items-center justify-between pt-space-xs border-t border-outline-variant/50 font-body-sm text-body-sm"><span class="font-badge-label text-badge-label text-outline uppercase">CAD Node Pro</span><a class="text-primary hover:text-on-surface font-medium transition-colors font-code-sm text-code-sm" data-path="settings" href="#">Upgrade →</a></div></div></aside><div class="pl-60"><main class="pt-12 min-h-screen bg-surface-container-lowest w-full px-space-md py-space-md"><div class="flex flex-col w-full text-on-surface">
+<!-- Top Command Toolbar -->
+<header class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md mb-space-lg">
+<!-- Breadcrumb & Title Section -->
+<div class="flex items-center gap-space-md flex-wrap">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="hover:text-on-surface cursor-pointer transition-colors">Workspace</span>
+<span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+<span class="text-on-surface font-medium">Robots</span>
+</div>
+<div class="h-3.5 w-[1px] bg-outline-variant hidden sm:block"></div>
+<div class="flex items-baseline gap-space-sm">
+<h1 class="font-headline-xl text-headline-xl text-on-surface font-bold tracking-tight">Robots</h1>
+<span class="font-badge-label text-badge-label px-space-xs py-0.5 rounded bg-surface-container text-tertiary">
+          6 ACTIVE UNITS
+        </span>
+</div>
+</div>
+<!-- Right Controls: Filter Pills, Search, Views, New Robot CTA -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<!-- Filter Segmented Tabs -->
+<nav aria-label="Robot filter selection" class="flex items-center p-0.5 rounded bg-surface-container-low">
+<button class="px-space-sm py-1 rounded bg-primary-container text-on-primary-container font-headline-sm text-headline-sm font-semibold transition-all" type="button">
+          All
+        </button>
+<button class="px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-headline-sm text-headline-sm transition-all flex items-center gap-1.5" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>Healthy</span>
+</button>
+<button class="px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-headline-sm text-headline-sm transition-all flex items-center gap-1.5" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Attention</span>
+</button>
+<button class="px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-headline-sm text-headline-sm transition-all" type="button">
+          Archived
+        </button>
+</nav>
+<!-- Search Input Toolbar -->
+<div class="relative w-44 sm:w-56">
+<span class="material-symbols-outlined absolute left-2 top-1.5 text-[15px] text-outline pointer-events-none">search</span>
+<input class="w-full h-7 pl-7 pr-space-sm bg-surface-container-low rounded font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container" placeholder="Filter fleet..." type="text"/>
+</div>
+<!-- View Switcher -->
+<div class="flex items-center p-0.5 rounded bg-surface-container-low text-outline">
+<button class="w-6 h-6 rounded flex items-center justify-center bg-surface-container text-primary" title="Grid View" type="button">
+<span class="material-symbols-outlined text-[16px]">grid_view</span>
+</button>
+<button class="w-6 h-6 rounded flex items-center justify-center hover:text-on-surface transition-colors" title="Table View" type="button">
+<span class="material-symbols-outlined text-[16px]">format_list_bulleted</span>
+</button>
+</div>
+<!-- Primary Action CTA -->
+<button class="h-7 px-space-md bg-primary-container hover:opacity-90 active:opacity-75 text-on-primary-container rounded flex items-center gap-1 font-headline-sm text-headline-sm font-semibold transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>New Robot</span>
+</button>
+</div>
+</header>
+<!-- Sub-header Metric Summary Strip -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-space-sm mb-space-lg">
+<div class="p-space-sm rounded bg-surface-container-low flex items-center justify-between">
+<div>
+<div class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Operational Nodes</div>
+<div class="font-code-md text-code-md text-on-surface font-semibold">5 / 6 Online</div>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[20px]">sensors</span>
+</div>
+<div class="p-space-sm rounded bg-surface-container-low flex items-center justify-between">
+<div>
+<div class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Kinematic Validation</div>
+<div class="font-code-md text-code-md text-on-surface font-semibold">98.4% Pass</div>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px]">precision_manufacturing</span>
+</div>
+<div class="p-space-sm rounded bg-surface-container-low flex items-center justify-between">
+<div>
+<div class="font-badge-label text-badge-label text-outline uppercase tracking-wider">ROS 2 Topics Sync</div>
+<div class="font-code-md text-code-md text-on-surface font-semibold">1,240 msg/s</div>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[20px]">hub</span>
+</div>
+<div class="p-space-sm rounded bg-surface-container-low flex items-center justify-between">
+<div>
+<div class="font-badge-label text-badge-label text-outline uppercase tracking-wider">HIL Bridge Latency</div>
+<div class="font-code-md text-code-md text-on-surface font-semibold">1.82 ms</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">speed</span>
+</div>
+</section>
+<!-- 3x2 Robot Grid Matrix -->
+<main class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-space-lg">
+<!-- Card 1: Quadruped Rover (Atlas Rover) - Focused/Lifted Active State -->
+<article class="flex flex-col rounded-lg bg-surface-container-low transition-all duration-150 overflow-hidden group shadow-lg">
+<!-- Media Viewport -->
+<div class="relative w-full aspect-video bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Photorealistic studio isometric render of an industrial autonomous quadruped robot rover painted matte safety orange and gunmetal grey. The quadruped robot stands firmly on a dark blue technical CAD coordinate grid, outfitted with top LiDAR units, stereo vision depth cameras, carbon fiber leg struts, and precision joint actuators with orange wiring harness cables under cool industrial studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-oUo1Uh8BriUyJZF1exdAP7pDTgveW8RhNUSEvdV1WAZyqHjZWwtUCpM0vS3r2Y2emVAZlmk8Jl7Sa5kxt9aG4BmOxzSZQsCBHDX76MLlDUYtu5DOgb0b34QepipTklvksAi17sV-x3ot2kJrfFlKFqOx9kZEAclDb4LOX5t5tdjmbcelvQA08danTuQqMMQ35LyGJxdo5GYG0mHSFcilDShFskC80xILSQ-yhg3dH4sw2sQ792Rf"/>
+<!-- Ambient HUD Coordinates Overlay -->
+<div class="absolute top-2 left-2 flex items-center gap-space-xs pointer-events-none">
+<span class="font-badge-label text-badge-label px-1 py-0.5 rounded bg-surface-container-lowest/80 text-tertiary backdrop-blur-sm">
+            Q4-REV3
+          </span>
+<span class="font-badge-label text-badge-label px-1 py-0.5 rounded bg-surface-container-lowest/80 text-outline backdrop-blur-sm">
+            DOF: 12
+          </span>
+</div>
+<div class="absolute bottom-2 right-2 pointer-events-none">
+<span class="font-code-sm text-code-sm text-outline/70 bg-surface-container-lowest/80 px-1 rounded backdrop-blur-sm">
+            18.4 kg
+          </span>
+</div>
+</div>
+<!-- Card Body Content -->
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div>
+<!-- Title & Status Header -->
+<div class="flex items-center justify-between gap-space-sm mb-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Atlas Rover</h2>
+<div class="flex items-center gap-1.5 px-space-xs py-0.5 rounded bg-tertiary-container/20 text-tertiary font-badge-label text-badge-label">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+<span>HEALTHY</span>
+</div>
+</div>
+<!-- Description -->
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-space-sm">
+            Four-legged research rover for rough-terrain autonomy, dynamic gait balancing &amp; real-time LiDAR SLAM telemetry.
+          </p>
+<!-- Branch & Commit Hash -->
+<div class="flex items-center gap-space-xs font-code-sm text-code-sm text-outline mb-space-md">
+<span class="material-symbols-outlined text-[14px]">commit</span>
+<span class="text-on-surface font-medium">v2.3.1</span>
+<span>·</span>
+<span class="text-primary hover:underline cursor-pointer">main</span>
+<span>·</span>
+<span class="text-outline">a83fd21</span>
+</div>
+<!-- Domain Matrix Status Row -->
+<div class="grid grid-cols-4 gap-1 p-space-xs rounded bg-surface-container mb-space-sm">
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">CAD</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-code-sm text-code-sm text-on-surface">SW</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">PCB</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-code-sm text-code-sm text-on-surface">ALTM</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">CODE</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-code-sm text-code-sm text-on-surface">ROS2</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">SIM</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-code-sm text-code-sm text-on-surface">GZ</span>
+</div>
+</div>
+</div>
+<!-- 5-Dot Pipeline Indicator -->
+<div class="flex items-center justify-between px-space-xs py-1">
+<span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Pipeline Stage</span>
+<div class="flex items-center gap-1.5" title="Stage 3: Simulation Active">
+<span class="w-2 h-2 rounded-full bg-tertiary" title="Design: Pass"></span>
+<span class="w-2 h-2 rounded-full bg-tertiary" title="Integrate: Pass"></span>
+<span class="w-2 h-2 rounded-full bg-primary ring-2 ring-primary/30 animate-pulse" title="Simulate: In Progress"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest" title="Validate: Pending"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest" title="Release: Pending"></span>
+</div>
+</div>
+</div>
+<!-- Telemetry Footer -->
+<div class="pt-space-xs flex items-center justify-between">
+<div class="flex items-center gap-1 font-body-sm text-body-sm text-outline">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Updated 2h ago</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 rounded flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+</button>
+<button class="w-6 h-6 rounded flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2: 6-Axis Articulated Arm (Atlas Arm v4) -->
+<article class="flex flex-col rounded-lg bg-surface-container-low transition-all duration-150 overflow-hidden group">
+<div class="relative w-full aspect-video bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Precise 3D CAD visualization of a 6-axis articulated collaborative robotic arm mounted on an autonomous mobile omnidirectional AGV platform. High-contrast navy and titanium finish with exposed harmonic drive joints, cabling conduits, and illuminated parallel gripper end-effector over a holographic measurement ground plane." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCybr90Jm7xN2IqCkUHdak2NW1hRcx8Saz98vFsUXCLKxi1EHOMFGh9Knjm4KTzSKUUU37Eb90pbGj9gd5Gtf2XIrBpN30A8Dvg_ZU-nJ6c33JoASTAlgfKYulO1Qc3LWsUdw85V-dHOY9HZoskzoP6nsKg-ZWfhE8vQiPfXHcksVcx_CsWxess8UFCNHkx4kBjbz45XCjquLnoD10WRfscYNr9yqzXW4UNA1xAJ5hJM8hdqeqDAf6v"/>
+<div class="absolute top-2 left-2 flex items-center gap-space-xs pointer-events-none">
+<span class="font-badge-label text-badge-label px-1 py-0.5 rounded bg-surface-container-lowest/80 text-outline backdrop-blur-sm">
+            ARM-6DOF
+          </span>
+<span class="font-badge-label text-badge-label px-1 py-0.5 rounded bg-surface-container-lowest/80 text-secondary backdrop-blur-sm">
+            PAYLOAD: 5KG
+          </span>
+</div>
+<div class="absolute bottom-2 right-2 pointer-events-none">
+<span class="font-code-sm text-code-sm text-outline/70 bg-surface-container-lowest/80 px-1 rounded backdrop-blur-sm">
+            920 mm Reach
+          </span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div>
+<div class="flex items-center justify-between gap-space-sm mb-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Atlas Arm v4</h2>
+<div class="flex items-center gap-1.5 px-space-xs py-0.5 rounded bg-secondary-container/20 text-secondary font-badge-label text-badge-label">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>3 ISSUES</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-space-sm">
+            6-axis collaborative manipulator on mobile omnidirectional drive base for factory intralogistics and automated bin picking.
+          </p>
+<div class="flex items-center gap-space-xs font-code-sm text-code-sm text-outline mb-space-md">
+<span class="material-symbols-outlined text-[14px]">commit</span>
+<span class="text-on-surface font-medium">v1.8.4</span>
+<span>·</span>
+<span class="text-primary hover:underline cursor-pointer truncate max-w-[120px]">feat/gripper-mate</span>
+<span>·</span>
+<span class="text-outline">c19b02a</span>
+</div>
+<div class="grid grid-cols-4 gap-1 p-space-xs rounded bg-surface-container mb-space-sm">
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">CAD</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-code-sm text-code-sm text-on-surface">SW</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">PCB</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-code-sm text-code-sm text-secondary">ALTM</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">CODE</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-code-sm text-code-sm text-secondary">ROS2</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">SIM</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span class="font-code-sm text-code-sm text-outline">GZ</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between px-space-xs py-1">
+<span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Pipeline Stage</span>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary" title="Design: Pass"></span>
+<span class="w-2 h-2 rounded-full bg-secondary" title="Integrate: Attention"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest" title="Simulate: Idle"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest" title="Validate: Idle"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest" title="Release: Idle"></span>
+</div>
+</div>
+</div>
+<div class="pt-space-xs flex items-center justify-between">
+<div class="flex items-center gap-1 font-body-sm text-body-sm text-outline">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Updated 4h ago</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 rounded flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+</button>
+<button class="w-6 h-6 rounded flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 3: Autonomous Aerial Drone (AeroScan X-4) -->
+<article class="flex flex-col rounded-lg bg-surface-container-low transition-all duration-150 overflow-hidden group">
+<div class="relative w-full aspect-video bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Technical CAD render of an industrial quadrotor inspection drone with aerodynamic carbon ducted rotors, an integrated 3-axis gyro-stabilized 4K zoom gimbal payload, dual RTK GNSS antennae pods, and downward optical flow rangefinders against a dark technical engineering workspace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBWOC7N4eMDvPSD6TrmXJeb8rVMbt107AGUdg5zd_HG--GN-3qNIllAgz9NvUldh5T5qFCXyvRU1uRqM9_MV7WZBjZ8vw13rc6l0_TK01-MgSA6sJCc3yKcJcZpwr9PILkvhWN2wXz3zMiF6nuI-iR-f5BCnuQE3MY3nuZuctQhhWmOJ-FK5hcHdka-w7E7d98Z0wunUaS97iQcYuH-lEO9WTXYOJlfGwPFJHqQwFyCLRl9bAeavMk"/>
+<div class="absolute top-2 left-2 flex items-center gap-space-xs pointer-events-none">
+<span class="font-badge-label text-badge-label px-1 py-0.5 rounded bg-surface-container-lowest/80 text-tertiary backdrop-blur-sm">
+            UAV-QUAD
+          </span>
+<span class="font-badge-label text-badge-label px-1 py-0.5 rounded bg-surface-container-lowest/80 text-outline backdrop-blur-sm">
+            42 MIN FLIGHT
+          </span>
+</div>
+<div class="absolute bottom-2 right-2 pointer-events-none">
+<span class="font-code-sm text-code-sm text-outline/70 bg-surface-container-lowest/80 px-1 rounded backdrop-blur-sm">
+            RTK Dual
+          </span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div>
+<div class="flex items-center justify-between gap-space-sm mb-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">AeroScan X-4</h2>
+<div class="flex items-center gap-1.5 px-space-xs py-0.5 rounded bg-tertiary-container/20 text-tertiary font-badge-label text-badge-label">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>HEALTHY</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-space-sm">
+            Autonomous aerial surveying drone with dual RTK GPS, obstacle-avoidance array, and 4K optical photogrammetry payload.
+          </p>
+<div class="flex items-center gap-space-xs font-code-sm text-code-sm text-outline mb-space-md">
+<span class="material-symbols-outlined text-[14px]">commit</span>
+<span class="text-on-surface font-medium">v3.1.0</span>
+<span>·</span>
+<span class="text-primary hover:underline cursor-pointer">main</span>
+<span>·</span>
+<span class="text-outline">74ff891</span>
+</div>
+<div class="grid grid-cols-4 gap-1 p-space-xs rounded bg-surface-container mb-space-sm">
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">CAD</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-code-sm text-code-sm text-on-surface">NX</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">PCB</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-code-sm text-code-sm text-on-surface">KICAD</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">CODE</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-code-sm text-code-sm text-on-surface">PX4</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">SIM</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-code-sm text-code-sm text-on-surface">AIRSIM</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between px-space-xs py-1">
+<span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Pipeline Stage</span>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary" title="Design: Pass"></span>
+<span class="w-2 h-2 rounded-full bg-tertiary" title="Integrate: Pass"></span>
+<span class="w-2 h-2 rounded-full bg-tertiary" title="Simulate: Pass"></span>
+<span class="w-2 h-2 rounded-full bg-tertiary" title="Validate: Pass"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest" title="Release: Pending"></span>
+</div>
+</div>
+</div>
+<div class="pt-space-xs flex items-center justify-between">
+<div class="flex items-center gap-1 font-body-sm text-body-sm text-outline">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Updated 7h ago</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 rounded flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+</button>
+<button class="w-6 h-6 rounded flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 4: Heavy Tracked Rover (Titan Track-UGV) -->
+<article class="flex flex-col rounded-lg bg-surface-container-low transition-all duration-150 overflow-hidden group">
+<div class="relative w-full aspect-video bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Heavy-duty industrial tracked unmanned ground vehicle rover CAD rendering. Reinforced dark armor plating, continuous rubber tank treads, high-torque sprocket drive assemblies, folding sensor mast with long-range LiDAR and thermal imaging dome, set against dark blue digital schematic coordinate lines." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR6mODAO7tRj43nzhY8_LgM1odpco9IojKJwTn8kphsVU7LKTAcNFy3Ag9tel5pEBQR39YKIkN11a_DFSK3uo16jHsH8sbM-S9ujJd2PqaXQwBycNPTfPtN47Ua3cj9XWOrmBYhcg8iyjWWFvvAP_6mgqu33IgmHoh__-Yhk11sUAL9x2FOBzU8R5wC-LR4SokFQOBwkQMbOouIJ7AmeB50Lhe2EDf6ymmCfbJuDtwYRooZVk3cZi3"/>
+<div class="absolute top-2 left-2 flex items-center gap-space-xs pointer-events-none">
+<span class="font-badge-label text-badge-label px-1 py-0.5 rounded bg-surface-container-lowest/80 text-tertiary backdrop-blur-sm">
+            HEAVY-UGV
+          </span>
+<span class="font-badge-label text-badge-label px-1 py-0.5 rounded bg-surface-container-lowest/80 text-outline backdrop-blur-sm">
+            PAYLOAD: 120KG
+          </span>
+</div>
+<div class="absolute bottom-2 right-2 pointer-events-none">
+<span class="font-code-sm text-code-sm text-outline/70 bg-surface-container-lowest/80 px-1 rounded backdrop-blur-sm">
+            45° Max Incline
+          </span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div>
+<div class="flex items-center justify-between gap-space-sm mb-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Titan Track-UGV</h2>
+<div class="flex items-center gap-1.5 px-space-xs py-0.5 rounded bg-tertiary-container/20 text-tertiary font-badge-label text-badge-label">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>HEALTHY</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-space-sm">
+            Heavy-payload dual-tread platform engineered for extreme grade negotiation, underground mining, and rough hazardous material transport.
+          </p>
+<div class="flex items-center gap-space-xs font-code-sm text-code-sm text-outline mb-space-md">
+<span class="material-symbols-outlined text-[14px]">commit</span>
+<span class="text-on-surface font-medium">v0.9.5</span>
+<span>·</span>
+<span class="text-primary hover:underline cursor-pointer">develop</span>
+<span>·</span>
+<span class="text-outline">6e02d84</span>
+</div>
+<div class="grid grid-cols-4 gap-1 p-space-xs rounded bg-surface-container mb-space-sm">
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">CAD</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-code-sm text-code-sm text-on-surface">INV</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">PCB</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-code-sm text-code-sm text-on-surface">ALTM</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">CODE</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-code-sm text-code-sm text-on-surface">ROS2</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">SIM</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span class="font-code-sm text-code-sm text-outline">ISAAC</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between px-space-xs py-1">
+<span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Pipeline Stage</span>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary" title="Design: Pass"></span>
+<span class="w-2 h-2 rounded-full bg-tertiary" title="Integrate: Pass"></span>
+<span class="w-2 h-2 rounded-full bg-primary ring-2 ring-primary/30 animate-pulse" title="Simulate: In Progress"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest" title="Validate: Pending"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest" title="Release: Pending"></span>
+</div>
+</div>
+</div>
+<div class="pt-space-xs flex items-center justify-between">
+<div class="flex items-center gap-1 font-body-sm text-body-sm text-outline">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Updated 1d ago</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 rounded flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+</button>
+<button class="w-6 h-6 rounded flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 5: Biped Locomotion Rig (Strider Biped Rig) -->
+<article class="flex flex-col rounded-lg bg-surface-container-low transition-all duration-150 overflow-hidden group">
+<div class="relative w-full aspect-video bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Laboratory testbed rendering of a high-speed dynamic bipedal robotic leg rig suspended within an aluminum modular test gantry truss frame. Quasi-direct drive brushless motors, carbon-composite femoral struts, strain-gauge load cells at foot contact pads, and precision telemetry wiring loom under technical blue accent illumination." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx77PfhWil8DWDI0PN7yk-6Xk1rLkcm_7rgJkISFXFJYR7e2tKKNNG6RTdb-hjAouWZ9AmllQ47G8QaCVtW7FxrZJPQt8wShHq2IB66pTrONeT6JK_n6z4iNLGGZoLeDbx422duyZ77xyEvbhnPiys97kG7sz4MUiFNKijCIhgAO95wRibL5QtPLO_2ztfnRAwghnosJ3WCR0h1tTd-lM4bksdG4ALEc8z8XD2TwGfw_y8qTKlAVMQ"/>
+<div class="absolute top-2 left-2 flex items-center gap-space-xs pointer-events-none">
+<span class="font-badge-label text-badge-label px-1 py-0.5 rounded bg-surface-container-lowest/80 text-tertiary backdrop-blur-sm">
+            BIPED-HIL
+          </span>
+<span class="font-badge-label text-badge-label px-1 py-0.5 rounded bg-surface-container-lowest/80 text-outline backdrop-blur-sm">
+            TORQUE: 140NM
+          </span>
+</div>
+<div class="absolute bottom-2 right-2 pointer-events-none">
+<span class="font-code-sm text-code-sm text-outline/70 bg-surface-container-lowest/80 px-1 rounded backdrop-blur-sm">
+            1000 Hz Loop
+          </span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div>
+<div class="flex items-center justify-between gap-space-sm mb-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Strider Biped Rig</h2>
+<div class="flex items-center gap-1.5 px-space-xs py-0.5 rounded bg-tertiary-container/20 text-tertiary font-badge-label text-badge-label">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>HEALTHY</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-space-sm">
+            5-DoF per leg dynamic locomotion test-rig with high-torque quasi-direct drive actuators for nonlinear predictive gait tuning.
+          </p>
+<div class="flex items-center gap-space-xs font-code-sm text-code-sm text-outline mb-space-md">
+<span class="material-symbols-outlined text-[14px]">commit</span>
+<span class="text-on-surface font-medium">v1.2.0</span>
+<span>·</span>
+<span class="text-primary hover:underline cursor-pointer truncate max-w-[120px]">test/kinematics</span>
+<span>·</span>
+<span class="text-outline">9b31d04</span>
+</div>
+<div class="grid grid-cols-4 gap-1 p-space-xs rounded bg-surface-container mb-space-sm">
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">CAD</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-code-sm text-code-sm text-on-surface">SW</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">PCB</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-code-sm text-code-sm text-on-surface">ALTM</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">CODE</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-code-sm text-code-sm text-on-surface">C++</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">SIM</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-code-sm text-code-sm text-on-surface">MUJOCO</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between px-space-xs py-1">
+<span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Pipeline Stage</span>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary" title="Design: Pass"></span>
+<span class="w-2 h-2 rounded-full bg-tertiary" title="Integrate: Pass"></span>
+<span class="w-2 h-2 rounded-full bg-tertiary" title="Simulate: Pass"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest" title="Validate: Pending"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest" title="Release: Pending"></span>
+</div>
+</div>
+</div>
+<div class="pt-space-xs flex items-center justify-between">
+<div class="flex items-center gap-1 font-body-sm text-body-sm text-outline">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Updated 3d ago</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 rounded flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+</button>
+<button class="w-6 h-6 rounded flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 6: Delta Picker (DeltaPicker 300) - Draft Status -->
+<article class="flex flex-col rounded-lg bg-surface-container-low transition-all duration-150 overflow-hidden group">
+<div class="relative w-full aspect-video bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90" data-alt="Detailed overhead isometric CAD wireframe and solid view of a 3-axis spider delta parallel robot for pick-and-place manufacturing. Ultra-lightweight carbon fiber parallelogram linkages, high-speed inverted rotary servo motors mounted on a steel ceiling frame, and vacuum suction cup gripper module over a conveyor belt." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMqelvaznT5hYHBV0siGbmISejxJc8a1mfVqjtmUjKeOgXkZ83-J3NRcuRW4Fgnv78Qp2cLZLn3UhkbQ9DVAvucGpxRnY99S0EY6ptHFxZ3XNbu1saYiOhfCsMs99kw0Xoz7ax3Y7nATkMOfZmO1HDVWfuxD8RBf5uqDHhdvRcnUyBDEhUkL0af_tN5MRQVpeeFx_ci3jD5hvaUMzhvZEWm2xMaIlYcx2HFwUvYuMafYATsDfTYZ6g"/>
+<div class="absolute top-2 left-2 flex items-center gap-space-xs pointer-events-none">
+<span class="font-badge-label text-badge-label px-1 py-0.5 rounded bg-surface-container-lowest/80 text-outline backdrop-blur-sm">
+            DELTA-PARALLEL
+          </span>
+<span class="font-badge-label text-badge-label px-1 py-0.5 rounded bg-surface-container-lowest/80 text-outline backdrop-blur-sm">
+            200 PPM
+          </span>
+</div>
+<div class="absolute bottom-2 right-2 pointer-events-none">
+<span class="font-code-sm text-code-sm text-outline/70 bg-surface-container-lowest/80 px-1 rounded backdrop-blur-sm">
+            1200 mm Work Envelope
+          </span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+<div>
+<div class="flex items-center justify-between gap-space-sm mb-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">DeltaPicker 300</h2>
+<div class="flex items-center gap-1.5 px-space-xs py-0.5 rounded bg-surface-container text-outline font-badge-label text-badge-label">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span>DRAFT</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mb-space-sm">
+            High-speed 3-axis parallel link robotic picker for high-cadence electronic component sorting with pneumatic vacuum grip.
+          </p>
+<div class="flex items-center gap-space-xs font-code-sm text-code-sm text-outline mb-space-md">
+<span class="material-symbols-outlined text-[14px]">commit</span>
+<span class="text-on-surface font-medium">v0.1.0</span>
+<span>·</span>
+<span class="text-primary hover:underline cursor-pointer truncate max-w-[120px]">draft/geometry</span>
+<span>·</span>
+<span class="text-outline">18a93e5</span>
+</div>
+<div class="grid grid-cols-4 gap-1 p-space-xs rounded bg-surface-container mb-space-sm">
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">CAD</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-code-sm text-code-sm text-on-surface">SW</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">PCB</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span class="font-code-sm text-code-sm text-outline">N/A</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">CODE</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span class="font-code-sm text-code-sm text-outline">STUB</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-1 rounded bg-surface-container-low text-center">
+<span class="font-badge-label text-badge-label text-outline mb-0.5">SIM</span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span class="font-code-sm text-code-sm text-outline">IDLE</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between px-space-xs py-1">
+<span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Pipeline Stage</span>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary" title="Design: Pass"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest" title="Integrate: Idle"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest" title="Simulate: Idle"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest" title="Validate: Idle"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest" title="Release: Idle"></span>
+</div>
+</div>
+</div>
+<div class="pt-space-xs flex items-center justify-between">
+<div class="flex items-center gap-1 font-body-sm text-body-sm text-outline">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Created 5d ago</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 rounded flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+</button>
+<button class="w-6 h-6 rounded flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+</main>
+<!-- Bottom Diagnostic Status Rail -->
+<footer class="mt-space-lg p-space-sm rounded bg-surface-container-low flex flex-col md:flex-row items-center justify-between gap-space-sm font-code-sm text-code-sm text-outline">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="text-on-surface">ROBOT CORE DAEMON: ACTIVE</span>
+</div>
+<span class="hidden sm:inline text-surface-variant">|</span>
+<div class="hidden sm:flex items-center gap-1">
+<span>CLUSTER:</span>
+<span class="text-on-surface">merlin-us-east-hpc-04</span>
+</div>
+<span class="hidden sm:inline text-surface-variant">|</span>
+<div class="hidden sm:flex items-center gap-1">
+<span>CAN-BUS:</span>
+<span class="text-tertiary">1.0 MBIT/S LOCKED</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="text-outline">Showing 6 of 6 models</span>
+<button class="px-space-xs py-0.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" type="button">
+        Export Fleet Manifest
+      </button>
+</div>
+</footer>
+</div>
+<script>
+  // Simple quick filter interaction for the search field
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.querySelector('input[placeholder="Filter fleet..."]');
+    const cards = document.querySelectorAll('main > article');
+
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        cards.forEach((card) => {
+          const title = card.querySelector('h2')?.textContent.toLowerCase() || '';
+          const desc = card.querySelector('p')?.textContent.toLowerCase() || '';
+          const match = title.includes(query) || desc.includes(query);
+          card.style.display = match ? 'flex' : 'none';
+        });
+      });
+    }
+  });
+</script></main></div></body></html>

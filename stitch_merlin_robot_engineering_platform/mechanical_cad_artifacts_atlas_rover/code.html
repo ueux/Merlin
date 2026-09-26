@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "inverse-on-surface": "#2c303b", "primary": "#aec6ff", "surface-bright": "#353944", "surface-container-highest": "#31353f", "surface-container-lowest": "#0a0e17", "on-primary-fixed-variant": "#004396", "outline": "#8c90a0", "on-tertiary-fixed-variant": "#004e5c", "on-error-container": "#ffdad6", "inverse-surface": "#dfe2f0", "on-tertiary-container": "#002f38", "on-surface": "#dfe2f0", "secondary-fixed": "#e9ddff", "surface-container-high": "#262a34", "surface-container": "#1b2029", "primary-container": "#4f8eff", "on-secondary-fixed": "#23005c", "error": "#ffb4ab", "tertiary": "#4cd7f6", "outline-variant": "#424754", "on-error": "#690005", "on-background": "#dfe2f0", "inverse-primary": "#005ac4", "tertiary-container": "#009eb9", "on-secondary-fixed-variant": "#5516be", "on-surface-variant": "#c2c6d6", "on-primary-container": "#00275e", "tertiary-fixed": "#acedff", "secondary-container": "#571bc1", "secondary-fixed-dim": "#d0bcff", "secondary": "#d0bcff", "surface-variant": "#31353f", "primary-fixed-dim": "#aec6ff", "surface": "#0f131d", "background": "#0f131d", "on-secondary-container": "#c4abff", "error-container": "#93000a", "on-secondary": "#3c0091", "tertiary-fixed-dim": "#4cd7f6", "on-primary-fixed": "#001a42", "surface-container-low": "#171c25", "on-tertiary": "#003640", "surface-tint": "#aec6ff", "on-primary": "#002e6b", "primary-fixed": "#d8e2ff", "surface-dim": "#0f131d", "on-tertiary-fixed": "#001f26" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "0.5rem", "space-lg": "0.75rem", "space-md": "0.5rem", "margin": "0.75rem", "space-xl": "1rem", "space-sm": "0.375rem", "space-xs": "0.25rem" }, "fontFamily": { "code-md": [ "JetBrains Mono" ], "headline-sm": [ "Inter" ], "body-sm": [ "Inter" ], "body-md": [ "Inter" ], "code-sm": [ "JetBrains Mono" ], "headline-xl": [ "Inter" ], "headline-lg": [ "Inter" ], "badge-label": [ "JetBrains Mono" ] }, "fontSize": { "code-md": [ "0.8125rem", { "lineHeight": "1.25rem", "letterSpacing": "-0.01em", "fontWeight": "400" } ], "headline-sm": [ "0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "body-sm": [ "0.75rem", { "lineHeight": "1rem", "letterSpacing": "0em", "fontWeight": "400" } ], "body-md": [ "0.8125rem", { "lineHeight": "1.25rem", "letterSpacing": "0em", "fontWeight": "400" } ], "code-sm": [ "0.6875rem", { "lineHeight": "0.875rem", "letterSpacing": "0.02em", "fontWeight": "500" } ], "headline-xl": [ "1.5rem", { "lineHeight": "2rem", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "headline-lg": [ "1.125rem", { "lineHeight": "1.5rem", "letterSpacing": "-0.015em", "fontWeight": "600" } ], "badge-label": [ "0.625rem", { "lineHeight": "0.75rem", "letterSpacing": "0.05em", "fontWeight": "600" } ] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 h-12 z-50 bg-surface-container-low flex items-center justify-between px-space-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-md w-60"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">MERLIN</span><span class="font-badge-label text-badge-label bg-surface-container text-tertiary px-space-xs py-0.5 rounded uppercase">v2.4-RT</span></div></div><div class="flex-1 max-w-xl mx-space-md"><div class="flex items-center gap-space-sm bg-surface-container px-space-md h-8 rounded-lg"><span class="material-symbols-outlined text-[18px] text-outline">terminal</span><span class="font-code-sm text-code-sm text-outline flex-1 truncate">⌘K Search robots, modules, files, or commands...</span><span class="font-code-sm text-code-sm bg-surface-container-high text-on-surface-variant px-space-xs rounded">⌘K</span></div></div><div class="flex items-center gap-space-md justify-end"><div class="flex items-center gap-space-xs bg-surface-container px-space-sm h-7 rounded"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span><span class="font-code-sm text-code-sm text-tertiary uppercase">HIL Live</span></div><button class="flex items-center justify-center w-8 h-8 rounded hover:bg-surface-container-high text-outline hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[18px]">notifications</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><aside class="fixed left-0 top-12 bottom-0 w-60 bg-surface-container-low z-40 flex flex-col justify-between overflow-hidden shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col flex-1 overflow-y-auto"><div class="p-space-sm bg-surface-container-lowest m-space-xs rounded"><div class="flex items-center justify-between mb-space-xs"><div class="flex items-center gap-space-xs overflow-hidden"><span class="material-symbols-outlined text-[16px] text-primary">smart_toy</span><span class="font-headline-sm text-headline-sm text-on-surface truncate">Atlas Rover</span></div><span class="material-symbols-outlined text-[16px] text-outline">unfold_more</span></div><div class="flex items-center gap-space-xs pl-space-md"><span class="material-symbols-outlined text-[14px] text-outline">fork_right</span><span class="font-code-sm text-code-sm text-on-surface-variant">main</span></div></div><div class="px-space-xs py-space-xs flex flex-col gap-space-xs"><div class="px-space-sm pt-space-xs"><span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Workspace</span></div><nav class="flex flex-col gap-0.5" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded"><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">dashboard</span><span class="font-body-sm text-body-sm">Overview</span></div></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="robot-kinematics" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">precision_manufacturing</span><span class="font-body-sm text-body-sm">Robot Kinematics</span></div><span class="font-badge-label text-badge-label bg-surface-container-highest text-tertiary px-1 rounded">URDF</span></a></nav></div><div class="px-space-xs py-space-xs flex flex-col gap-space-xs"><div class="px-space-sm pt-space-xs"><span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Engineering</span></div><nav class="flex flex-col gap-0.5" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded"><a aria-current="page" class="flex items-center justify-between px-space-sm py-1 transition-colors bg-primary-container text-on-primary-container font-semibold rounded" data-path="mechanical" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">architecture</span><span class="font-body-sm text-body-sm">Mechanical</span></div><span class="font-badge-label text-badge-label bg-primary text-on-primary px-1 rounded font-bold">SolidWorks</span></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="electronics" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">memory</span><span class="font-body-sm text-body-sm">Electronics</span></div><span class="font-badge-label text-badge-label bg-surface-container-highest text-secondary px-1 rounded">Altium</span></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="materials-and-tests" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">experiment</span><span class="font-body-sm text-body-sm">Materials &amp; Tests</span></div></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="software-and-firmware" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">code</span><span class="font-body-sm text-body-sm">Software &amp; Firmware</span></div></a></nav></div><div class="px-space-xs py-space-xs flex flex-col gap-space-xs"><div class="px-space-sm pt-space-xs"><span class="font-badge-label text-badge-label text-outline uppercase tracking-wider">Simulation &amp; Deploy</span></div><nav class="flex flex-col gap-0.5" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded"><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="simulation-hub" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">view_in_ar</span><span class="font-body-sm text-body-sm">Simulation Hub</span></div></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="environments" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">deployed_code</span><span class="font-body-sm text-body-sm">Environments</span></div></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="modules" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">extension</span><span class="font-body-sm text-body-sm">Modules</span></div></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="marketplace" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">storefront</span><span class="font-body-sm text-body-sm">Marketplace</span></div></a><a class="flex items-center justify-between px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="releases" href="#"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">verified</span><span class="font-body-sm text-body-sm">Releases</span></div></a></nav></div></div><div class="p-space-sm bg-surface-container m-space-xs rounded flex flex-col gap-space-xs"><div class="flex justify-between items-center"><span class="font-badge-label text-badge-label text-outline uppercase">Storage</span><span class="font-code-sm text-code-sm text-on-surface-variant">4.2 / 10 GB</span></div><div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden"><div class="bg-primary h-full w-[42%]"></div></div><div class="flex justify-between items-center pt-space-xs"><span class="font-badge-label text-badge-label text-outline uppercase">Robots Deployed</span><span class="font-code-sm text-code-sm text-tertiary">3 / 5</span></div><div class="w-full bg-surface-container-highest h-1 rounded-full overflow-hidden"><div class="bg-tertiary h-full w-[60%]"></div></div></div></aside><div class="pl-60"><main class="w-full pt-12 min-h-screen bg-surface"><div class="flex flex-col w-full">
+<!-- Top Command & Breadcrumb Area -->
+<div class="flex flex-col gap-space-sm px-space-xl py-space-md bg-surface-container-lowest">
+<!-- Breadcrumb & Primary Actions Row -->
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md flex-wrap">
+<div class="flex items-center gap-space-xs text-outline">
+<span class="font-code-sm text-code-sm">Atlas Rover</span>
+<span class="font-code-sm text-code-sm text-outline-variant">/</span>
+<span class="font-code-sm text-code-sm">Engineering</span>
+<span class="font-code-sm text-code-sm text-outline-variant">/</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-semibold flex items-center gap-space-sm">
+          Mechanical
+          <span class="font-badge-label text-badge-label bg-surface-container-high text-primary px-space-xs py-0.5 rounded uppercase tracking-wider font-semibold">CAD Artifacts</span>
+</h1>
+<!-- Synced Pill with Pulse Indicator -->
+<div class="flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-surface-container text-tertiary">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span>
+</span>
+<span class="font-code-sm text-code-sm tracking-tight text-on-surface font-medium">SolidWorks connected · vault synced</span>
+</div>
+<!-- Git Branch Tag -->
+<div class="flex items-center gap-1 px-space-sm py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-sm text-code-sm">
+<span class="material-symbols-outlined text-[14px] text-outline">fork_right</span>
+<span>main</span>
+</div>
+</div>
+<!-- Action Cluster -->
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-1.5 px-space-md h-8 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface transition-colors font-body-sm text-body-sm font-medium">
+<span class="material-symbols-outlined text-[16px] text-tertiary">cloud_sync</span>
+<span>Sync Vault</span>
+</button>
+<button class="flex items-center gap-1.5 px-space-md h-8 rounded bg-primary text-on-primary font-headline-sm text-headline-sm font-semibold hover:bg-primary-container hover:text-on-primary-container transition-all">
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+<span>+ Open in SolidWorks</span>
+</button>
+</div>
+</div>
+<!-- Sub-tabs and View Mode Controls -->
+<div class="flex flex-wrap items-center justify-between gap-space-md pt-space-xs">
+<div class="flex items-center gap-space-lg">
+<button class="flex items-center gap-2 pb-2 text-primary font-headline-sm text-headline-sm font-semibold relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-primary">
+<span>Files</span>
+<span class="font-badge-label text-badge-label px-1.5 py-0.2 rounded-full bg-primary-container text-on-primary-container">5 items</span>
+</button>
+<button class="flex items-center gap-1.5 pb-2 text-outline hover:text-on-surface font-body-sm text-body-sm transition-colors">
+<span>Versions</span>
+<span class="font-badge-label text-badge-label px-1 rounded bg-surface-container text-outline">14</span>
+</button>
+<button class="flex items-center gap-1.5 pb-2 text-outline hover:text-on-surface font-body-sm text-body-sm transition-colors">
+<span>Derivatives</span>
+<span class="font-badge-label text-badge-label px-1 rounded bg-surface-container text-tertiary">15 auto</span>
+</button>
+<button class="flex items-center gap-1.5 pb-2 text-outline hover:text-on-surface font-body-sm text-body-sm transition-colors">
+<span>Diff</span>
+</button>
+</div>
+<div class="flex items-center gap-space-sm pb-1">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2 text-[16px] text-outline">search</span>
+<input class="h-7 w-48 pl-7 pr-space-sm bg-surface-container text-on-surface placeholder:text-outline font-body-sm text-body-sm rounded focus:outline-none focus:bg-surface-bright transition-colors" placeholder="Filter CAD files..." type="text"/>
+</div>
+<div class="flex items-center p-0.5 rounded bg-surface-container">
+<button class="px-2 py-1 rounded bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">view_list</span>
+</button>
+<button class="px-2 py-1 rounded text-outline hover:text-on-surface flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[16px]">grid_view</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- CAD Vault Telemetry Strip -->
+<div class="flex flex-wrap items-center justify-between px-space-xl py-1.5 bg-surface-container-low text-outline font-code-sm text-code-sm">
+<div class="flex items-center gap-space-lg flex-wrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-tertiary">dns</span>
+<span class="text-on-surface-variant">Vault Server:</span>
+<span class="text-on-surface font-medium">PDM-US-EAST</span>
+</div>
+<span class="text-outline-variant">·</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-outline">rule</span>
+<span class="text-on-surface-variant">Revision Schema:</span>
+<span class="text-on-surface font-medium">ISO-REV-B</span>
+</div>
+<span class="text-outline-variant">·</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-tertiary">history</span>
+<span class="text-on-surface-variant">Local Cache:</span>
+<span class="text-tertiary font-medium">Synchronized 4m ago (Rev 142)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-badge-label text-badge-label uppercase text-outline">Engine: SolidWorks PDM API v28.4</span>
+</div>
+</div>
+<!-- Main Workstation Canvas: 2-Column Split -->
+<div class="flex flex-col lg:flex-row flex-1 p-space-md gap-space-md overflow-hidden bg-surface">
+<!-- LEFT PANE: CAD File Registry & High Density Grid -->
+<div class="flex-1 flex flex-col bg-surface-container-low rounded-lg overflow-hidden min-w-0">
+<!-- Panel Header Toolbar -->
+<div class="h-9 px-space-md bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">folder_open</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Workspace Model Files</span>
+<span class="font-code-sm text-code-sm text-outline">(/cad/rover_core)</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="h-6 px-2 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface-variant text-body-sm font-medium flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[14px]">filter_list</span>
+<span>All Assemblies &amp; Parts</span>
+</button>
+<button class="w-6 h-6 rounded flex items-center justify-center text-outline hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[16px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Data Table Container -->
+<div class="flex-1 overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container-lowest text-outline font-headline-sm uppercase text-[10px] tracking-wider select-none">
+<tr class="h-7">
+<th class="py-1 px-space-md font-semibold w-64">File Name</th>
+<th class="py-1 px-space-sm font-semibold">Classification</th>
+<th class="py-1 px-space-sm font-semibold w-16">Rev</th>
+<th class="py-1 px-space-sm font-semibold text-right w-20">Size</th>
+<th class="py-1 px-space-sm font-semibold">Derivatives Pipeline</th>
+<th class="py-1 px-space-sm font-semibold">Latest Vault Commit</th>
+<th class="py-1 px-space-sm font-semibold">Author</th>
+<th class="py-1 px-space-sm text-right font-semibold pr-space-md">Actions</th>
+</tr>
+</thead>
+<tbody class="text-on-surface-variant divide-y divide-surface-container">
+<!-- Row 1: chassis_top.SLDPRT -->
+<tr class="h-10 hover:bg-surface-container transition-colors group cursor-pointer">
+<td class="px-space-md py-1 flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[16px]">view_in_ar</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">chassis_top.SLDPRT</span>
+<span class="font-code-sm text-[10px] text-outline">Part Body (Solid)</span>
+</div>
+</td>
+<td class="px-space-sm py-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface text-body-sm">Part · CNC Milled 7075</span>
+</td>
+<td class="px-space-sm py-1 font-code-sm text-code-sm">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface">v3.2</span>
+</td>
+<td class="px-space-sm py-1 text-right font-code-sm text-code-sm text-on-surface">
+                14.8 MB
+              </td>
+<td class="px-space-sm py-1">
+<div class="flex items-center gap-1">
+<span class="font-code-sm text-[10px] px-1.5 py-0.2 rounded bg-tertiary-container text-on-tertiary-container font-semibold">STEP ✓</span>
+<span class="font-code-sm text-[10px] px-1.5 py-0.2 rounded bg-tertiary-container text-on-tertiary-container font-semibold">glTF ✓</span>
+</div>
+</td>
+<td class="px-space-sm py-1">
+<div class="flex items-center gap-1.5 truncate max-w-xs">
+<span class="font-code-sm text-code-sm text-primary">a83fd21</span>
+<span class="truncate text-on-surface text-body-sm">feat(chassis): lighten pocket grid</span>
+</div>
+</td>
+<td class="px-space-sm py-1 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<div class="w-4 h-4 rounded-full bg-secondary text-on-secondary font-bold text-[9px] flex items-center justify-center">JD</div>
+<span class="text-on-surface">J. Doe</span>
+<span class="text-outline text-body-sm">· 2h ago</span>
+</div>
+</td>
+<td class="px-space-sm py-1 text-right pr-space-md">
+<div class="flex items-center justify-end gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
+<button class="w-6 h-6 rounded hover:bg-surface-bright flex items-center justify-center text-outline hover:text-on-surface" title="Download STEP">
+<span class="material-symbols-outlined text-[16px]">download</span>
+</button>
+<button class="w-6 h-6 rounded hover:bg-surface-bright flex items-center justify-center text-outline hover:text-on-surface" title="Options">
+<span class="material-symbols-outlined text-[16px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: leg_upper.SLDPRT -->
+<tr class="h-10 hover:bg-surface-container transition-colors group cursor-pointer">
+<td class="px-space-md py-1 flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[16px]">view_in_ar</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">leg_upper.SLDPRT</span>
+<span class="font-code-sm text-[10px] text-outline">Part Body (Hybrid)</span>
+</div>
+</td>
+<td class="px-space-sm py-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface text-body-sm">Part · Carbon/Alum Mate</span>
+</td>
+<td class="px-space-sm py-1 font-code-sm text-code-sm">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface">v3.2</span>
+</td>
+<td class="px-space-sm py-1 text-right font-code-sm text-code-sm text-on-surface">
+                8.4 MB
+              </td>
+<td class="px-space-sm py-1">
+<div class="flex items-center gap-1">
+<span class="font-code-sm text-[10px] px-1.5 py-0.2 rounded bg-tertiary-container text-on-tertiary-container font-semibold">STEP ✓</span>
+<span class="font-code-sm text-[10px] px-1.5 py-0.2 rounded bg-tertiary-container text-on-tertiary-container font-semibold">glTF ✓</span>
+</div>
+</td>
+<td class="px-space-sm py-1">
+<div class="flex items-center gap-1.5 truncate max-w-xs">
+<span class="font-code-sm text-code-sm text-primary">e91bc40</span>
+<span class="truncate text-on-surface text-body-sm">adjust bearing press-fit tolerance</span>
+</div>
+</td>
+<td class="px-space-sm py-1 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<div class="w-4 h-4 rounded-full bg-primary-container text-on-primary-container font-bold text-[9px] flex items-center justify-center">AL</div>
+<span class="text-on-surface">A. Lin</span>
+<span class="text-outline text-body-sm">· 5h ago</span>
+</div>
+</td>
+<td class="px-space-sm py-1 text-right pr-space-md">
+<div class="flex items-center justify-end gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
+<button class="w-6 h-6 rounded hover:bg-surface-bright flex items-center justify-center text-outline hover:text-on-surface" title="Download STEP">
+<span class="material-symbols-outlined text-[16px]">download</span>
+</button>
+<button class="w-6 h-6 rounded hover:bg-surface-bright flex items-center justify-center text-outline hover:text-on-surface" title="Options">
+<span class="material-symbols-outlined text-[16px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: leg_lower.SLDPRT (Amber Stale / Regenerating) -->
+<tr class="h-10 hover:bg-surface-container transition-colors group cursor-pointer bg-surface-container-lowest/30">
+<td class="px-space-md py-1 flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-surface-container-high flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[16px]">view_in_ar</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">leg_lower.SLDPRT</span>
+<span class="font-code-sm text-[10px] text-outline">Part Body (Structural)</span>
+</div>
+</td>
+<td class="px-space-sm py-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface text-body-sm">Part · High-Flex Tibia</span>
+</td>
+<td class="px-space-sm py-1 font-code-sm text-code-sm">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface">v3.1</span>
+</td>
+<td class="px-space-sm py-1 text-right font-code-sm text-code-sm text-on-surface">
+                6.2 MB
+              </td>
+<td class="px-space-sm py-1">
+<div class="flex items-center gap-1.5">
+<div class="flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-code-sm text-[10px] text-secondary font-medium">STEP ⏳ glTF ⏳</span>
+</div>
+<span class="font-code-sm text-[10px] text-secondary">regenerating (64%)</span>
+</div>
+</td>
+<td class="px-space-sm py-1">
+<div class="flex items-center gap-1.5 truncate max-w-xs">
+<span class="font-code-sm text-code-sm text-primary">c19b02a</span>
+<span class="truncate text-on-surface text-body-sm">update strain relief fillets</span>
+</div>
+</td>
+<td class="px-space-sm py-1 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<div class="w-4 h-4 rounded-full bg-primary-container text-on-primary-container font-bold text-[9px] flex items-center justify-center">AL</div>
+<span class="text-on-surface">A. Lin</span>
+<span class="text-outline text-body-sm">· 1d ago</span>
+</div>
+</td>
+<td class="px-space-sm py-1 text-right pr-space-md">
+<div class="flex items-center justify-end gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
+<button class="w-6 h-6 rounded hover:bg-surface-bright flex items-center justify-center text-outline hover:text-on-surface" title="Download STEP">
+<span class="material-symbols-outlined text-[16px]">download</span>
+</button>
+<button class="w-6 h-6 rounded hover:bg-surface-bright flex items-center justify-center text-outline hover:text-on-surface" title="Options">
+<span class="material-symbols-outlined text-[16px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: hip_actuator.SLDASM (SELECTED ROW) -->
+<tr class="h-10 bg-surface-container-high text-on-surface cursor-pointer relative">
+<td class="px-space-md py-1 flex items-center gap-2 relative">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="w-6 h-6 rounded bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">deployed_code</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">hip_actuator.SLDASM</span>
+<span class="font-code-sm text-[10px] text-tertiary">Active 3D Viewport Target</span>
+</div>
+</td>
+<td class="px-space-sm py-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-primary font-medium text-body-sm">Assembly · Modular Drive</span>
+</td>
+<td class="px-space-sm py-1 font-code-sm text-code-sm">
+<span class="px-1.5 py-0.5 rounded bg-primary text-on-primary font-semibold">v3.0</span>
+</td>
+<td class="px-space-sm py-1 text-right font-code-sm text-code-sm text-on-surface font-semibold">
+                28.6 MB
+              </td>
+<td class="px-space-sm py-1">
+<div class="flex items-center gap-1">
+<span class="font-code-sm text-[10px] px-1.5 py-0.2 rounded bg-tertiary-container text-on-tertiary-container font-semibold">STEP ✓</span>
+<span class="font-code-sm text-[10px] px-1.5 py-0.2 rounded bg-tertiary-container text-on-tertiary-container font-semibold">glTF ✓</span>
+<span class="font-code-sm text-[10px] px-1.5 py-0.2 rounded bg-tertiary-container text-on-tertiary-container font-semibold">STL ✓</span>
+</div>
+</td>
+<td class="px-space-sm py-1">
+<div class="flex items-center gap-1.5 truncate max-w-xs">
+<span class="font-code-sm text-code-sm text-primary">f42c9e0</span>
+<span class="truncate text-on-surface text-body-sm">add cutaway stator inspect window</span>
+</div>
+</td>
+<td class="px-space-sm py-1 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<div class="w-4 h-4 rounded-full bg-secondary text-on-secondary font-bold text-[9px] flex items-center justify-center">JD</div>
+<span class="text-on-surface font-medium">J. Doe</span>
+<span class="text-outline text-body-sm">· 2d ago</span>
+</div>
+</td>
+<td class="px-space-sm py-1 text-right pr-space-md">
+<div class="flex items-center justify-end gap-1">
+<button class="w-6 h-6 rounded bg-surface-bright flex items-center justify-center text-primary" title="Download STEP">
+<span class="material-symbols-outlined text-[16px]">download</span>
+</button>
+<button class="w-6 h-6 rounded bg-surface-bright flex items-center justify-center text-on-surface" title="Options">
+<span class="material-symbols-outlined text-[16px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: atlas_rover.SLDASM -->
+<tr class="h-10 hover:bg-surface-container transition-colors group cursor-pointer">
+<td class="px-space-md py-1 flex items-center gap-2">
+<div class="w-6 h-6 rounded bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[16px]">deployed_code</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">atlas_rover.SLDASM</span>
+<span class="font-code-sm text-[10px] text-outline">Root Master Assembly</span>
+</div>
+</td>
+<td class="px-space-sm py-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface text-body-sm">Top Assembly · Complete Rover</span>
+</td>
+<td class="px-space-sm py-1 font-code-sm text-code-sm">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface">v3.2</span>
+</td>
+<td class="px-space-sm py-1 text-right font-code-sm text-code-sm text-on-surface">
+                142.0 MB
+              </td>
+<td class="px-space-sm py-1">
+<div class="flex items-center gap-1">
+<span class="font-code-sm text-[10px] px-1.5 py-0.2 rounded bg-tertiary-container text-on-tertiary-container font-semibold">STEP ✓</span>
+<span class="font-code-sm text-[10px] px-1.5 py-0.2 rounded bg-tertiary-container text-on-tertiary-container font-semibold">glTF ✓</span>
+</div>
+</td>
+<td class="px-space-sm py-1">
+<div class="flex items-center gap-1.5 truncate max-w-xs">
+<span class="font-code-sm text-code-sm text-primary">89d21af</span>
+<span class="truncate text-on-surface text-body-sm">bump kinematics tree to rev4</span>
+</div>
+</td>
+<td class="px-space-sm py-1 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<div class="w-4 h-4 rounded-full bg-surface-container-highest text-tertiary font-bold text-[9px] flex items-center justify-center">BOT</div>
+<span class="text-on-surface">merlin-bot</span>
+<span class="text-outline text-body-sm">· 3d ago</span>
+</div>
+</td>
+<td class="px-space-sm py-1 text-right pr-space-md">
+<div class="flex items-center justify-end gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
+<button class="w-6 h-6 rounded hover:bg-surface-bright flex items-center justify-center text-outline hover:text-on-surface" title="Download STEP">
+<span class="material-symbols-outlined text-[16px]">download</span>
+</button>
+<button class="w-6 h-6 rounded hover:bg-surface-bright flex items-center justify-center text-outline hover:text-on-surface" title="Options">
+<span class="material-symbols-outlined text-[16px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Quick Stats Footer Strip -->
+<div class="p-space-sm bg-surface-container flex flex-wrap items-center justify-between text-outline font-code-sm text-code-sm">
+<div class="flex items-center gap-space-md flex-wrap">
+<div class="flex items-center gap-1">
+<span class="text-on-surface font-medium">Total CAD Size:</span>
+<span class="text-primary font-bold">200.0 MB</span>
+</div>
+<span class="text-outline-variant">|</span>
+<div class="flex items-center gap-1">
+<span class="text-on-surface">5 Files</span>
+<span class="text-outline">(2 Assemblies, 3 Parts)</span>
+</div>
+<span class="text-outline-variant">|</span>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+<span>Auto-export derivatives active: STEP AP242, glTF 2.0 PBR, URDF mesh collision</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-badge-label text-badge-label bg-surface-container-high px-1.5 py-0.5 rounded text-on-surface-variant">Worker Pool: 4 Idle / 1 Busy</span>
+</div>
+</div>
+</div>
+<!-- RIGHT PANE (Fixed 420px): Dark 3D CAD Telemetry & Inspector -->
+<div class="w-full lg:w-[420px] flex flex-col gap-space-sm flex-shrink-0">
+<!-- 3D Viewer Panel Container -->
+<div class="flex flex-col bg-surface-container-low rounded-lg overflow-hidden shadow-lg">
+<!-- Viewer Header -->
+<div class="h-10 px-space-md bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2 overflow-hidden">
+<span class="material-symbols-outlined text-[18px] text-primary">view_in_ar</span>
+<div class="flex flex-col overflow-hidden">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">hip_actuator.SLDASM</span>
+<span class="font-badge-label text-badge-label bg-surface-container-high text-tertiary px-1 rounded">v3.0</span>
+</div>
+<span class="font-code-sm text-[10px] text-outline">28.6 MB · SolidWorks Assembly</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-7 h-7 rounded hover:bg-surface-bright flex items-center justify-center text-outline hover:text-on-surface transition-colors" title="Section Plane">
+<span class="material-symbols-outlined text-[16px]">splitscreen</span>
+</button>
+<button class="w-7 h-7 rounded hover:bg-surface-bright flex items-center justify-center text-outline hover:text-on-surface transition-colors" title="Toggle Wireframe">
+<span class="material-symbols-outlined text-[16px]">line_style</span>
+</button>
+<button class="w-7 h-7 rounded hover:bg-surface-bright flex items-center justify-center text-outline hover:text-on-surface transition-colors" title="Fullscreen Viewport">
+<span class="material-symbols-outlined text-[16px]">fullscreen</span>
+</button>
+</div>
+</div>
+<!-- 3D Interactive Viewport Canvas Area -->
+<div class="relative w-full h-[320px] bg-surface-container-lowest overflow-hidden group">
+<!-- CAD 3D Render Image -->
+<img alt="hip_actuator.SLDASM CAD Render" class="w-full h-full object-cover select-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5p6PEjexfhG-HJn72WiKjxu5nJjV-3cOQty1UFLhgZ3SWiJ-7-hDxHCKgtXWhtwf7Hs_l8X4X3kpSqzGiQ0iglCPDtCMFVwL41S0Hij1Z6vYHX9QmJCCVG7Cs96YzxKDyRoFMHWMlCiTyowlxZkecj8mFOhoR-OvZWgE-bXzbcuXGef8M1KIIq8GqtZ_2QZPfQG6M1AYBIBI95pINf2pwra2HkzxhOH8PbNBp0CtRa1uGKBmfClvj"/>
+<!-- Viewport Gradient Vignette Scrim -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-surface-container-lowest/60 pointer-events-none"></div>
+<!-- Top-Left Engine Badge -->
+<div class="absolute top-2 left-2 flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur text-tertiary font-code-sm text-[10px]">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+<span>WebGL CAD Engine · 60 FPS</span>
+</div>
+<!-- Top-Right 3D Orientation Gizmo ViewCube -->
+<div class="absolute top-2 right-2 w-14 h-14 bg-surface-container-low/90 rounded-lg p-1 flex flex-col items-center justify-between text-on-surface-variant font-code-sm text-[9px] shadow-sm select-none">
+<span class="font-bold text-primary">TOP</span>
+<div class="flex justify-between w-full px-1">
+<span>L</span>
+<span class="font-semibold text-on-surface">ISO</span>
+<span>R</span>
+</div>
+<span class="text-outline">FRONT</span>
+</div>
+<!-- Interactive Explode Slider Bar HUD -->
+<div class="absolute top-9 left-2 right-18 max-w-[240px] px-2.5 py-1 rounded bg-surface-container-lowest/85 backdrop-blur flex items-center justify-between gap-2 shadow-sm">
+<span class="font-code-sm text-[10px] text-outline whitespace-nowrap">Explode View</span>
+<div class="relative flex-1 flex items-center">
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 35%"></div>
+</div>
+<div class="absolute w-2.5 h-2.5 bg-on-surface rounded-full shadow cursor-pointer" style="left: 35%; transform: translateX(-50%)"></div>
+</div>
+<span class="font-code-sm text-[10px] text-primary font-bold">35%</span>
+<button class="text-outline hover:text-on-surface transition-colors" title="Reset Explode">
+<span class="material-symbols-outlined text-[13px]">refresh</span>
+</button>
+</div>
+<!-- Floating Engineering Annotation Callouts -->
+<div class="absolute top-20 left-4 flex items-center gap-1.5 pointer-events-none animate-pulse">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<div class="px-1.5 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur font-code-sm text-[10px] text-on-surface shadow-sm">
+              Machined 7075-T6 Housing
+            </div>
+</div>
+<div class="absolute top-36 right-6 flex items-center gap-1.5 pointer-events-none">
+<div class="px-1.5 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur font-code-sm text-[10px] text-on-surface shadow-sm">
+              Stator Windings (Copper)
+            </div>
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+</div>
+<div class="absolute bottom-10 left-8 flex items-center gap-1.5 pointer-events-none">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="px-1.5 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur font-code-sm text-[10px] text-on-surface shadow-sm">
+              Planetary Stage 9:1
+            </div>
+</div>
+<!-- Bottom Viewport HUD Physics Diagnostics -->
+<div class="absolute bottom-1.5 left-2 right-2 px-2 py-1 rounded bg-surface-container-lowest/90 backdrop-blur flex items-center justify-between text-outline font-code-sm text-[10px] shadow-sm">
+<div class="flex items-center gap-2">
+<span>Triangles: <span class="text-on-surface font-semibold">184,200</span></span>
+<span>·</span>
+<span>Mates: <span class="text-tertiary font-semibold">18 Valid</span></span>
+</div>
+<div class="flex items-center gap-2">
+<span>Mass: <span class="text-on-surface font-semibold">0.842 kg</span></span>
+<span>·</span>
+<span class="hidden sm:inline">CoM: <span class="text-primary font-medium">[0.0, 12.4, -4.2] mm</span></span>
+</div>
+</div>
+</div>
+<!-- Quick Primary Action Triggers -->
+<div class="grid grid-cols-3 gap-1 p-space-sm bg-surface-container">
+<button class="h-7 px-2 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-body-sm text-body-sm flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[15px] text-tertiary">download</span>
+<span class="truncate">STEP</span>
+</button>
+<button class="h-7 px-2 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-body-sm text-body-sm flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[15px] text-primary">visibility</span>
+<span class="truncate">eDrawings</span>
+</button>
+<button class="h-7 px-2 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-body-sm text-body-sm flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[15px] text-tertiary">schema</span>
+<span class="truncate">Mates (18)</span>
+</button>
+</div>
+</div>
+<!-- Geometry Visual Diff Strip -->
+<div class="p-space-sm bg-surface-container-low rounded-lg flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-2 overflow-hidden">
+<div class="w-6 h-6 rounded bg-primary-container text-on-primary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[15px]">compare</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="font-headline-sm text-[11px] text-on-surface truncate">Compare v3.1 ↔ v3.2</span>
+<span class="font-code-sm text-[10px] text-tertiary truncate">Geometry diff: +2 holes, -14g weight</span>
+</div>
+</div>
+<button class="h-6 px-2 rounded bg-surface-container-high hover:bg-surface-bright text-primary font-headline-sm text-[11px] flex items-center gap-1 flex-shrink-0 transition-colors">
+<span>View Diff</span>
+<span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+</button>
+</div>
+<!-- Compact Version History Timeline Card -->
+<div class="flex flex-col bg-surface-container-low rounded-lg p-space-sm">
+<div class="flex items-center justify-between pb-space-xs mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-outline">history</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Vault Commits</span>
+</div>
+<span class="font-badge-label text-badge-label text-outline uppercase">Branch: main</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<!-- Item v3.2 -->
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-body-sm text-on-surface font-semibold">v3.2</span>
+<span class="font-badge-label text-[9px] px-1 rounded bg-tertiary-container text-on-tertiary-container font-semibold">HEAD</span>
+</div>
+<span class="font-code-sm text-[10px] text-outline">commit <span class="text-primary font-mono">a83fd21</span> · 2h ago</span>
+</div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 text-outline hover:text-on-surface font-body-sm text-[11px] transition-opacity">
+              Load
+            </button>
+</div>
+<!-- Item v3.1 -->
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-outline"></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-body-sm text-on-surface font-semibold">v3.1</span>
+<span class="font-code-sm text-[10px] text-outline-variant">Tibia update</span>
+</div>
+<span class="font-code-sm text-[10px] text-outline">commit <span class="text-primary font-mono">c19b02a</span> · 1d ago</span>
+</div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 text-outline hover:text-on-surface font-body-sm text-[11px] transition-opacity">
+              Load
+            </button>
+</div>
+<!-- Item v3.0 (Active View Target) -->
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container-high cursor-pointer relative">
+<div class="absolute left-0 top-0 bottom-0 w-0.5 bg-primary"></div>
+<div class="flex items-center gap-2 pl-1">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-body-sm text-primary font-semibold">v3.0</span>
+<span class="font-badge-label text-[9px] px-1 rounded bg-primary-container text-on-primary-container font-semibold">ACTIVE VIEW</span>
+</div>
+<span class="font-code-sm text-[10px] text-on-surface-variant">commit <span class="text-primary font-mono">f42c9e0</span> · 2d ago</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[16px] text-primary">check</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

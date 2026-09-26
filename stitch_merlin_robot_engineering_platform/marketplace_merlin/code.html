@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"error-container":"#93000a","on-error-container":"#ffdad6","on-primary-container":"#00275e","on-surface":"#dfe2f0","surface-tint":"#aec6ff","on-primary":"#002e6b","tertiary-fixed-dim":"#4cd7f6","secondary-container":"#571bc1","tertiary-fixed":"#acedff","tertiary":"#4cd7f6","on-error":"#690005","primary-fixed-dim":"#aec6ff","primary-container":"#4f8eff","surface":"#0f131d","background":"#0f131d","surface-container-low":"#171c25","on-secondary-fixed-variant":"#5516be","on-tertiary-fixed":"#001f26","surface-container-high":"#262a34","inverse-surface":"#dfe2f0","secondary":"#d0bcff","error":"#ffb4ab","surface-dim":"#0f131d","primary":"#aec6ff","secondary-fixed":"#e9ddff","inverse-primary":"#005ac4","inverse-on-surface":"#2c303b","primary-fixed":"#d8e2ff","outline":"#8c90a0","surface-container-highest":"#31353f","on-surface-variant":"#c2c6d6","on-primary-fixed-variant":"#004396","surface-container-lowest":"#0a0e17","secondary-fixed-dim":"#d0bcff","surface-bright":"#353944","surface-container":"#1b2029","on-primary-fixed":"#001a42","outline-variant":"#424754","on-secondary-fixed":"#23005c","on-secondary":"#3c0091","on-tertiary-fixed-variant":"#004e5c","surface-variant":"#31353f","on-tertiary":"#003640","tertiary-container":"#009eb9","on-background":"#dfe2f0","on-secondary-container":"#c4abff","on-tertiary-container":"#002f38"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-lg":"0.75rem","space-md":"0.5rem","margin":"0.75rem","space-sm":"0.375rem","space-xs":"0.25rem","space-xl":"1rem","gutter":"0.5rem"},fontFamily:{"badge-label":["JetBrains Mono"],"headline-lg":["Inter"],"headline-sm":["Inter"],"headline-xl":["Inter"],"body-md":["Inter"],"code-sm":["JetBrains Mono"],"body-sm":["Inter"],"code-md":["JetBrains Mono"]},fontSize:{"badge-label":["0.625rem",{"lineHeight":"0.75rem","letterSpacing":"0.05em","fontWeight":"600"}],"headline-lg":["1.125rem",{"lineHeight":"1.5rem","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-sm":["0.875rem",{"lineHeight":"1.25rem","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-xl":["1.5rem",{"lineHeight":"2rem","letterSpacing":"-0.02em","fontWeight":"600"}],"body-md":["0.8125rem",{"lineHeight":"1.25rem","letterSpacing":"0em","fontWeight":"400"}],"code-sm":["0.6875rem",{"lineHeight":"0.875rem","letterSpacing":"0.02em","fontWeight":"500"}],"body-sm":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0em","fontWeight":"400"}],"code-md":["0.8125rem",{"lineHeight":"1.25rem","letterSpacing":"-0.01em","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest z-50 flex flex-col justify-between select-none"><div class="flex flex-col"><div class="h-14 px-space-xl flex items-center justify-between bg-surface-container-lowest"><div class="flex items-center gap-space-sm"><div class="w-6 h-6 rounded bg-secondary-container flex items-center justify-center text-on-secondary-container font-headline-sm text-headline-sm font-bold tracking-tight">M</div><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight uppercase">MERLIN</span><span class="font-code-sm text-code-sm text-secondary bg-secondary-container/40 px-space-xs py-0.5 rounded">OS</span></div></div><div class="flex items-center gap-1.5 px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code-sm text-code-sm"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span><span>v2.4</span></div></div><div class="px-space-md py-space-sm"><div class="px-space-sm py-space-xs text-on-surface-variant font-code-sm text-code-sm uppercase tracking-wider">Global Scope</div><nav class="mt-space-xs flex flex-col gap-0.5" data-active-classes="bg-secondary-container text-on-secondary-container font-headline-sm rounded-lg"><a class="group flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="home-explore" href="#"><span class="material-symbols-outlined text-[18px]">explore</span><span>Home / Explore</span></a><a class="group flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="robots" href="#"><span class="material-symbols-outlined text-[18px]">smart_toy</span><span>Robots (All Robots)</span></a><a class="group flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="open-source" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">terminal</span><span>Open Source</span></div><span class="font-badge-label text-badge-label bg-secondary-container text-on-secondary-container px-space-xs py-0.5 rounded font-bold uppercase tracking-wider">Active</span></a><a class="group flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="module-registry" href="#"><span class="material-symbols-outlined text-[18px]">extension</span><span>Module Registry</span></a><a class="group flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="hardware-marketplace" href="#"><span class="material-symbols-outlined text-[18px]">memory</span><span>Hardware Marketplace</span></a></nav></div><div class="px-space-md py-space-sm"><div class="px-space-sm py-space-xs text-on-surface-variant font-code-sm text-code-sm uppercase tracking-wider">Community &amp; Ecosystem</div><nav class="mt-space-xs flex flex-col gap-0.5" data-active-classes="bg-secondary-container text-on-secondary-container font-headline-sm rounded-lg"><a class="group flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="collections" href="#"><span class="material-symbols-outlined text-[18px]">folder_special</span><span>Collections</span></a><a class="group flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="benchmarks" href="#"><span class="material-symbols-outlined text-[18px]">speed</span><span>Benchmarks</span></a><a class="group flex items-center gap-space-sm px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all font-body-sm text-body-sm" data-path="standards" href="#"><span class="material-symbols-outlined text-[18px]">verified</span><span>Standards</span></a></nav></div></div><div class="p-space-md bg-surface-container-lowest flex flex-col gap-space-sm"><div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></div><div class="flex flex-col"><span class="font-code-sm text-code-sm text-on-surface font-semibold">SIM CLUSTER</span><span class="font-code-sm text-code-sm text-on-surface-variant">LATENCY 14ms</span></div></div><span class="font-badge-label text-badge-label bg-surface-container-high text-secondary px-space-xs py-0.5 rounded font-bold">99.98%</span></div><div class="flex items-center justify-between px-space-sm py-space-xs"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[16px]">person</span></div><div class="flex flex-col"><span class="font-body-sm text-body-sm text-on-surface font-semibold leading-tight">operator@merlin</span><span class="font-code-sm text-code-sm text-on-surface-variant leading-tight">Node root</span></div></div><button aria-label="Console Settings" class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high p-1 rounded transition-colors"><span class="material-symbols-outlined text-[18px]">tune</span></button></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-14 bg-surface-container-lowest/90 backdrop-blur-xl z-40 flex items-center justify-between px-space-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex items-center gap-space-lg flex-1 max-w-2xl"><div class="flex items-center gap-space-sm px-space-md py-1.5 rounded-lg bg-surface-container w-full max-w-lg text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer"><span class="material-symbols-outlined text-[18px] text-on-surface-variant">search</span><span class="font-body-sm text-body-sm text-on-surface-variant flex-1 select-none">Search public robots, modules, manifests...</span><kbd class="font-code-sm text-code-sm bg-surface-container-highest text-on-surface-variant px-space-xs py-0.5 rounded font-semibold select-none">⌘K</kbd></div><div class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded bg-secondary-container/40 text-secondary font-badge-label text-badge-label select-none"><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span><span>ECOSYSTEM LIVE</span></div></div><div class="flex items-center gap-space-md"><a class="inline-flex items-center gap-space-xs px-space-lg py-1.5 rounded bg-secondary-container text-on-secondary-container hover:bg-secondary hover:text-on-secondary font-headline-sm text-headline-sm transition-all shadow-sm" data-path="publish-robot" href="#"><span class="material-symbols-outlined text-[16px]">add</span><span>Publish Robot</span></a><button aria-label="Notifications" class="w-8 h-8 rounded flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors relative"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-secondary rounded-full"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-14 w-full bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Interactive Top Action / Filter Subheader Bar -->
+<section class="w-full bg-surface-container-lowest px-space-xl py-space-md flex flex-col gap-space-md">
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<!-- Title & Context Breadcrumb -->
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">memory</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight">Marketplace</span>
+<span class="font-badge-label text-badge-label px-space-xs py-0.5 rounded bg-surface-container-high text-primary font-bold uppercase tracking-wider">Verified Nodes</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Hardware &amp; Components Hub · Automated kinematic &amp; bus validation against active session</span>
+</div>
+</div>
+</div>
+<!-- Quick Controls / Currency / Cart Header Pill -->
+<div class="flex items-center gap-space-sm">
+<!-- Live Workspace Target Status -->
+<div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-low">
+<span class="font-code-sm text-code-sm text-on-surface-variant">Active Target:</span>
+<span class="font-code-sm text-code-sm text-secondary font-semibold">Atlas Rover v2.3.1</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+</div>
+<!-- Currency Picker -->
+<button class="flex items-center gap-1 px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface transition-colors font-code-sm text-code-sm" id="currency-btn">
+<span class="text-tertiary">EUR (€)</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">unfold_more</span>
+</button>
+<!-- Order Manifests History -->
+<button class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-on-surface transition-colors font-headline-sm text-headline-sm">
+<span class="material-symbols-outlined text-[16px]">receipt_long</span>
+<span class="hidden sm:inline">Orders</span>
+</button>
+<!-- Header Cart Trigger -->
+<a class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-headline-sm text-headline-sm" href="#cart-panel">
+<span class="material-symbols-outlined text-[16px]">shopping_cart</span>
+<span class="font-code-sm text-code-sm font-bold bg-primary text-on-primary px-1.5 py-0.2 rounded-full">2</span>
+</a>
+</div>
+</div>
+<!-- Search and Categorization Filter Bar -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pt-space-xs">
+<!-- Search Input with Keyboard Shortcut -->
+<div class="relative flex-1 max-w-xl">
+<div class="absolute inset-y-0 left-0 pl-2.5 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">search</span>
+</div>
+<input class="w-full pl-8 pr-12 py-1.5 rounded bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:bg-surface-container transition-all" id="marketplace-search" placeholder="Search actuators, bus transceivers, harnesses, compute modules... (press / to focus)" type="text"/>
+<div class="absolute inset-y-0 right-0 pr-2 flex items-center pointer-events-none">
+<kbd class="font-code-sm text-code-sm bg-surface-container-high text-on-surface-variant px-1.5 py-0.5 rounded font-medium">/</kbd>
+</div>
+</div>
+<!-- Categories Pills -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 lg:pb-0 scrollbar-none" id="category-pills">
+<button class="px-space-md py-1 rounded-full bg-primary-container text-on-primary-container font-code-sm text-code-sm font-semibold tracking-wide whitespace-nowrap transition-all">All (42)</button>
+<button class="px-space-md py-1 rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-on-surface font-code-sm text-code-sm tracking-wide whitespace-nowrap transition-all">Actuators (12)</button>
+<button class="px-space-md py-1 rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-on-surface font-code-sm text-code-sm tracking-wide whitespace-nowrap transition-all">Sensors (9)</button>
+<button class="px-space-md py-1 rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-on-surface font-code-sm text-code-sm tracking-wide whitespace-nowrap transition-all">Compute &amp; FPGAs (6)</button>
+<button class="px-space-md py-1 rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-on-surface font-code-sm text-code-sm tracking-wide whitespace-nowrap transition-all">Power (8)</button>
+<button class="px-space-md py-1 rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-on-surface font-code-sm text-code-sm tracking-wide whitespace-nowrap transition-all">Kits &amp; Bundles (4)</button>
+<button class="px-space-md py-1 rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-on-surface font-code-sm text-code-sm tracking-wide whitespace-nowrap transition-all">Services (3)</button>
+</div>
+</div>
+</section>
+<!-- Main Grid Canvas Layout: Fluid Left + Fixed 320px Right -->
+<div class="w-full px-space-xl py-space-lg">
+<div class="flex flex-col lg:flex-row gap-space-lg items-start w-full">
+<!-- LEFT: Fluid 3-Column Engineering Product Grid -->
+<section class="flex-1 w-full min-w-0">
+<!-- Sub-bar Stats / View Controls -->
+<div class="flex items-center justify-between mb-space-md px-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="font-code-sm text-code-sm uppercase tracking-wider text-on-surface-variant">Verified Catalog Manifest</span>
+<span class="font-code-sm text-code-sm text-outline">/</span>
+<span class="font-code-sm text-code-sm text-tertiary">6 of 42 Items Filtered</span>
+</div>
+<div class="flex items-center gap-space-xs font-code-sm text-code-sm text-on-surface-variant">
+<span>Sort by:</span>
+<span class="text-on-surface font-medium cursor-pointer hover:text-primary transition-colors">Compatibility Score ▾</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-space-md w-full">
+<!-- CARD 1: ODRI 60 mm Actuator Kit -->
+<article class="group bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden flex flex-col justify-between transition-all duration-200 shadow-sm hover:shadow-md">
+<!-- Header Spec Pill & Image -->
+<div>
+<div class="relative w-full aspect-[4/3] bg-surface-container-lowest overflow-hidden flex items-center justify-center">
+<img alt="ODRI-60 Brushless Planetary Actuator CNC machined with planetary gear train" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1XrqjjNx4MGfmOsj_GnMM2htV2uqKdzyZSNzp6Gx7LrQTWvkkvfp6_cWw4lcAfrhZFYEh_c1ZuwZJz0zMexApBuGFnHvnTKyllJSz227-kFL3TkNkhaJPdwhQV6fJVB0KcJjXS18f1kLWKx3YLrJbDSPd2EKXmBWt79XMSXI6Far5U7izK-dmSy-8IC9_W8i1-wQgh1Nr2qoUZ2vP6kslM3OoM6Qd7JlSQO4uCLmudMU4n1eTlHY8M8LIc"/>
+<div class="absolute top-2 left-2 flex items-center gap-1 bg-surface-container-lowest/90 px-space-sm py-0.5 rounded backdrop-blur-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-badge-label text-badge-label text-secondary font-semibold uppercase">Verified Compatible</span>
+</div>
+<div class="absolute top-2 right-2 bg-surface-container-high/90 font-code-sm text-code-sm text-on-surface px-1.5 py-0.5 rounded backdrop-blur-sm">
+                  v1.2.0
+                </div>
+</div>
+<!-- Product Details -->
+<div class="p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant font-code-sm text-code-sm">
+<span class="text-on-surface">@open-dynamic</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex items-center gap-1 font-code-sm text-code-sm text-tertiary">
+<span class="text-secondary">★</span>
+<span class="font-medium text-on-surface">4.9</span>
+<span class="text-outline text-[10px]">(128)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors">
+                  ODRI 60 mm Actuator Kit
+                </h3>
+<!-- Spec Pill Matrix -->
+<div class="p-space-xs rounded bg-surface-container-high font-code-sm text-code-sm text-on-surface-variant flex flex-col gap-0.5 mt-1">
+<div class="flex items-center justify-between">
+<span class="text-outline">Bus:</span>
+<span class="text-on-surface font-mono">CAN-FD 5Mbit</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-outline">Reduction:</span>
+<span class="text-on-surface font-mono">18:1 planetary</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-outline">Torque:</span>
+<span class="text-on-surface font-mono">3.8 Nm nominal</span>
+</div>
+</div>
+<!-- Stock / Dispatch -->
+<div class="flex items-center gap-1.5 text-on-surface font-code-sm text-code-sm mt-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="text-on-surface-variant">24 units ready to dispatch</span>
+</div>
+</div>
+</div>
+<!-- Price & Interactive Action -->
+<div class="p-space-md pt-0 flex items-center justify-between gap-space-sm mt-space-xs">
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-outline uppercase tracking-wider">Unit Price</span>
+<span class="font-headline-lg text-headline-lg text-tertiary font-bold tracking-tight font-mono">€289.00</span>
+</div>
+<button class="cart-toggle-btn flex items-center gap-1 px-space-md py-1.5 rounded bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-headline-sm text-headline-sm font-semibold shadow-sm">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span>In Cart (2)</span>
+</button>
+</div>
+</article>
+<!-- CARD 2: 48V 4Ah BMS Battery Pack -->
+<article class="group bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden flex flex-col justify-between transition-all duration-200 shadow-sm hover:shadow-md">
+<div>
+<div class="relative w-full aspect-[4/3] bg-surface-container-lowest overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" data-alt="Ruggedized 48V 4Ah LiFePO4 battery pack with anodized black heat-sink housing, dual XT90 connectors, visible integrated CAN bus status LED array, on slate workbench with technical engineering schematics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7sCBaQXwZm9Sww3TN_q7FBuhniiF_2f8WVkQRzPUyJPETzxyzTTCBKZURe4VzAfMQd3JQ6tUzYYYIhtGcs_09Wq7QFwFHx9rvk2LQBr9fqutP9XFyexk-0vIV_Bb0BiWgvFJPl5xZolZ5wb_Qbpmp6tbOenuidJ4s_9vbBLYNT7abNfps_b8SDF3fIrRZ93FU8NUEUXZqx10dQpyDfW2wgR70Q0tqh66bEa6pS3WHKkRNu_emZ71b"/>
+<div class="absolute top-2 left-2 flex items-center gap-1 bg-surface-container-lowest/90 px-space-sm py-0.5 rounded backdrop-blur-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-badge-label text-badge-label text-secondary font-semibold uppercase">Verified Compatible</span>
+</div>
+<div class="absolute top-2 right-2 bg-surface-container-high/90 font-code-sm text-code-sm text-on-surface px-1.5 py-0.5 rounded backdrop-blur-sm">
+                  v2.0.1
+                </div>
+</div>
+<div class="p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant font-code-sm text-code-sm">
+<span class="text-on-surface">@enertech</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex items-center gap-1 font-code-sm text-code-sm text-tertiary">
+<span class="text-secondary">★</span>
+<span class="font-medium text-on-surface">4.8</span>
+<span class="text-outline text-[10px]">(56)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors">
+                  48V 4Ah BMS Battery Pack
+                </h3>
+<div class="p-space-xs rounded bg-surface-container-high font-code-sm text-code-sm text-on-surface-variant flex flex-col gap-0.5 mt-1">
+<div class="flex items-center justify-between">
+<span class="text-outline">Cells:</span>
+<span class="text-on-surface font-mono">12S LiFePO4 chemistry</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-outline">Telemetry:</span>
+<span class="text-on-surface font-mono">CAN V/I/Temp Shunt</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-outline">Connector:</span>
+<span class="text-on-surface font-mono">Amass XT90-S Anti-Spark</span>
+</div>
+</div>
+<!-- Backorder Lead Time -->
+<div class="flex items-center gap-1.5 text-on-surface font-code-sm text-code-sm mt-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span>
+<span class="text-secondary font-medium">⚠ Ships in 2 weeks (Backorder)</span>
+</div>
+</div>
+</div>
+<div class="p-space-md pt-0 flex items-center justify-between gap-space-sm mt-space-xs">
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-outline uppercase tracking-wider">Unit Price</span>
+<span class="font-headline-lg text-headline-lg text-tertiary font-bold tracking-tight font-mono">€149.00</span>
+</div>
+<button class="cart-toggle-btn flex items-center gap-1 px-space-md py-1.5 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-headline-sm text-headline-sm transition-all shadow-sm">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Add to Cart</span>
+</button>
+</div>
+</article>
+<!-- CARD 3: Carbon Tube Link Set 300 mm -->
+<article class="group bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden flex flex-col justify-between transition-all duration-200 shadow-sm hover:shadow-md">
+<div>
+<div class="relative w-full aspect-[4/3] bg-surface-container-lowest overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" data-alt="Set of precision carbon fiber suspension links and robotic tubes with matte twill finish and blue anodized aerospace aluminum end inserts lying across a technical CAD cutting grid under laboratory directional studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiGCekfJGfTejMG0z_jiXlNzwUqiyXocH_wJ3Y1jMqQY_RBQOju_7Cqu57KKW8b09w_BxPPKHYOBbdBVlvsCJUbydYr5V2oAMBdM88lcMREA7U0iG1lHePpI7Z4r8ducI2EjH7Hz1NsFKksKOuJljxukK1ebmR3b7I4OU_-S9Ln5rwhqTtUnCZ3z28H3XaAjClcoOgGArnlAb7DZa-n-Sg2PiuqEPvEydpGgeBftd2j4mviq1RDhOP"/>
+<div class="absolute top-2 left-2 flex items-center gap-1 bg-surface-container-lowest/90 px-space-sm py-0.5 rounded backdrop-blur-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-badge-label text-badge-label text-secondary font-semibold uppercase">Verified Compatible</span>
+</div>
+<div class="absolute top-2 right-2 bg-surface-container-high/90 font-code-sm text-code-sm text-on-surface px-1.5 py-0.5 rounded backdrop-blur-sm">
+                  v1.1
+                </div>
+</div>
+<div class="p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant font-code-sm text-code-sm">
+<span class="text-on-surface">@composite-dyn</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex items-center gap-1 font-code-sm text-code-sm text-tertiary">
+<span class="text-secondary">★</span>
+<span class="font-medium text-on-surface">4.9</span>
+<span class="text-outline text-[10px]">(84)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors">
+                  Carbon Tube Link Set 300 mm
+                </h3>
+<div class="p-space-xs rounded bg-surface-container-high font-code-sm text-code-sm text-on-surface-variant flex flex-col gap-0.5 mt-1">
+<div class="flex items-center justify-between">
+<span class="text-outline">Material:</span>
+<span class="text-on-surface font-mono">Toray T700 3K Twill</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-outline">Diameter:</span>
+<span class="text-on-surface font-mono">25 mm OD / 2 mm wall</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-outline">Coupling:</span>
+<span class="text-on-surface font-mono">Pre-bonded CNC 7075-T6</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface font-code-sm text-code-sm mt-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="text-on-surface-variant">50+ units in central hub</span>
+</div>
+</div>
+</div>
+<div class="p-space-md pt-0 flex items-center justify-between gap-space-sm mt-space-xs">
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-outline uppercase tracking-wider">Unit Price</span>
+<span class="font-headline-lg text-headline-lg text-tertiary font-bold tracking-tight font-mono">€36.00</span>
+</div>
+<button class="cart-toggle-btn flex items-center gap-1 px-space-md py-1.5 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-headline-sm text-headline-sm transition-all shadow-sm">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Add to Cart</span>
+</button>
+</div>
+</article>
+<!-- CARD 4: CAN-FD Cable Harness JST-GH-4 -->
+<article class="group bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden flex flex-col justify-between transition-all duration-200 shadow-sm hover:shadow-md">
+<div>
+<div class="relative w-full aspect-[4/3] bg-surface-container-lowest overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" data-alt="Micro CAN-FD high reliability silicone shielded twisted pair wire harness with white JST-GH 4-pin connectors and integrated surface-mount terminating resistor on high tech anti-static electronics mat." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEOa96pagQ_vHvva2APyJ2uesc7hTHN9APAbn8qhnegXW4qvICjDhOxSu2JvV5yLQv9AIREJyDLanmrJI6uvE421U6ZZDzMdsQZ_op4LM-SgQIx1c1j4p_hAJRZefcxbolOodhkxGqOheVUEj3UXM1ObrbUXMZSE6Th6Cl3EH16qhmxX5OTBFaw37_gpTCIYyLXuYrz2Jyvj952A1vxPtjy2mdalC9YD0U5xdqfL57ngcqR3IPU8oX"/>
+<div class="absolute top-2 left-2 flex items-center gap-1 bg-surface-container-lowest/90 px-space-sm py-0.5 rounded backdrop-blur-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-badge-label text-badge-label text-secondary font-semibold uppercase">Verified Compatible</span>
+</div>
+<div class="absolute top-2 right-2 bg-surface-container-high/90 font-code-sm text-code-sm text-on-surface px-1.5 py-0.5 rounded backdrop-blur-sm">
+                  v3.0
+                </div>
+</div>
+<div class="p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant font-code-sm text-code-sm">
+<span class="text-on-surface">@harness-lab</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex items-center gap-1 font-code-sm text-code-sm text-tertiary">
+<span class="text-secondary">★</span>
+<span class="font-medium text-on-surface">5.0</span>
+<span class="text-outline text-[10px]">(210)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors">
+                  CAN-FD Cable Harness JST-GH-4
+                </h3>
+<div class="p-space-xs rounded bg-surface-container-high font-code-sm text-code-sm text-on-surface-variant flex flex-col gap-0.5 mt-1">
+<div class="flex items-center justify-between">
+<span class="text-outline">Geometry:</span>
+<span class="text-on-surface font-mono">Shielded 28AWG · 350mm</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-outline">Impedance:</span>
+<span class="text-on-surface font-mono">120Ω Terminated inline</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-outline">Terminal:</span>
+<span class="text-on-surface font-mono">Gold-plated phosphor bronze</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface font-code-sm text-code-sm mt-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="text-on-surface-variant">Immediate dispatch available</span>
+</div>
+</div>
+</div>
+<div class="p-space-md pt-0 flex items-center justify-between gap-space-sm mt-space-xs">
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-outline uppercase tracking-wider">Unit Price</span>
+<span class="font-headline-lg text-headline-lg text-tertiary font-bold tracking-tight font-mono">€12.00</span>
+</div>
+<button class="cart-toggle-btn flex items-center gap-1 px-space-md py-1.5 rounded bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary transition-all font-headline-sm text-headline-sm font-semibold shadow-sm">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span>In Cart (1)</span>
+</button>
+</div>
+</article>
+<!-- CARD 5: Atlas Rover — Full Open Kit (Open Source Bundle) -->
+<article class="group bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden flex flex-col justify-between transition-all duration-200 shadow-sm hover:shadow-md">
+<div>
+<div class="relative w-full aspect-[4/3] bg-surface-container-lowest overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" data-alt="Complete open source quadruped robotic rover prototype chassis rendered in wireframe holographic styling with visible suspension rocker bogie joints, sensor pylons, and laser LIDAR mount on dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo-3jGoUosrEfSnZVsU4bNPp5hSgOOSdJn6_C8FyCrfy-liLSXoWAXZ8AkAMYZmCwUWazDmWWwn_2g5A_H0gkmlBLjebH_NbKqglh2untLKNHufuOOvXWsdI0Z8GPIb8DxpU8Dpr-tt_0-wH0zlxeAII48C6zR_ZhO7k955I8Lg6u25PyTbG7Cr3cvxeWqEBfod-QFbEsLEILxIxrukra91kGPb83zLSufl4CV7yPyOiNJ3NgJPLra"/>
+<div class="absolute top-2 left-2 flex items-center gap-1 bg-secondary-container/90 px-space-sm py-0.5 rounded backdrop-blur-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-badge-label text-badge-label text-on-secondary-container font-bold uppercase">Machine Bundle</span>
+</div>
+<div class="absolute top-2 right-2 bg-surface-container-high/90 font-code-sm text-code-sm text-on-surface px-1.5 py-0.5 rounded backdrop-blur-sm">
+                  v2.3.1
+                </div>
+</div>
+<div class="p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant font-code-sm text-code-sm">
+<span class="text-on-surface">@merlin-core</span>
+<span class="material-symbols-outlined text-[14px] text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex items-center gap-1 font-code-sm text-code-sm text-secondary">
+<span class="text-secondary">★</span>
+<span class="font-medium text-on-surface">5.0</span>
+<span class="text-outline text-[10px]">(420 forks)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-secondary transition-colors">
+                  Atlas Rover — Full Open Kit
+                </h3>
+<div class="p-space-xs rounded bg-surface-container-high font-code-sm text-code-sm text-on-surface-variant flex flex-col gap-0.5 mt-1">
+<div class="flex items-center justify-between">
+<span class="text-outline">Packages:</span>
+<span class="text-on-surface font-mono">SolidWorks CAD + Altium EDA</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-outline">Stack:</span>
+<span class="text-on-surface font-mono">ROS 2 Humble + micro-ROS</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-outline">Bill of Mat:</span>
+<span class="text-on-surface font-mono">100% Sourced Catalog Items</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface font-code-sm text-code-sm mt-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="text-secondary font-medium">Free &amp; Open Source (CC-BY-4.0)</span>
+</div>
+</div>
+</div>
+<div class="p-space-md pt-0 flex items-center justify-between gap-space-sm mt-space-xs">
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-outline uppercase tracking-wider">License Cost</span>
+<span class="font-headline-lg text-headline-lg text-secondary font-bold tracking-tight font-mono">FREE / €0</span>
+</div>
+<button class="flex items-center gap-1 px-space-md py-1.5 rounded bg-secondary-container text-on-secondary-container hover:bg-secondary hover:text-on-secondary font-headline-sm text-headline-sm font-semibold transition-all shadow-sm">
+<span class="material-symbols-outlined text-[16px]">fork_right</span>
+<span>Clone &amp; Order</span>
+</button>
+</div>
+</article>
+<!-- CARD 6: OAK-D Pro W Spatial AI Camera -->
+<article class="group bg-surface-container-low hover:bg-surface-container rounded-xl overflow-hidden flex flex-col justify-between transition-all duration-200 shadow-sm hover:shadow-md">
+<div>
+<div class="relative w-full aspect-[4/3] bg-surface-container-lowest overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" data-alt="Compact matte-black industrial spatial AI depth stereo camera with dual IR illuminator projectors and wide-angle visual lenses mounted with quarter-twenty threaded interface next to precision caliper." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxmRd_65VXjL4MgJKT1qMjklt8awkwPo_OzuRaoxvLoq6dIa0LYIzAVE8VMdj39_qChl8fNsPYmXjQNhQFGVg8qcHuPSOEESQ_r04qe8PlDjM-ujlBZZzVkih-Cizlbq6qz_LBsWhgXZb-FFTb20u8WUEptrPS7B8OAxa1eKoeLhbtHB8U6a0kbjyf2BU8ubdIHs9oYkaxGMr-QjBs-CGcrnPfxeUtStzsNdFyCVEukt8H7oXhC68F"/>
+<div class="absolute top-2 left-2 flex items-center gap-1 bg-surface-container-lowest/90 px-space-sm py-0.5 rounded backdrop-blur-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-badge-label text-badge-label text-secondary font-semibold uppercase">Verified Compatible</span>
+</div>
+<div class="absolute top-2 right-2 bg-surface-container-high/90 font-code-sm text-code-sm text-on-surface px-1.5 py-0.5 rounded backdrop-blur-sm">
+                  v1.4
+                </div>
+</div>
+<div class="p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant font-code-sm text-code-sm">
+<span class="text-on-surface">@luxonis</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex items-center gap-1 font-code-sm text-code-sm text-tertiary">
+<span class="text-secondary">★</span>
+<span class="font-medium text-on-surface">4.9</span>
+<span class="text-outline text-[10px]">(94)</span>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors">
+                  OAK-D Pro W Spatial AI Camera
+                </h3>
+<div class="p-space-xs rounded bg-surface-container-high font-code-sm text-code-sm text-on-surface-variant flex flex-col gap-0.5 mt-1">
+<div class="flex items-center justify-between">
+<span class="text-outline">Perception:</span>
+<span class="text-on-surface font-mono">Active IR Stereo Depth</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-outline">Inference:</span>
+<span class="text-on-surface font-mono">4 TOPS onboard VPU</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-outline">Link:</span>
+<span class="text-on-surface font-mono">USB 3.1 Gen 1 Type-C</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface font-code-sm text-code-sm mt-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="text-on-surface-variant">In stock (18 units)</span>
+</div>
+</div>
+</div>
+<div class="p-space-md pt-0 flex items-center justify-between gap-space-sm mt-space-xs">
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-outline uppercase tracking-wider">Unit Price</span>
+<span class="font-headline-lg text-headline-lg text-tertiary font-bold tracking-tight font-mono">€299.00</span>
+</div>
+<button class="cart-toggle-btn flex items-center gap-1 px-space-md py-1.5 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-headline-sm text-headline-sm transition-all shadow-sm">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Add to Cart</span>
+</button>
+</div>
+</article>
+</div>
+<!-- Integrated Telemetry Spec Inspector Banner -->
+<div class="mt-space-lg p-space-md rounded-xl bg-surface-container-low flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="w-7 h-7 rounded bg-surface-container-high flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[18px]">rule_settings</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Missing a specialized actuator or driver board?</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">MERLIN Ecosystem certifies 3rd-party CAN-FD nodes and micro-ROS nodes via automated testbench CI.</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="px-space-md py-1.5 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-headline-sm text-headline-sm transition-colors">
+              Submit Spec Manifest
+            </button>
+<button class="px-space-md py-1.5 rounded bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary font-headline-sm text-headline-sm font-semibold transition-colors">
+              Self-Host Registry
+            </button>
+</div>
+</div>
+</section>
+<!-- RIGHT: Fixed 320px Sidebar (Cart Summary & Automated Compatibility Assurance) -->
+<aside class="w-full lg:w-80 shrink-0 flex flex-col gap-space-md" id="cart-panel">
+<!-- CARD 1: Cart Summary Panel -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-md shadow-sm">
+<!-- Panel Header -->
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-tertiary">shopping_bag</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Active Cart</span>
+<span class="font-code-sm text-code-sm px-1.5 py-0.2 rounded-full bg-surface-container-high text-tertiary font-bold">2 items</span>
+</div>
+<button class="font-code-sm text-code-sm text-outline hover:text-error transition-colors" id="clear-cart-btn">Clear</button>
+</div>
+<!-- Cart Line Items -->
+<div class="flex flex-col gap-space-xs">
+<!-- Item 1 -->
+<div class="p-space-sm rounded bg-surface-container flex items-center justify-between gap-space-xs">
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium truncate">ODRI 60 mm Actuator kit</span>
+<span class="font-code-sm text-code-sm text-outline font-mono">Qty: 2 · @ €289 ea</span>
+</div>
+<div class="text-right shrink-0">
+<span class="font-code-md text-code-md text-tertiary font-bold font-mono">€578.00</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-space-sm rounded bg-surface-container flex items-center justify-between gap-space-xs">
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium truncate">CAN-FD Cable Harness</span>
+<span class="font-code-sm text-code-sm text-outline font-mono">Qty: 1 · @ €12 ea</span>
+</div>
+<div class="text-right shrink-0">
+<span class="font-code-md text-code-md text-tertiary font-bold font-mono">€12.00</span>
+</div>
+</div>
+</div>
+<!-- Financial Calculation Breakdown -->
+<div class="p-space-sm rounded bg-surface-container-lowest flex flex-col gap-1.5 font-code-sm text-code-sm">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>Hardware Subtotal</span>
+<span class="text-on-surface font-mono font-medium">€590.00</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>Dispatch Tier</span>
+<span class="text-secondary font-medium">Express Courier (Free)</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>Target Delivery</span>
+<span class="text-on-surface font-mono">2-3 Work Days</span>
+</div>
+<div class="flex items-center justify-between pt-2 text-on-surface font-headline-sm text-headline-sm font-semibold">
+<span>Total Payable</span>
+<span class="text-tertiary font-mono font-bold text-headline-lg">€590.00</span>
+</div>
+</div>
+<!-- Checkout CTAs -->
+<div class="flex flex-col gap-space-xs pt-1">
+<button class="w-full py-2 rounded bg-primary text-on-primary hover:bg-primary-fixed transition-colors font-headline-sm text-headline-sm font-semibold flex items-center justify-center gap-space-xs shadow-sm">
+<span>Checkout Order</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+<button class="w-full py-1.5 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface transition-colors font-code-sm text-code-sm flex items-center justify-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px]">save_as</span>
+<span>Save to Project Manifest</span>
+</button>
+</div>
+</div>
+<!-- CARD 2: Active Robot Automated Compatibility Guarantee -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-md shadow-sm">
+<!-- Guarantee Header with Shield -->
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold leading-tight">Compatibility Guarantee</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant leading-tight">Automated Kinematics &amp; Bus Audit</span>
+</div>
+</div>
+<!-- Context Contextual Note -->
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Items in your cart are continuously simulated against your open active build: <strong class="text-on-surface font-mono">Atlas Rover v2.3.1</strong>.
+          </p>
+<!-- Technical Validation Checklist -->
+<div class="flex flex-col gap-2 font-code-sm text-code-sm">
+<!-- Check 1 -->
+<div class="p-space-xs rounded bg-surface-container flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-secondary shrink-0 mt-0.5">check_circle</span>
+<div class="flex flex-col">
+<span class="text-on-surface font-semibold">2× ODRI 60mm Actuator</span>
+<span class="text-on-surface-variant text-[11px]">Bolt pattern conforms to SLDASM <code class="text-tertiary">hip_v3.2</code> · 5Mbit bus termination accepted.</span>
+</div>
+</div>
+<!-- Check 2 -->
+<div class="p-space-xs rounded bg-surface-container flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-secondary shrink-0 mt-0.5">check_circle</span>
+<div class="flex flex-col">
+<span class="text-on-surface font-semibold">1× CAN-FD Harness</span>
+<span class="text-on-surface-variant text-[11px]">JST-GH pinout verified against Altium schematic <code class="text-tertiary">power_dist_v2</code>.</span>
+</div>
+</div>
+<!-- Check 3: Electrical Budget -->
+<div class="p-space-xs rounded bg-surface-container flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-secondary shrink-0 mt-0.5">check_circle</span>
+<div class="flex flex-col">
+<span class="text-on-surface font-semibold">Power Draw Envelope</span>
+<span class="text-on-surface-variant text-[11px]">+120W peak load safely inside 48V power supply margin (20% dynamic headroom reserve).</span>
+</div>
+</div>
+</div>
+<!-- Compatibility Summary Pill Banner -->
+<div class="p-space-sm rounded bg-surface-container-high flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-code-sm text-code-sm text-on-surface font-semibold">3/3 items 100% verified for Atlas Rover</span>
+</div>
+<!-- Micro Spec Verification Log Stream -->
+<div class="pt-space-xs flex flex-col gap-1">
+<div class="flex items-center justify-between text-[10px] font-mono text-outline">
+<span>SIM ENGINE: Gazebo Ionic</span>
+<span>PARSER: OK (0.4ms)</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 100%;"></div>
+</div>
+</div>
+</div>
+<!-- Quick Help / Enterprise procurement info -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-center justify-between text-on-surface-variant font-code-sm text-code-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">corporate_fare</span>
+<span>Enterprise PO Billing Available</span>
+</div>
+<a class="text-tertiary hover:underline" href="#">Info</a>
+</div>
+</aside>
+</div>
+</div>
+</div>
+<script>
+  // Simple client-side micro-interactions for realistic IDE workstation behavior
+  document.addEventListener('DOMContentLoaded', () => {
+    // Keyboard shortcut '/' to focus search input
+    window.addEventListener('keydown', (e) => {
+      if (e.key === '/' && document.activeElement.tagName !== 'INPUT') {
+        e.preventDefault();
+        const searchInput = document.getElementById('marketplace-search');
+        if (searchInput) searchInput.focus();
+      }
+    });
+
+    // Category button toggling
+    const catContainer = document.getElementById('category-pills');
+    if (catContainer) {
+      const catButtons = catContainer.querySelectorAll('button');
+      catButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          catButtons.forEach(b => {
+            b.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-semibold');
+            b.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+          });
+          btn.classList.add('bg-primary-container', 'text-on-primary-container', 'font-semibold');
+          btn.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+        });
+      });
+    }
+
+    // Toggle Cart Buttons
+    const cartButtons = document.querySelectorAll('.cart-toggle-btn');
+    cartButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        const textSpan = this.querySelector('span:last-child');
+        const iconSpan = this.querySelector('.material-symbols-outlined');
+        
+        if (textSpan.textContent.includes('Add')) {
+          textSpan.textContent = 'In Cart (1)';
+          if (iconSpan) iconSpan.textContent = 'check';
+          this.classList.remove('bg-surface-container-high', 'text-on-surface');
+          this.classList.add('bg-primary-container', 'text-on-primary-container', 'font-semibold');
+        } else if (textSpan.textContent.includes('In Cart')) {
+          textSpan.textContent = 'Add to Cart';
+          if (iconSpan) iconSpan.textContent = 'add';
+          this.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-semibold');
+          this.classList.add('bg-surface-container-high', 'text-on-surface');
+        }
+      });
+    });
+
+    // Currency Switcher Toggle demo
+    const currBtn = document.getElementById('currency-btn');
+    if (currBtn) {
+      const currencies = ['EUR (€)', 'USD ($)', 'GBP (£)', 'JPY (¥)'];
+      let idx = 0;
+      currBtn.addEventListener('click', () => {
+        idx = (idx + 1) % currencies.length;
+        currBtn.querySelector('span:first-child').textContent = currencies[idx];
+      });
+    }
+  });
+</script></main></div></body></html>
